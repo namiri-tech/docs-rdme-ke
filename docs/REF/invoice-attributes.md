@@ -1,5 +1,5 @@
 ---
-title: Invoice attributes
+title: Invoice attributes (/sales)
 excerpt: Invoices comprise Sales and Credit Notes
 deprecated: false
 hidden: false
