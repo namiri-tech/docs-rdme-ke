@@ -17,8 +17,4 @@ The `/items/{item_id}` endpoint has these three HTTP methods you can interact wi
 * GET
 * DELETE
 
-\<!--
-
 Below are the attributes used in the API requests and responses above.
-
-\-->
