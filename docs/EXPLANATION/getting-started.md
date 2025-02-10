@@ -32,7 +32,7 @@ The speed at which eTIMS invoices are generated is dependent on network capacity
 
 OSCU is different from VSCU; and DigiTax doesn't have a VSCU option. That said, the DigiTax team has developed features like **offline URLs**, **callback URLs**, and others which provide compelling value (including VSCU-like service) that our customers rely on daily.
 
-## Explore the DigiTax Kenya API Hub
+## Navigating the DigiTax API Hub
 
 * You're in the guides section of DigiTax Kenya API Hub. Explore other pages below to gain context on DigiTax and eTIMS and understanding on how DigiTax makes it easier for you to integrate your invoicing system with eTIMS.
 
@@ -41,18 +41,8 @@ OSCU is different from VSCU; and DigiTax doesn't have a VSCU option. That said, 
   - [Item attributes](/docs/item-attributes-items)
 </Accordion>
 
-Explore our API reference docs to interactively test our API before you being coding!
-
-## Navigating the DigiTax API Hub
-
-<Columns layout="auto">
-  <Column>
-    > If you're new here, learn how to use this site here.
-  </Column>
-
-  <Column>
-    > If you're looking for another country or the general homepage for DigiTax API, navigate to this page.
-  </Column>
-</Columns>
+* Explore our API reference docs to interactively test our API before you being coding!
+* If you're new here, learn how to use this site here.
+* If you're looking for another country or the general homepage for DigiTax API, navigate to the [DigiTax API homepage](https://docs.digitax.tech) .
 
 > 🥇 DigiTax is the leading KRA & ODPC-approved eTIMS integrator
