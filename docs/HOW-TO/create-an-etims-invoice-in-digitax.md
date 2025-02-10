@@ -18,3 +18,5 @@ You can fast-forward or rewind at your convenience. Please note the following ke
 ### eTIMS invoice sections
 
 Below is a eTIMS invoice with sections highlighted.
+
+More from ... [https://docs.digitax.tech/docs/etims-invoice](https://docs.digitax.tech/docs/etims-invoice)
