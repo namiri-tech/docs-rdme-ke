@@ -37,8 +37,8 @@ OSCU is different from VSCU; and DigiTax doesn't have a VSCU option. That said, 
 You're in the guides section of DigiTax Kenya API Hub. Explore other pages below to gain context on DigiTax and eTIMS and understanding on how DigiTax makes it easier for you to integrate your invoicing system with eTIMS.
 
 <Accordion title="Guide pages" icon="fa-book-circle">
-  * A
-  * B
+  * [Create an eTIMS invoice in DigiTax](/docs/create-an-etims-invoice-in-digitax)
+  * []()
 </Accordion>
 
 Explore our API reference docs to interactively test our API before you being coding!
