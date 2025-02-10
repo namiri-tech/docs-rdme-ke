@@ -1,5 +1,5 @@
 ---
-title: How to use this site
+title: Using this site
 deprecated: false
 hidden: false
 metadata:
