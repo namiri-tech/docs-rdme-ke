@@ -34,18 +34,26 @@ OSCU is different from VSCU; and DigiTax doesn't have a VSCU option. That said, 
 
 ## Explore the DigiTax Kenya API Hub
 
-Explore guides to get context on how DigiTax makes it easier to integrate with invoicing system.
+You're in the guides section of DigiTax Kenya API Hub. Explore other pages below to gain context on DigiTax and eTIMS and understanding on how DigiTax makes it easier for you to integrate your invoicing system with eTIMS.
+
+<Accordion title="Guide pages" icon="fa-info-circle">
+  Lorem ipsum dolor sit amet, **consectetur adipiscing elit.** Ut enim
+  ad minim veniam, quis nostrud exercitation ullamco. Excepteur sint
+  occaecat cupidatat non proident!
+</Accordion>
 
 Explore our API reference docs to interactively test our API before you being coding!
 
-> 🥇 DigiTax is the leading KRA & ODPC-approved eTIMS integrator
+## Navigating the DigiTax API Hub
 
 <Columns layout="auto">
   <Column>
-    If you're new here, learn how to use this site here.
+    > If you're new here, learn how to use this site here.
   </Column>
 
   <Column>
-    If you're looking for another country or the general homepage for DigiTax API, navigate to this page.
+    > If you're looking for another country or the general homepage for DigiTax API, navigate to this page.
   </Column>
 </Columns>
+
+> 🥇 DigiTax is the leading KRA & ODPC-approved eTIMS integrator
