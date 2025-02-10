@@ -5,7 +5,7 @@ excerpt: >-
   running in short order!
 hidden: false
 ---
-> *If you're new here, learn[how to use this site](doc:how-to-use-this-site)*
+> If you're new here, learn [how to use this site](doc:how-to-use-this-site)
 
 ## Electronic Tax Invoicing
 
