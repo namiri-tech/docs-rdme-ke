@@ -1,0 +1,3233 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "DigiTax",
+    "description": "DigiTax Public API",
+    "version": "1.0",
+    "termsOfService": "https://docs.digitax.tech/page/terms",
+    "contact": {
+      "name": "DigiTax Support Team",
+      "url": "https://digitax.tech",
+      "email": "support@digitax.tech"
+    },
+    "license": {
+      "name": "Apache 2.0"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.digitax.tech",
+      "description": "API"
+    }
+  ],
+  "paths": {
+    "/branches": {
+      "get": {
+        "summary": "Get a list of business branches",
+        "description": "Get a list of business branches",
+        "tags": [
+          "Branches"
+        ],
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "pagination": {
+                      "type": "object",
+                      "properties": {
+                        "total_count": {
+                          "type": "number",
+                          "example": 100
+                        },
+                        "total_pages": {
+                          "type": "number",
+                          "example": 10
+                        },
+                        "current_page": {
+                          "type": "number",
+                          "example": 1
+                        },
+                        "limit": {
+                          "type": "number",
+                          "example": 10
+                        },
+                        "has_next": {
+                          "type": "boolean",
+                          "example": true
+                        }
+                      }
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "kra_pin": {
+                            "type": "string",
+                            "description": "Branch KRA PIN",
+                            "example": "P012345678P"
+                          },
+                          "branch_office_id": {
+                            "type": "string",
+                            "description": "Branch Office ID",
+                            "example": 0
+                          },
+                          "branch_office_name": {
+                            "type": "string",
+                            "description": "Branch Office Name",
+                            "example": "Head Office"
+                          },
+                          "branch_status_code": {
+                            "type": "string",
+                            "description": "Branch Status Code",
+                            "example": 1
+                          },
+                          "county_name": {
+                            "type": "string",
+                            "description": "County Name",
+                            "example": "Nairobi"
+                          },
+                          "sub_county_name": {
+                            "type": "string",
+                            "description": "Sub County Name",
+                            "example": "Westlands"
+                          },
+                          "tax_locality_name": {
+                            "type": "string",
+                            "description": "Tax Locality Name",
+                            "example": "CBD"
+                          },
+                          "location_description": {
+                            "type": "string",
+                            "description": "Location Description",
+                            "example": "1st Floor"
+                          },
+                          "manager_name": {
+                            "type": "string",
+                            "description": "Manager Name",
+                            "example": "John Doe"
+                          },
+                          "manager_contact": {
+                            "type": "string",
+                            "description": "Manager Contact",
+                            "example": 712345678
+                          },
+                          "manager_email": {
+                            "type": "string",
+                            "description": "Manager Email",
+                            "example": "manager@email.com"
+                          },
+                          "is_head_office": {
+                            "type": "boolean",
+                            "description": "Is Head Office",
+                            "example": true
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/branches/customer": {
+      "post": {
+        "tags": [
+          "Customers"
+        ],
+        "summary": "Add branch customer",
+        "description": "Add branch customer",
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "customer_name",
+                  "customer_pin"
+                ],
+                "properties": {
+                  "customer_name": {
+                    "type": "string",
+                    "description": "Customer Name",
+                    "example": "John Doe"
+                  },
+                  "customer_pin": {
+                    "type": "string",
+                    "description": "Customer PIN",
+                    "example": "P012345678P"
+                  },
+                  "customer_email": {
+                    "type": "string",
+                    "description": "Customer Email",
+                    "example": "info@namiri.tech"
+                  },
+                  "customer_phone_number": {
+                    "type": "string",
+                    "description": "Customer Phone number",
+                    "example": "+254112685368"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "customer_name": {
+                      "type": "string",
+                      "description": "Customer Name",
+                      "example": "John Doe"
+                    },
+                    "customer_pin": {
+                      "type": "string",
+                      "description": "Customer PIN",
+                      "example": "P012345678P"
+                    },
+                    "id": {
+                      "type": "string",
+                      "description": "Customer ID",
+                      "example": "clwgjr1b200bzztaknq1twiun"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/branches/user": {
+      "post": {
+        "tags": [
+          "Branches"
+        ],
+        "summary": "Add branch user",
+        "description": "Add branch user",
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "user_id": {
+                    "type": "string",
+                    "description": "User ID",
+                    "example": 123456
+                  },
+                  "user_name": {
+                    "type": "string",
+                    "description": "User Name",
+                    "example": "John Doe"
+                  },
+                  "password": {
+                    "type": "string",
+                    "description": "Password",
+                    "example": 123456
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "user_id": {
+                      "type": "string",
+                      "description": "User ID",
+                      "example": 123456
+                    },
+                    "user_name": {
+                      "type": "string",
+                      "description": "User Name",
+                      "example": "John Doe"
+                    },
+                    "password": {
+                      "type": "string",
+                      "description": "Password",
+                      "example": 123456
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/branches/insurance": {
+      "post": {
+        "tags": [
+          "Branches"
+        ],
+        "summary": "Add branch insurance",
+        "description": "Add branch insurance",
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "insurance_name": {
+                    "type": "string",
+                    "description": "Insurance Name",
+                    "example": "Insurance Name"
+                  },
+                  "insurance_code": {
+                    "type": "string",
+                    "description": "Insurance Code",
+                    "example": 123456
+                  },
+                  "premium_rate": {
+                    "type": "number",
+                    "description": "Premium Rate",
+                    "example": 10
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "insurance_name": {
+                      "type": "string",
+                      "description": "Insurance Name",
+                      "example": "Insurance Name"
+                    },
+                    "insurance_code": {
+                      "type": "string",
+                      "description": "Insurance Code",
+                      "example": 123456
+                    },
+                    "premium_rate": {
+                      "type": "number",
+                      "description": "Premium Rate",
+                      "example": 10
+                    },
+                    "id": {
+                      "type": "string",
+                      "description": "Insurance ID",
+                      "example": "9oSPDfnIfU"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/customers/{customer_pin}": {
+      "get": {
+        "tags": [
+          "Customers"
+        ],
+        "summary": "Get a customer",
+        "description": "Retrieves information about a customer",
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "customer_pin",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The customer pin"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "customer_name": {
+                      "type": "string",
+                      "example": "TAXPAYER1"
+                    },
+                    "customer_pin": {
+                      "type": "string",
+                      "example": "P123456789A"
+                    },
+                    "county_name": {
+                      "type": "string",
+                      "example": "NAIROBI CITY"
+                    },
+                    "sub_county_name": {
+                      "type": "string",
+                      "example": "KASARANI"
+                    },
+                    "location_description": {
+                      "type": "string",
+                      "example": "KASARANI TOWERS"
+                    },
+                    "tax_locality_name": {
+                      "type": "string",
+                      "example": "NON"
+                    },
+                    "taxpayer_status_code": {
+                      "type": "string",
+                      "example": "A"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/import-items/link_item/{import_item_id}": {
+      "post": {
+        "tags": [
+          "Items"
+        ],
+        "summary": "Create item from import item",
+        "description": "Create item from import item",
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "import_item_id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The id of the import item",
+            "example": "clk5c8y380000p5wtae2mz7gr"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "item_id"
+                ],
+                "properties": {
+                  "item_id": {
+                    "type": "string",
+                    "description": "The id of the item",
+                    "example": "clk5c8y380000p5wtae2mz7gr"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Import item successfully linked to item",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "example": "clk46402x0000p5xll4gs2ye4"
+                    },
+                    "task_code": {
+                      "type": "string",
+                      "example": "202302081365045"
+                    },
+                    "declaration_date": {
+                      "type": "string",
+                      "example": "2023-02-02T21:00:00.000Z",
+                      "format": "date-time"
+                    },
+                    "item_sequence": {
+                      "type": "integer",
+                      "example": 1
+                    },
+                    "declaration_number": {
+                      "type": "string",
+                      "example": "23BUSIM400040606"
+                    },
+                    "hs_code": {
+                      "type": "string",
+                      "example": "30049000"
+                    },
+                    "item_name": {
+                      "type": "string",
+                      "example": "MEDICAMENT; NORMAL SALINE 0.9% I.V. [ NS ]; CT; 1450; 500ML; N/A; H; N/A; 1;"
+                    },
+                    "origin_nation_code": {
+                      "type": "string",
+                      "example": "UG"
+                    },
+                    "import_item_status_code": {
+                      "type": "string",
+                      "example": "2"
+                    },
+                    "export_nation_code": {
+                      "type": "string",
+                      "example": "UG"
+                    },
+                    "package": {
+                      "type": "integer",
+                      "example": 17
+                    },
+                    "package_unit_code": {
+                      "type": "string",
+                      "example": "KGM"
+                    },
+                    "quantity": {
+                      "type": "integer",
+                      "example": 23925
+                    },
+                    "quantity_unit_code": {
+                      "type": "string",
+                      "example": "KGM"
+                    },
+                    "gross_weight": {
+                      "type": "integer",
+                      "example": 24650
+                    },
+                    "net_weight": {
+                      "type": "integer",
+                      "example": 23925
+                    },
+                    "supplier_name": {
+                      "type": "string",
+                      "example": "ABACUS PARENTERAL DRUGS LIMITED"
+                    },
+                    "agent_name": {
+                      "type": "string",
+                      "example": "Kandito International Company Kenya Limited"
+                    },
+                    "invoice_foreign_currency_amount": {
+                      "type": "integer",
+                      "example": 14355
+                    },
+                    "invoice_foreign_currency_code": {
+                      "type": "string",
+                      "example": "USD"
+                    },
+                    "invoice_foreign_currency_rate": {
+                      "type": "number",
+                      "example": 124.45
+                    },
+                    "import_item_status": {
+                      "type": "string",
+                      "example": "UPDATED"
+                    },
+                    "item_id": {
+                      "type": "string",
+                      "example": "clkassyhm00vtp5rw5bl3pdkq"
+                    },
+                    "item_class_code": {
+                      "type": "string",
+                      "example": "30103604"
+                    },
+                    "item_code": {
+                      "type": "string",
+                      "example": "KE2CRM0000015"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/items/attributes": {},
+    "/items": {
+      "post": {
+        "tags": [
+          "Items"
+        ],
+        "summary": "Add business item",
+        "description": "Add business item",
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "item_class_code",
+                  "item_type_code",
+                  "item_name",
+                  "origin_nation_code",
+                  "package_unit_code",
+                  "quantity_unit_code",
+                  "tax_type_code",
+                  "default_unit_price"
+                ],
+                "properties": {
+                  "item_class_code": {
+                    "type": "string",
+                    "description": "The item class code of the item",
+                    "example": "30111600"
+                  },
+                  "item_type_code": {
+                    "type": "string",
+                    "description": "The item type code of the item",
+                    "example": "3"
+                  },
+                  "item_name": {
+                    "type": "string",
+                    "description": "The name of the item",
+                    "example": "DigiTax Service 01"
+                  },
+                  "origin_nation_code": {
+                    "type": "string",
+                    "description": "The country of origin code of the item",
+                    "example": "KE"
+                  },
+                  "package_unit_code": {
+                    "type": "string",
+                    "description": "The package unit code of the item",
+                    "example": "NT"
+                  },
+                  "quantity_unit_code": {
+                    "type": "string",
+                    "description": "The quantity unit code of the item",
+                    "example": "U"
+                  },
+                  "tax_type_code": {
+                    "type": "string",
+                    "description": "The tax type code of the item",
+                    "example": "D"
+                  },
+                  "default_unit_price": {
+                    "type": "number",
+                    "description": "The default price of the item",
+                    "example": 1
+                  },
+                  "import_item_ref": {
+                    "type": "string",
+                    "description": "The import item reference of the item",
+                    "example": "202302081365045"
+                  },
+                  "is_stock_item": {
+                    "type": "boolean",
+                    "description": "Indicates whether the item is a stock item or not. Can either be true or false. Default is false",
+                    "example": false
+                  },
+                  "callback_url": {
+                    "type": "string",
+                    "description": "The callback URL to call when we have new information about the item, usually after syncing with eTIMS. Review this guide page for more information: <https://docs.digitax.tech/docs/callback-urls>. During testing you can get a unique URL here: <https://webhook.site>",
+                    "example": "https://webhook.site"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Item created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "item_class_code": {
+                      "type": "string",
+                      "description": "The item class code of the item",
+                      "example": 30111600
+                    },
+                    "item_type_code": {
+                      "type": "string",
+                      "description": "The item type code of the item",
+                      "example": 3
+                    },
+                    "item_name": {
+                      "type": "string",
+                      "description": "The name of the item",
+                      "example": "DigiTax Service 01"
+                    },
+                    "origin_nation_code": {
+                      "type": "string",
+                      "description": "The country of origin code of the item",
+                      "example": "KE"
+                    },
+                    "package_unit_code": {
+                      "type": "string",
+                      "description": "The package unit code of the item",
+                      "example": "NT"
+                    },
+                    "quantity_unit_code": {
+                      "type": "string",
+                      "description": "The quantity unit code of the item",
+                      "example": "U"
+                    },
+                    "tax_type_code": {
+                      "type": "string",
+                      "description": "The tax type code of the item",
+                      "example": "D"
+                    },
+                    "default_unit_price": {
+                      "type": "number",
+                      "description": "The default price of the item",
+                      "example": 1
+                    },
+                    "id": {
+                      "type": "string",
+                      "description": "The ID of the item",
+                      "example": "clw7hepe200j86e177r8yozaf"
+                    },
+                    "etims_item_code": {
+                      "type": "string",
+                      "description": "The eTIMS item code of the item",
+                      "example": "KE3NTU1929751"
+                    },
+                    "is_stock_item": {
+                      "type": "boolean",
+                      "description": "Indicates whether the item is a stock item or not",
+                      "example": false
+                    },
+                    "running_balance": {
+                      "type": "number",
+                      "description": "Indicates stock quantity of an item. Starts at zero. Gets to negative values for non-stock items",
+                      "example": 0
+                    },
+                    "active": {
+                      "type": "boolean",
+                      "description": "Indicates the use status of the item.",
+                      "example": false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Items"
+        ],
+        "summary": "Get list of business items",
+        "description": "Get list of business items",
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "description": "Current page. Default is 1",
+              "example": 1
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "description": "Number of records per page. Default is 10",
+              "example": 10
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of items returned successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "pagination": {
+                        "type": "object",
+                        "properties": {
+                          "total_count": {
+                            "type": "number",
+                            "example": 100
+                          },
+                          "total_pages": {
+                            "type": "number",
+                            "example": 10
+                          },
+                          "current_page": {
+                            "type": "number",
+                            "example": 1
+                          },
+                          "limit": {
+                            "type": "number",
+                            "example": 10
+                          },
+                          "has_next": {
+                            "type": "boolean",
+                            "example": true
+                          }
+                        }
+                      },
+                      "data": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "item_class_code": {
+                              "type": "string",
+                              "description": "The item class code of the item",
+                              "example": 30111600
+                            },
+                            "item_type_code": {
+                              "type": "string",
+                              "description": "The item type code of the item",
+                              "example": 3
+                            },
+                            "item_name": {
+                              "type": "string",
+                              "description": "The name of the item",
+                              "example": "DigiTax Service 01"
+                            },
+                            "origin_nation_code": {
+                              "type": "string",
+                              "description": "The country of origin code of the item",
+                              "example": "KE"
+                            },
+                            "package_unit_code": {
+                              "type": "string",
+                              "description": "The package unit code of the item",
+                              "example": "NT"
+                            },
+                            "quantity_unit_code": {
+                              "type": "string",
+                              "description": "The quantity unit code of the item",
+                              "example": "U"
+                            },
+                            "tax_type_code": {
+                              "type": "string",
+                              "description": "The tax type code of the item",
+                              "example": "D"
+                            },
+                            "default_unit_price": {
+                              "type": "number",
+                              "description": "The default price of the item",
+                              "example": 1
+                            },
+                            "id": {
+                              "type": "string",
+                              "description": "The ID of the item",
+                              "example": "clw7hepe200j86e177r8yozaf"
+                            },
+                            "etims_item_code": {
+                              "type": "string",
+                              "description": "The eTIMS item code of the item",
+                              "example": "KE3NTU1929751"
+                            },
+                            "is_stock_item": {
+                              "type": "boolean",
+                              "description": "Indicates whether the item is a stock item or not",
+                              "example": false
+                            },
+                            "running_balance": {
+                              "type": "number",
+                              "description": "Indicates stock quantity of an item. Starts at zero. Gets to negative values for non-stock items",
+                              "example": 0
+                            },
+                            "active": {
+                              "type": "boolean",
+                              "description": "Indicates the use status of the item.",
+                              "example": true
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/items/item_composition": {
+      "post": {
+        "tags": [
+          "Items"
+        ],
+        "summary": "Create item composition",
+        "description": "Create item composition",
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "item_id": {
+                    "type": "string",
+                    "example": "clu6souzx00mjfasxm4s6cweg"
+                  },
+                  "composition": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "composition_item_id",
+                        "composition_item_quantity"
+                      ],
+                      "properties": {
+                        "composition_item_id": {
+                          "type": "string",
+                          "example": "clqgg0b3500ans601uam4dyqw"
+                        },
+                        "composition_item_quantity": {
+                          "type": "integer",
+                          "example": 30
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Item composition created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "id",
+                      "item_id",
+                      "composition_item_id",
+                      "composition_item_quantity",
+                      "item_code",
+                      "composition_item_code",
+                      "registration_id",
+                      "registration_name",
+                      "application_id",
+                      "queue_status"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "example": "clka4fmy30005p5f6ev8jojr6"
+                      },
+                      "item_id": {
+                        "type": "string",
+                        "example": "clu6souzx00mjfasxm4s6cweg"
+                      },
+                      "composition_item_id": {
+                        "type": "string",
+                        "example": "clqgg0b3500ans601uam4dyqw"
+                      },
+                      "composition_item_quantity": {
+                        "type": "integer",
+                        "example": 30
+                      },
+                      "item_code": {
+                        "type": "string",
+                        "example": "DT-00359-foq1WiLaNS"
+                      },
+                      "composition_item_code": {
+                        "type": "string",
+                        "example": "DT-78727-3Ahsf7EDUc"
+                      },
+                      "registration_id": {
+                        "type": "string",
+                        "example": "ADMIN"
+                      },
+                      "registration_name": {
+                        "type": "string",
+                        "example": "ADMIN"
+                      },
+                      "application_id": {
+                        "type": "string",
+                        "example": "cljytzvci0002p5i2tcdwjabk"
+                      },
+                      "queue_status": {
+                        "type": "string",
+                        "example": "un_queued"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/items/{itemId}": {
+      "put": {
+        "tags": [
+          "Items"
+        ],
+        "summary": "Update an item",
+        "description": "Update an item",
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "itemId",
+            "required": true,
+            "description": "The id of the item to update",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "active": {
+                    "type": "boolean",
+                    "description": "The use status of the item. Can either be true or false",
+                    "example": true
+                  },
+                  "item_name": {
+                    "type": "string",
+                    "description": "The name of the item",
+                    "example": "DigiTax Product 01"
+                  },
+                  "default_unit_price": {
+                    "type": "number",
+                    "description": "The default price of the item",
+                    "example": 1000
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Item updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "item_class_code": {
+                      "type": "string",
+                      "description": "The item class code of the item",
+                      "example": 30111600
+                    },
+                    "item_type_code": {
+                      "type": "string",
+                      "description": "The item type code of the item",
+                      "example": 3
+                    },
+                    "item_name": {
+                      "type": "string",
+                      "description": "The name of the item",
+                      "example": "DigiTax Service 01"
+                    },
+                    "origin_nation_code": {
+                      "type": "string",
+                      "description": "The country of origin code of the item",
+                      "example": "KE"
+                    },
+                    "package_unit_code": {
+                      "type": "string",
+                      "description": "The package unit code of the item",
+                      "example": "NT"
+                    },
+                    "quantity_unit_code": {
+                      "type": "string",
+                      "description": "The quantity unit code of the item",
+                      "example": "U"
+                    },
+                    "tax_type_code": {
+                      "type": "string",
+                      "description": "The tax type code of the item",
+                      "example": "D"
+                    },
+                    "default_unit_price": {
+                      "type": "number",
+                      "description": "The default price of the item",
+                      "example": 1
+                    },
+                    "id": {
+                      "type": "string",
+                      "description": "The ID of the item",
+                      "example": "clw7hepe200j86e177r8yozaf"
+                    },
+                    "etims_item_code": {
+                      "type": "string",
+                      "description": "The eTIMS item code of the item",
+                      "example": "KE3NTU1929751"
+                    },
+                    "is_stock_item": {
+                      "type": "boolean",
+                      "description": "Indicates whether the item is a stock item or not",
+                      "example": false
+                    },
+                    "running_balance": {
+                      "type": "number",
+                      "description": "Indicates stock quantity of an item. Starts at zero. Gets to negative values for non-stock items",
+                      "example": 0
+                    },
+                    "active": {
+                      "type": "boolean",
+                      "description": "Indicates the use status of the item.",
+                      "example": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Items"
+        ],
+        "summary": "Get a specific item",
+        "description": "Get a specific item",
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "itemId",
+            "required": true,
+            "description": "The id of the item to update",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Item returned successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "item_class_code": {
+                      "type": "string",
+                      "description": "The item class code of the item",
+                      "example": 30111600
+                    },
+                    "item_type_code": {
+                      "type": "string",
+                      "description": "The item type code of the item",
+                      "example": 3
+                    },
+                    "item_name": {
+                      "type": "string",
+                      "description": "The name of the item",
+                      "example": "DigiTax Service 01"
+                    },
+                    "origin_nation_code": {
+                      "type": "string",
+                      "description": "The country of origin code of the item",
+                      "example": "KE"
+                    },
+                    "package_unit_code": {
+                      "type": "string",
+                      "description": "The package unit code of the item",
+                      "example": "NT"
+                    },
+                    "quantity_unit_code": {
+                      "type": "string",
+                      "description": "The quantity unit code of the item",
+                      "example": "U"
+                    },
+                    "tax_type_code": {
+                      "type": "string",
+                      "description": "The tax type code of the item",
+                      "example": "D"
+                    },
+                    "default_unit_price": {
+                      "type": "number",
+                      "description": "The default price of the item",
+                      "example": 1
+                    },
+                    "id": {
+                      "type": "string",
+                      "description": "The ID of the item",
+                      "example": "clw7hepe200j86e177r8yozaf"
+                    },
+                    "etims_item_code": {
+                      "type": "string",
+                      "description": "The eTIMS item code of the item",
+                      "example": "KE3NTU1929751"
+                    },
+                    "is_stock_item": {
+                      "type": "boolean",
+                      "description": "Indicates whether the item is a stock item or not",
+                      "example": false
+                    },
+                    "running_balance": {
+                      "type": "number",
+                      "description": "Indicates stock quantity of an item. Starts at zero. Gets to negative values for non-stock items",
+                      "example": 0
+                    },
+                    "active": {
+                      "type": "boolean",
+                      "description": "Indicates the use status of the item.",
+                      "example": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Items"
+        ],
+        "summary": "Delete a business item",
+        "description": "Delete a business item",
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "itemId",
+            "required": true,
+            "description": "The id of the item to update",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Item deactivated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "item_class_code": {
+                      "type": "string",
+                      "description": "The item class code of the item",
+                      "example": 30111600
+                    },
+                    "item_type_code": {
+                      "type": "string",
+                      "description": "The item type code of the item",
+                      "example": 3
+                    },
+                    "item_name": {
+                      "type": "string",
+                      "description": "The name of the item",
+                      "example": "DigiTax Service 01"
+                    },
+                    "origin_nation_code": {
+                      "type": "string",
+                      "description": "The country of origin code of the item",
+                      "example": "KE"
+                    },
+                    "package_unit_code": {
+                      "type": "string",
+                      "description": "The package unit code of the item",
+                      "example": "NT"
+                    },
+                    "quantity_unit_code": {
+                      "type": "string",
+                      "description": "The quantity unit code of the item",
+                      "example": "U"
+                    },
+                    "tax_type_code": {
+                      "type": "string",
+                      "description": "The tax type code of the item",
+                      "example": "D"
+                    },
+                    "default_unit_price": {
+                      "type": "number",
+                      "description": "The default price of the item",
+                      "example": 1
+                    },
+                    "id": {
+                      "type": "string",
+                      "description": "The ID of the item",
+                      "example": "clw7hepe200j86e177r8yozaf"
+                    },
+                    "etims_item_code": {
+                      "type": "string",
+                      "description": "The eTIMS item code of the item",
+                      "example": "KE3NTU1929751"
+                    },
+                    "is_stock_item": {
+                      "type": "boolean",
+                      "description": "Indicates whether the item is a stock item or not",
+                      "example": false
+                    },
+                    "running_balance": {
+                      "type": "number",
+                      "description": "Indicates stock quantity of an item. Starts at zero. Gets to negative values for non-stock items",
+                      "example": 0
+                    },
+                    "active": {
+                      "type": "boolean",
+                      "description": "Indicates the use status of the item.",
+                      "example": false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/items/from_purchase": {
+      "post": {
+        "tags": [
+          "Items"
+        ],
+        "summary": "Create business items from purchase",
+        "description": "Create business items from purchase",
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "purchase_id",
+                  "items"
+                ],
+                "properties": {
+                  "purchase_id": {
+                    "type": "string",
+                    "example": "clk5c8y380000p5wtae2mz7gr"
+                  },
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "item_sequence",
+                        "unit_price"
+                      ],
+                      "properties": {
+                        "item_sequence": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "unit_price": {
+                          "type": "integer",
+                          "example": 300
+                        },
+                        "is_stock_item": {
+                          "type": "boolean",
+                          "example": false
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Items created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "item_class_code",
+                          "item_type_code",
+                          "item_name",
+                          "origin_nation_code",
+                          "package_unit_code",
+                          "quantity_unit_code",
+                          "tax_type_code",
+                          "default_unit_price",
+                          "is_stock_item"
+                        ],
+                        "properties": {
+                          "item_class_code": {
+                            "type": "string",
+                            "example": "50202500"
+                          },
+                          "item_type_code": {
+                            "type": "string",
+                            "example": "2"
+                          },
+                          "item_name": {
+                            "type": "string",
+                            "example": "Berry Juice"
+                          },
+                          "origin_nation_code": {
+                            "type": "string",
+                            "example": "KE"
+                          },
+                          "package_unit_code": {
+                            "type": "string",
+                            "example": "CT"
+                          },
+                          "quantity_unit_code": {
+                            "type": "string",
+                            "example": "M3"
+                          },
+                          "tax_type_code": {
+                            "type": "string",
+                            "example": "B"
+                          },
+                          "default_unit_price": {
+                            "type": "integer",
+                            "example": 300
+                          },
+                          "is_stock_item": {
+                            "type": "boolean",
+                            "example": false
+                          }
+                        }
+                      }
+                    },
+                    "pagination": {
+                      "type": "object",
+                      "properties": {
+                        "current_page": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "has_next": {
+                          "type": "boolean",
+                          "example": false
+                        },
+                        "limit": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "total_count": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "total_pages": {
+                          "type": "integer",
+                          "example": 1
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/items/bulk": {},
+    "/notices": {
+      "get": {
+        "summary": "Get list of KRA notices for business",
+        "description": "Get list of KRA notices for business",
+        "tags": [
+          "Notices"
+        ],
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "pagination": {
+                      "type": "object",
+                      "properties": {
+                        "total_count": {
+                          "type": "number",
+                          "example": 100
+                        },
+                        "total_pages": {
+                          "type": "number",
+                          "example": 10
+                        },
+                        "current_page": {
+                          "type": "number",
+                          "example": 1
+                        },
+                        "limit": {
+                          "type": "number",
+                          "example": 10
+                        },
+                        "has_next": {
+                          "type": "boolean",
+                          "example": true
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/purchases": {
+      "get": {
+        "tags": [
+          "Purchases"
+        ],
+        "summary": "Get list of business purchases",
+        "description": "Get list of business purchases",
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "description": "Page number",
+              "example": 1
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "description": "Limit",
+              "example": 10
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of purchases returned successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "pagination": {
+                      "type": "object",
+                      "properties": {
+                        "current_page": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "total_pages": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "has_next": {
+                          "type": "boolean",
+                          "example": false
+                        },
+                        "limit": {
+                          "type": "integer",
+                          "example": 10
+                        },
+                        "total_count": {
+                          "type": "integer",
+                          "example": 10
+                        }
+                      }
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "id",
+                          "invoice_number",
+                          "receipt_type_code",
+                          "payment_type_code",
+                          "purchase_date",
+                          "trader_invoice_number",
+                          "item_list"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "example": "cljvm2neg0000p57z71g7xbar"
+                          },
+                          "registration_type_code": {
+                            "type": "string",
+                            "example": "A"
+                          },
+                          "invoice_number": {
+                            "type": "integer",
+                            "example": 4000
+                          },
+                          "purchase_type_code": {
+                            "type": "string",
+                            "example": "N"
+                          },
+                          "receipt_type_code": {
+                            "type": "string",
+                            "example": "P"
+                          },
+                          "payment_type_code": {
+                            "type": "string",
+                            "example": "07"
+                          },
+                          "purchase_status_code": {
+                            "type": "string",
+                            "example": "06"
+                          },
+                          "purchase_date": {
+                            "type": "string",
+                            "example": "20230620"
+                          },
+                          "trader_invoice_number": {
+                            "type": "string",
+                            "example": "12"
+                          },
+                          "supplierBranchId": {
+                            "type": "string",
+                            "example": "00"
+                          },
+                          "supplierName": {
+                            "type": "string",
+                            "example": "KENYA REVENUE AUTHORITY"
+                          },
+                          "supplierInvoiceNumber": {
+                            "type": "integer",
+                            "example": 12
+                          },
+                          "item_list": {
+                            "type": "array",
+                            "items": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/purchases/{purchase_id}": {
+      "get": {
+        "tags": [
+          "Purchases"
+        ],
+        "summary": "Get a specific purchase",
+        "description": "Get a specific purchase",
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "purchase_id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Purchase id",
+              "example": "ARxgmcTEoL"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Purchase returned successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "example": "cljvm2neg0000p57z71g7xbar"
+                    },
+                    "registration_type_code": {
+                      "type": "string",
+                      "example": "A"
+                    },
+                    "receipt_type_code": {
+                      "type": "string",
+                      "example": "P"
+                    },
+                    "purchase_type_code": {
+                      "type": "string",
+                      "example": "N"
+                    },
+                    "payment_type_code": {
+                      "type": "string",
+                      "example": "07"
+                    },
+                    "purchase_status_code": {
+                      "type": "string",
+                      "example": "06"
+                    },
+                    "invoice_number": {
+                      "type": "integer",
+                      "example": 4000
+                    },
+                    "purchase_date": {
+                      "type": "string",
+                      "example": "20230620"
+                    },
+                    "trader_invoice_number": {
+                      "type": "string",
+                      "example": "12"
+                    },
+                    "supplierBranchId": {
+                      "type": "string",
+                      "example": "00"
+                    },
+                    "supplierName": {
+                      "type": "string",
+                      "example": "KENYA REVENUE AUTHORITY"
+                    },
+                    "supplierInvoiceNumber": {
+                      "type": "integer",
+                      "example": 12
+                    },
+                    "item_list": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "id",
+                          "quantity",
+                          "price",
+                          "supply_amount",
+                          "discount_rate",
+                          "discount_amount"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "example": "cljvm2neg0001p57z207zv1gr"
+                          },
+                          "quantity": {
+                            "type": "integer",
+                            "example": 3000
+                          },
+                          "price": {
+                            "type": "integer",
+                            "example": 116
+                          },
+                          "supply_amount": {
+                            "type": "integer",
+                            "example": 348000
+                          },
+                          "discount_rate": {
+                            "type": "integer",
+                            "example": 0
+                          },
+                          "discount_amount": {
+                            "type": "integer",
+                            "example": 0
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/purchases/{purchase_id}/purchase_items/link_item": {
+      "post": {
+        "tags": [
+          "Purchases"
+        ],
+        "summary": "Link purchase item to item",
+        "description": "Link purchase item to item",
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "purchase_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Purchase id",
+            "example": "clk5c8y380000p5wtae2mz7gr"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "item_sequence_number",
+                        "item_id"
+                      ],
+                      "properties": {
+                        "item_sequence_number": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "item_id": {
+                          "type": "string",
+                          "example": "clka6cqmd0003p5intib19jdb"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Purchase item linked to item successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "example": "clk5c8y380000p5wtae2mz7gr"
+                    },
+                    "registration_type_code": {
+                      "type": "string",
+                      "example": "A"
+                    },
+                    "receipt_type_code": {
+                      "type": "string",
+                      "example": "P"
+                    },
+                    "purchase_type_code": {
+                      "type": "string",
+                      "example": "N"
+                    },
+                    "payment_type_code": {
+                      "type": "string",
+                      "example": "07"
+                    },
+                    "purchase_status_code": {
+                      "type": "string",
+                      "example": "06"
+                    },
+                    "invoice_number": {
+                      "type": "integer",
+                      "example": 60002
+                    },
+                    "purchase_date": {
+                      "type": "string",
+                      "example": "20230620"
+                    },
+                    "trader_invoice_number": {
+                      "type": "string",
+                      "example": "12"
+                    },
+                    "supplierBranchId": {
+                      "type": "string",
+                      "example": "00"
+                    },
+                    "supplierName": {
+                      "type": "string",
+                      "example": "KENYA REVENUE AUTHORITY"
+                    },
+                    "supplierInvoiceNumber": {
+                      "type": "integer",
+                      "example": 12
+                    },
+                    "item_list": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "id",
+                          "quantity",
+                          "price",
+                          "supply_amount",
+                          "discount_rate",
+                          "discount_amount"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "example": "clk5c8y380003p5wt725ybwvq"
+                          },
+                          "quantity": {
+                            "type": "integer",
+                            "example": 500
+                          },
+                          "price": {
+                            "type": "integer",
+                            "example": 1100
+                          },
+                          "supply_amount": {
+                            "type": "integer",
+                            "example": 550000
+                          },
+                          "discount_rate": {
+                            "type": "integer",
+                            "example": 0
+                          },
+                          "discount_amount": {
+                            "type": "integer",
+                            "example": 0
+                          },
+                          "item_id": {
+                            "type": "string",
+                            "example": "clka6cqmd0003p5intib19jdb"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sales": {
+      "post": {
+        "tags": [
+          "Sales"
+        ],
+        "summary": "Add sale",
+        "description": "Add sale and credit notes. The difference between a sale and a credit note is the `receipt_type_code` which is a required field. A sale has a receipt type code of <b>S</b> while a credit note has a receipt type code of <b>R</b>. When adding a credit note, the original invoice number is required. For a Sale: `receipt_type_code` is \"S\" For a Credit note: `receipt_type_code` is \"R\" and `original_invoice_number` is required. Note: `original_invoice_number` is a numeric value (This should be an existing eTIMS invoice number of the sale invoice you intend to credit) Note: `trader_invoice_number` should be unique, unless you deactivated the sale or the sale queue_status is \"failed\".\n",
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "trader_invoice_number",
+                  "receipt_type_code",
+                  "payment_type_code",
+                  "invoice_status_code",
+                  "items"
+                ],
+                "properties": {
+                  "customer_pin": {
+                    "type": "string",
+                    "example": "P123456789P"
+                  },
+                  "customer_name": {
+                    "type": "string",
+                    "example": "John Doe"
+                  },
+                  "trader_invoice_number": {
+                    "type": "string",
+                    "description": "Maximum - 50 characters",
+                    "example": "12345678901"
+                  },
+                  "receipt_type_code": {
+                    "type": "string",
+                    "example": "S"
+                  },
+                  "payment_type_code": {
+                    "type": "string",
+                    "example": "07"
+                  },
+                  "invoice_status_code": {
+                    "type": "string",
+                    "example": "01"
+                  },
+                  "original_invoice_number": {
+                    "type": "number",
+                    "description": "This is a required field when adding a credit note. It should be an existing eTIMS invoice number of the sale invoice you intend to credit",
+                    "example": 12
+                  },
+                  "callback_url": {
+                    "type": "string",
+                    "description": "The callback URL to call when we have new information about the sale, usually after syncing with eTIMS. Review this guide page for more information: <https://docs.digitax.tech/docs/callback-urls> During testing you can get a unique URL here: <https://webhook.site>\n",
+                    "example": "https://webhook.site"
+                  },
+                  "offline_url": {
+                    "type": "string",
+                    "description": "A URL generated on the client side to give status update to a customer/business about the sale. Review this guide page for more information: <https://docs.digitax.tech/docs/offline-urls>\n",
+                    "example": "https://etims.ke/r/business_id/trader_invoice_number"
+                  },
+                  "general_invoice_details": {
+                    "type": "string",
+                    "description": "This is the general invoice details",
+                    "example": "General invoice details"
+                  },
+                  "invoice_auth": {
+                    "type": "object",
+                    "description": "Contains details about the invoice authentication for reverse or third party invoicing<br><br>Review this guide page for more information: <https://docs.digitax.tech/docs/reverse-invoicing>",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "description": "The type of invoice authentication. Can be either REVERSE or THIRD_PARTY",
+                        "example": "REVERSE"
+                      },
+                      "issuer": {
+                        "type": "string",
+                        "description": "The business ID associated with the business for which the sale is being processed",
+                        "example": "clsal91m300o7runidp910438"
+                      }
+                    }
+                  },
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "quantity",
+                        "unit_price",
+                        "discount_rate",
+                        "discount_amount"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "example": "clu6souzx00mjfasxm4s6cweg"
+                        },
+                        "quantity": {
+                          "type": "number",
+                          "example": 1.5
+                        },
+                        "unit_price": {
+                          "type": "number",
+                          "description": "This is the unit price for the item in this invoice. Decimal places are optional (If included, it should be not more that 2 decimal places)",
+                          "example": 3500.8
+                        },
+                        "discount_rate": {
+                          "type": "number",
+                          "example": 0
+                        },
+                        "discount_amount": {
+                          "type": "number",
+                          "example": 0
+                        },
+                        "metadata": {
+                          "type": "object",
+                          "properties": {
+                            "invoice_desc": {
+                              "type": "string",
+                              "description": "This is the item description",
+                              "example": "Digitax service 01"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Returns the sales record created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "date": {
+                      "type": "string",
+                      "example": "10/05/2023"
+                    },
+                    "time": {
+                      "type": "string",
+                      "example": "04:16:11 pm"
+                    },
+                    "digitax_id": {
+                      "type": "string",
+                      "example": "clw70klzn18xwzpdhu4yujv5f"
+                    },
+                    "trader_invoice_number": {
+                      "type": "string",
+                      "example": "12345678901"
+                    },
+                    "receipt_number": {
+                      "type": "integer",
+                      "example": 38
+                    },
+                    "serial_number": {
+                      "type": "string",
+                      "example": "KRACU0400000001"
+                    },
+                    "internal_data": {
+                      "type": "string",
+                      "example": null
+                    },
+                    "receipt_signature": {
+                      "type": "string",
+                      "example": null
+                    },
+                    "etims_url": {
+                      "type": "string",
+                      "example": null
+                    },
+                    "sale_detail_url": {
+                      "type": "string",
+                      "example": "https://api.digitax.tech/sales/clw70klzn18xwzpdhu4yujv5f",
+                      "format": "url"
+                    },
+                    "customer_name": {
+                      "type": "string",
+                      "example": "John Doe"
+                    },
+                    "customer_pin": {
+                      "type": "string",
+                      "example": "P123456789P"
+                    },
+                    "customer_phone_number": {
+                      "type": "string",
+                      "example": "+254112685368"
+                    },
+                    "customer_email": {
+                      "type": "string",
+                      "example": "info@namiri.tech"
+                    },
+                    "queue_status": {
+                      "type": "string",
+                      "example": "paused"
+                    },
+                    "invoice_number": {
+                      "type": "integer",
+                      "example": 38
+                    },
+                    "sales_tax_summary": {
+                      "type": "object",
+                      "properties": {
+                        "taxable_amount_a": {
+                          "type": "number",
+                          "example": 0
+                        },
+                        "taxable_amount_b": {
+                          "type": "number",
+                          "example": 517.24
+                        },
+                        "taxable_amount_c": {
+                          "type": "number",
+                          "example": 0
+                        },
+                        "taxable_amount_d": {
+                          "type": "number",
+                          "example": 0
+                        },
+                        "taxable_amount_e": {
+                          "type": "number",
+                          "example": 0
+                        },
+                        "tax_rate_a": {
+                          "type": "number",
+                          "example": 0
+                        },
+                        "tax_rate_b": {
+                          "type": "number",
+                          "example": 16
+                        },
+                        "tax_rate_c": {
+                          "type": "number",
+                          "example": 0
+                        },
+                        "tax_rate_d": {
+                          "type": "number",
+                          "example": 0
+                        },
+                        "tax_rate_e": {
+                          "type": "number",
+                          "example": 8
+                        },
+                        "tax_amount_a": {
+                          "type": "number",
+                          "example": 0
+                        },
+                        "tax_amount_b": {
+                          "type": "number",
+                          "example": 82.76
+                        },
+                        "tax_amount_c": {
+                          "type": "number",
+                          "example": 0
+                        },
+                        "tax_amount_d": {
+                          "type": "number",
+                          "example": 0
+                        },
+                        "tax_amount_e": {
+                          "type": "number",
+                          "example": 0
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Sales"
+        ],
+        "summary": "Get list of business sales",
+        "description": "Get list of business sales",
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "description": "Current page. Default is 1",
+              "example": 1
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "description": "Number of records per page. Default is 10",
+              "example": 10
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of sales returned successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "pagination": {
+                      "type": "object",
+                      "properties": {
+                        "total_count": {
+                          "type": "integer",
+                          "example": 106
+                        },
+                        "total_pages": {
+                          "type": "integer",
+                          "example": 11
+                        },
+                        "limit": {
+                          "type": "integer",
+                          "example": 10
+                        },
+                        "current_page": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "has_next": {
+                          "type": "boolean",
+                          "example": true
+                        }
+                      }
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "date": {
+                            "type": "string",
+                            "example": "12/04/2023"
+                          },
+                          "time": {
+                            "type": "string",
+                            "example": "01:17:49 pm"
+                          },
+                          "digitax_id": {
+                            "type": "string",
+                            "example": "clu6souzx00mjfasxm4s6cweg"
+                          },
+                          "trader_invoice_number": {
+                            "type": "string",
+                            "example": "1234567890"
+                          },
+                          "receipt_number": {
+                            "type": "integer",
+                            "example": 1234567890
+                          },
+                          "serial_number": {
+                            "type": "string",
+                            "example": "KRACU0400000001"
+                          },
+                          "internal_data": {
+                            "type": "string",
+                            "example": "PB3ZSZP3RZR3AUPYBYLUTFJDIA"
+                          },
+                          "receipt_signature": {
+                            "type": "string",
+                            "example": "3JYZVPTPMYBGHG4A"
+                          },
+                          "etims_url": {
+                            "type": "string",
+                            "example": "https://etims-sbx.kra.go.ke/common/link/etims/receipt/indexEtimsReceiptData?Data=P000000001G02JHEURBU6RQAMEF3Y",
+                            "format": "url"
+                          },
+                          "sale_detail_url": {
+                            "type": "string",
+                            "example": "https://staging.api.digitax.tech/sales/YKSWCIiuvx",
+                            "format": "url"
+                          },
+                          "customer_name": {
+                            "type": "string",
+                            "example": "John Doe"
+                          },
+                          "customer_pin": {
+                            "type": "string",
+                            "example": "P123456789P"
+                          },
+                          "customer_phone_number": {
+                            "type": "string",
+                            "example": "+254112685368"
+                          },
+                          "customer_email": {
+                            "type": "string",
+                            "example": "info@namiri.tech"
+                          },
+                          "queue_status": {
+                            "type": "string",
+                            "example": "pending"
+                          },
+                          "invoice_number": {
+                            "type": "integer",
+                            "example": 38
+                          },
+                          "sales_tax_summary": {
+                            "type": "object",
+                            "properties": {
+                              "taxable_amount_a": {
+                                "type": "number",
+                                "example": 0
+                              },
+                              "taxable_amount_b": {
+                                "type": "number",
+                                "example": 517.24
+                              },
+                              "taxable_amount_c": {
+                                "type": "number",
+                                "example": 0
+                              },
+                              "taxable_amount_d": {
+                                "type": "number",
+                                "example": 0
+                              },
+                              "taxable_amount_e": {
+                                "type": "number",
+                                "example": 0
+                              },
+                              "tax_rate_a": {
+                                "type": "number",
+                                "example": 0
+                              },
+                              "tax_rate_b": {
+                                "type": "number",
+                                "example": 16
+                              },
+                              "tax_rate_c": {
+                                "type": "number",
+                                "example": 0
+                              },
+                              "tax_rate_d": {
+                                "type": "number",
+                                "example": 0
+                              },
+                              "tax_rate_e": {
+                                "type": "number",
+                                "example": 8
+                              },
+                              "tax_amount_a": {
+                                "type": "number",
+                                "example": 0
+                              },
+                              "tax_amount_b": {
+                                "type": "number",
+                                "example": 82.76
+                              },
+                              "tax_amount_c": {
+                                "type": "number",
+                                "example": 0
+                              },
+                              "tax_amount_d": {
+                                "type": "number",
+                                "example": 0
+                              },
+                              "tax_amount_e": {
+                                "type": "number",
+                                "example": 0
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sales/{saleId}": {
+      "get": {
+        "tags": [
+          "Sales"
+        ],
+        "summary": "Get sale",
+        "description": "Get specific sale by id",
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "saleId",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Sale id",
+              "example": "clw7gacca00czeih49eq3lee5"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the sales record created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "date": {
+                      "type": "string",
+                      "example": "10/05/2023"
+                    },
+                    "time": {
+                      "type": "string",
+                      "example": "04:16:11 pm"
+                    },
+                    "digitax_id": {
+                      "type": "string",
+                      "example": "clw70klzn18xwzpdhu4yujv5f"
+                    },
+                    "trader_invoice_number": {
+                      "type": "string",
+                      "example": "12345678901"
+                    },
+                    "receipt_number": {
+                      "type": "integer",
+                      "example": 38
+                    },
+                    "serial_number": {
+                      "type": "string",
+                      "example": "KRACU0400000001"
+                    },
+                    "internal_data": {
+                      "type": "string",
+                      "example": "PB3ZSZP3RZR3AUPYBYLUTFJDIA"
+                    },
+                    "receipt_signature": {
+                      "type": "string",
+                      "example": "3JYZVPTPMYBGHG4A"
+                    },
+                    "etims_url": {
+                      "type": "string",
+                      "example": "https://etims-sbx.kra.go.ke/common/link/etims/receipt/indexEtimsReceiptData?Data=P000000001G02JHEURBU6RQAMEF3Y",
+                      "format": "url"
+                    },
+                    "sale_detail_url": {
+                      "type": "string",
+                      "example": "https://staging.api.digitax.tech/sales/YKSWCIiuvx",
+                      "format": "url"
+                    },
+                    "customer_name": {
+                      "type": "string",
+                      "example": "John Doe"
+                    },
+                    "customer_pin": {
+                      "type": "string",
+                      "example": "P123456789P"
+                    },
+                    "customer_phone_number": {
+                      "type": "string",
+                      "example": "+254112685368"
+                    },
+                    "customer_email": {
+                      "type": "string",
+                      "example": "info@namiri.tech"
+                    },
+                    "queue_status": {
+                      "type": "string",
+                      "example": "pending"
+                    },
+                    "invoice_number": {
+                      "type": "integer",
+                      "example": 38
+                    },
+                    "sales_tax_summary": {
+                      "type": "object",
+                      "properties": {
+                        "taxable_amount_a": {
+                          "type": "number",
+                          "example": 0
+                        },
+                        "taxable_amount_b": {
+                          "type": "number",
+                          "example": 517.24
+                        },
+                        "taxable_amount_c": {
+                          "type": "number",
+                          "example": 0
+                        },
+                        "taxable_amount_d": {
+                          "type": "number",
+                          "example": 0
+                        },
+                        "taxable_amount_e": {
+                          "type": "number",
+                          "example": 0
+                        },
+                        "tax_rate_a": {
+                          "type": "number",
+                          "example": 0
+                        },
+                        "tax_rate_b": {
+                          "type": "number",
+                          "example": 16
+                        },
+                        "tax_rate_c": {
+                          "type": "number",
+                          "example": 0
+                        },
+                        "tax_rate_d": {
+                          "type": "number",
+                          "example": 0
+                        },
+                        "tax_rate_e": {
+                          "type": "number",
+                          "example": 8
+                        },
+                        "tax_amount_a": {
+                          "type": "number",
+                          "example": 0
+                        },
+                        "tax_amount_b": {
+                          "type": "number",
+                          "example": 82.76
+                        },
+                        "tax_amount_c": {
+                          "type": "number",
+                          "example": 0
+                        },
+                        "tax_amount_d": {
+                          "type": "number",
+                          "example": 0
+                        },
+                        "tax_amount_e": {
+                          "type": "number",
+                          "example": 0
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/stock/master": {
+      "post": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "Create a new master stock",
+        "description": "Create a new master stock",
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "item_id": {
+                    "type": "string",
+                    "description": "Item id as saved in DigiTax",
+                    "example": "cls8iu3rd002qs601af4qzb9g"
+                  },
+                  "remaining_quantity": {
+                    "type": "number",
+                    "description": "Remaining quantity",
+                    "example": 100
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "example": "cls8iu3rd002qs601af4qzb9g"
+                    },
+                    "item_code": {
+                      "type": "string",
+                      "example": "KE1PD-U230411121122"
+                    },
+                    "remaining_quantity": {
+                      "type": "integer",
+                      "example": 300
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/stock": {
+      "get": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "Get list of stock movement",
+        "description": "Get list of stock movement",
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "pagination": {
+                      "type": "object",
+                      "properties": {
+                        "current_page": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "total_pages": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "has_next": {
+                          "type": "boolean",
+                          "example": false
+                        },
+                        "limit": {
+                          "type": "integer",
+                          "example": 10
+                        },
+                        "total_count": {
+                          "type": "integer",
+                          "example": 2
+                        }
+                      }
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "example": "bh6Etm9dgI"
+                          },
+                          "total_item_count": {
+                            "type": "integer",
+                            "example": 1
+                          },
+                          "total_amount": {
+                            "type": "integer",
+                            "example": 660000
+                          },
+                          "customer_branch_office_id": {
+                            "type": "string",
+                            "example": "00"
+                          },
+                          "total_supply_price": {
+                            "type": "integer",
+                            "example": 660000
+                          },
+                          "total_vat": {
+                            "type": "number",
+                            "example": 100677.97
+                          },
+                          "customer_pin": {
+                            "type": "string",
+                            "example": "A123456789Z"
+                          },
+                          "stored_and_released_code": {
+                            "type": "integer",
+                            "example": 59
+                          },
+                          "occurred_date": {
+                            "type": "string",
+                            "format": "date-time",
+                            "example": "2020-01-10T00:00:00.000Z"
+                          },
+                          "item_list": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "item_code": {
+                                  "type": "string",
+                                  "example": "KR2BZX0000001"
+                                },
+                                "item_sequence": {
+                                  "type": "integer",
+                                  "example": 1
+                                },
+                                "item_class_code": {
+                                  "type": "string",
+                                  "example": "1110162100"
+                                },
+                                "item_name": {
+                                  "type": "string",
+                                  "example": "Grocery_Item#1"
+                                },
+                                "bar_code": {
+                                  "type": "string",
+                                  "example": "8801234567051"
+                                },
+                                "package_unit_code": {
+                                  "type": "string",
+                                  "example": "BZ"
+                                },
+                                "package_quantity": {
+                                  "type": "integer",
+                                  "example": 0
+                                },
+                                "unit_price": {
+                                  "type": "integer",
+                                  "example": 4000
+                                },
+                                "unit_quantity_code": {
+                                  "type": "string",
+                                  "example": "CA"
+                                },
+                                "supply_amount": {
+                                  "type": "integer",
+                                  "example": 1800000
+                                },
+                                "unit_quantity": {
+                                  "type": "integer",
+                                  "example": 450
+                                },
+                                "discount_amount": {
+                                  "type": "integer",
+                                  "example": 0
+                                },
+                                "taxable_amount": {
+                                  "type": "integer",
+                                  "example": 1800000
+                                },
+                                "taxation_type_code": {
+                                  "type": "string",
+                                  "example": "B"
+                                },
+                                "tax_amount": {
+                                  "type": "number",
+                                  "example": 274576.27
+                                },
+                                "total_amount": {
+                                  "type": "integer",
+                                  "example": 1800000
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "Create a new stock move",
+        "description": "Create a new stock move",
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "original_stored_and_released_number": {
+                    "type": "integer",
+                    "example": 10
+                  },
+                  "registration_type_code": {
+                    "type": "string",
+                    "example": "M"
+                  },
+                  "stored_and_released_code": {
+                    "type": "string",
+                    "example": "13"
+                  },
+                  "occurred_date": {
+                    "type": "string",
+                    "example": "20230510"
+                  },
+                  "customer_branch_office_id": {
+                    "type": "string",
+                    "example": "cln8mpz9i001ls601ulo7fq4q"
+                  },
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "example": "cls8irr4l001vs601cbf200bv"
+                        },
+                        "quantity": {
+                          "type": "integer",
+                          "example": 20
+                        },
+                        "price": {
+                          "type": "integer",
+                          "example": 100
+                        },
+                        "discount_amount": {
+                          "type": "integer",
+                          "example": 0
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "stored_and_released_code": {
+                      "type": "integer",
+                      "example": 13
+                    },
+                    "total_item_count": {
+                      "type": "integer",
+                      "example": 2
+                    },
+                    "total_supply_price": {
+                      "type": "number",
+                      "example": 3575.99
+                    },
+                    "total_vat": {
+                      "type": "number",
+                      "example": 424.01
+                    },
+                    "total_amount": {
+                      "type": "integer",
+                      "example": 4000
+                    },
+                    "registration_type_code": {
+                      "type": "string",
+                      "example": "M"
+                    },
+                    "original_stored_and_released_number": {
+                      "type": "integer",
+                      "example": 10
+                    },
+                    "stored_and_released_number": {
+                      "type": "integer",
+                      "example": 1
+                    },
+                    "occurred_date": {
+                      "type": "string",
+                      "example": "2023-05-10T00:00:00.000Z",
+                      "format": "date-time"
+                    },
+                    "customer_branch_office_id": {
+                      "type": "string",
+                      "example": "00"
+                    },
+                    "list": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "item_code": {
+                            "type": "string",
+                            "example": "KE1PD-U0417164839"
+                          },
+                          "item_name": {
+                            "type": "string",
+                            "example": "Posted via queue #4 :)"
+                          },
+                          "item_sequence": {
+                            "type": "integer",
+                            "example": 1
+                          },
+                          "item_class_code": {
+                            "type": "string",
+                            "example": "5059690800"
+                          },
+                          "package_unit_code": {
+                            "type": "string",
+                            "example": "PD"
+                          },
+                          "package_quantity": {
+                            "type": "integer",
+                            "example": 20
+                          },
+                          "unit_quantity_code": {
+                            "type": "string",
+                            "example": "U"
+                          },
+                          "unit_quantity": {
+                            "type": "integer",
+                            "example": 20
+                          },
+                          "unit_price": {
+                            "type": "integer",
+                            "example": 100
+                          },
+                          "supply_amount": {
+                            "type": "integer",
+                            "example": 2000
+                          },
+                          "discount_amount": {
+                            "type": "integer",
+                            "example": 0
+                          },
+                          "taxable_amount": {
+                            "type": "number",
+                            "example": 1724.14
+                          },
+                          "tax_amount": {
+                            "type": "number",
+                            "example": 275.86
+                          },
+                          "total_amount": {
+                            "type": "integer",
+                            "example": 2000
+                          },
+                          "taxation_type_code": {
+                            "type": "string",
+                            "example": "B"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/stock/adjust": {
+      "post": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "Adjust stock",
+        "description": "Adjust stock",
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "item_id": {
+                    "type": "string",
+                    "example": "clk04eudo0001p5qd132yc8s9"
+                  },
+                  "quantity": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 1
+                  },
+                  "action": {
+                    "type": "string",
+                    "example": "add"
+                  },
+                  "type": {
+                    "type": "string",
+                    "example": "adjustment"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "example": "clk5n53vg0001p5ud5wsv3344"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/stock/transfer": {
+      "post": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "Transfer stock from branch",
+        "description": "Transfer stock from branch",
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "item_id": {
+                    "type": "string",
+                    "example": "clk04eudo0001p5qd132yc8s9"
+                  },
+                  "branch_id": {
+                    "type": "string",
+                    "example": "clk04eudo0001p5qd132yc8s9"
+                  },
+                  "quantity": {
+                    "type": "integer",
+                    "example": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Stock transfer successful"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "apiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-API-Key"
+      }
+    }
+  },
+  "tags": []
+}
