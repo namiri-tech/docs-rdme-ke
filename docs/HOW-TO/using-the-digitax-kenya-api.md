@@ -5,4 +5,4 @@ hidden: false
 metadata:
   robots: index
 ---
-More from [https://docs.digitax.tech/docs/using-the-api](https://docs.digitax.tech/docs/using-the-api)
+[https://docs.digitax.tech/docs/using-the-api](https://docs.digitax.tech/docs/using-the-api)
