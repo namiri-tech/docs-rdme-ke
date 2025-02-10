@@ -1,6 +1,6 @@
 ---
-title: Add business item
-excerpt: Add business item
+title: Create an item
+excerpt: Create an item
 api:
   file: openapi.json
   operationId: post_items

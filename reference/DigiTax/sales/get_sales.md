@@ -1,6 +1,6 @@
 ---
-title: Get list of business sales
-excerpt: Get list of business sales
+title: Get sales
+excerpt: List sales
 api:
   file: openapi.json
   operationId: get_sales

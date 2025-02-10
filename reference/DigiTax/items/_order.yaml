@@ -1,8 +1,4 @@
-- post_import-items-link-item-import-item-id
 - post_items
 - get_items
-- post_items-item-composition
-- put_items-itemid
-- get_items-itemid
-- delete_items-itemid
-- post_items-from-purchase
+- put_items-item-id
+- get_items-item-id

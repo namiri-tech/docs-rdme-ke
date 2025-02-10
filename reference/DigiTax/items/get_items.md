@@ -1,6 +1,6 @@
 ---
-title: Get list of business items
-excerpt: Get list of business items
+title: Get list of items owned by the business
+excerpt: Get list of items owned by the business
 api:
   file: openapi.json
   operationId: get_items

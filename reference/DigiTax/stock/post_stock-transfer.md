@@ -1,6 +1,6 @@
 ---
-title: Transfer stock from branch
-excerpt: Transfer stock from branch
+title: Transfer stock to another businesses
+excerpt: Transfer stock to another businesses
 api:
   file: openapi.json
   operationId: post_stock-transfer

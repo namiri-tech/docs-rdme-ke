@@ -1,2 +1,3 @@
-- post_branches-customer
-- get_customers-customer-pin
+- get_customers
+- post_customers
+- get_customers-customer-id
