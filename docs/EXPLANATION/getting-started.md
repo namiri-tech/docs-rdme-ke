@@ -42,7 +42,7 @@ OSCU is different from VSCU; and DigiTax doesn't have a VSCU option. That said, 
 </Accordion>
 
 * Explore our API reference docs to interactively test our API before you being coding!
-* If you're new here, learn how to use this site here.
+* If you're new here, learn how to use this site [How to use this site](doc:how-to-use-this-site).
 * If you're looking for another country or the general homepage for DigiTax API, navigate to the [DigiTax API homepage](https://docs.digitax.tech) .
 
 > 🥇 DigiTax is the leading KRA & ODPC-approved eTIMS integrator
