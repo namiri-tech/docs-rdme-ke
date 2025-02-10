@@ -1,5 +1,5 @@
 ---
-title: 'Getting Started: DigiTax and eTIMS'
+title: 'Getting Started: DigiTax and KRA eTIMS'
 excerpt: >-
   Overview of how to get started with DigiTax Kenya API. You'll be up and
   running in short order!
