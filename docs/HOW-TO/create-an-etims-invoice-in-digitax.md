@@ -5,17 +5,16 @@ hidden: false
 metadata:
   robots: index
 ---
-Namiri Technology Limited, the proprietor of the DigiTax platform, has developed a suite of solutions:
+## eTIMS invoice on DigiTax
 
-* **DigiTax Dashboard** (Web Browser-based Desktop application for e-invoicing),
-* **DigiTax API** (for system-to-system integration without the issue of platform hopping), and
-* **DigiTax App** (Compatible with Android POS devices)
-* **DigiTax Plugins** like DigiTax WooCommerce, DigiTax Odoo, DigiTax Quickbooks, DigiTax Sage Online, among others.
+If you have joined any DigiTax webinar, then you know how to generate an invoice via the Digitax Dashboard. If you have not already joined, below is a link to a webinar recording in which a DigiTax team member talks about DigiTax and how to use it.
 
-You can create an eTIMS invoice through these DigiTax solutions.
+[DigiTax webinar video link](https://www.loom.com/share/a41c78b5cfa042a7963f0ec7ebbf0ab6?sid=0771aef2-3c16-4aab-a395-dbe68dbe468b)
 
-> 🥇 Namiri Technology Limited is the leading KRA & ODPC-approved eTIMS integrator
+You can fast-forward or rewind at your convenience. Please note the following key timestamp on the video linked above:
 
-## eTIMS invoice details
+* **15:51** - Testing how to generate invoices
 
-If you have joined any DigiTax webinar, then you know how to generate an invoice via the Digitax dashboard. If you have not already joined, below is a link to a webinar recording in which a DigiTax team member talks about DigiTax and how to use it.
+### eTIMS invoice sections
+
+Below is a eTIMS invoice with sections highlighted.
