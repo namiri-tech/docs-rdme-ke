@@ -39,3 +39,17 @@ Explore guides to get context on how DigiTax makes it easier to integrate with i
 Explore our API reference docs to interactively test our API before you being coding!
 
 > 🥇 DigiTax is the leading KRA & ODPC-approved eTIMS integrator
+
+<Columns layout="auto">
+  <Column>
+    Neque porro quisquam est qui dolorem ipsum quia
+  </Column>
+
+  <Column>
+    *Lorem ipsum dolor sit amet, consectetur adipiscing elit*
+  </Column>
+
+  <Column>
+    > Ut enim ad minim veniam, quis nostrud ullamco
+  </Column>
+</Columns>
