@@ -15,3 +15,7 @@ Namiri Technology Limited, the proprietor of the DigiTax platform, has developed
 You can create an eTIMS invoice through these DigiTax solutions.
 
 > 🥇 Namiri Technology Limited is the leading KRA & ODPC-approved eTIMS integrator
+
+## eTIMS invoice details
+
+If you have joined any DigiTax webinar, then you know how to generate an invoice via the Digitax dashboard. If you have not already joined, below is a link to a webinar recording in which a DigiTax team member talks about DigiTax and how to use it.
