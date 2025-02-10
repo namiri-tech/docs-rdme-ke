@@ -34,15 +34,22 @@ OSCU is different from VSCU; and DigiTax doesn't have a VSCU option. That said, 
 
 ## Navigating the DigiTax API Hub
 
-* You're in the guides section of DigiTax Kenya API Hub. Explore other pages below to gain context on DigiTax and eTIMS and understanding on how DigiTax makes it easier for you to integrate your invoicing system with eTIMS.
+### Guides
+
+You're in the guides section of DigiTax Kenya API Hub. Explore other pages below to gain context on DigiTax and eTIMS and understanding on how DigiTax makes it easier for you to integrate your invoicing system with eTIMS.
 
 <Accordion title="Guides" icon="fa-book-circle">
-  - [Create an eTIMS invoice in DigiTax](/docs/create-an-etims-invoice-in-digitax)
-  - [Item attributes](/docs/item-attributes-items)
+  * [Create an eTIMS invoice in DigiTax](/docs/create-an-etims-invoice-in-digitax)
+  * [Item attributes](/docs/item-attributes-items)
+  * If you're new here, learn how to use this site [How to use this site](doc:how-to-use-this-site).
 </Accordion>
 
-* Explore our API reference docs to interactively test our API before you being coding!
-* If you're new here, learn how to use this site [How to use this site](doc:how-to-use-this-site).
-* If you're looking for another country or the general homepage for DigiTax API, navigate to the [DigiTax API homepage](https://docs.digitax.tech) .
+### API Reference
+
+Explore our API reference docs to interactively test our API before you being coding!
+
+### DigiTax API Hub homepage
+
+If you're looking for another country or the general homepage for DigiTax API, navigate to the [DigiTax API homepage](https://docs.digitax.tech).
 
 > 🥇 DigiTax is the leading KRA & ODPC-approved eTIMS integrator
