@@ -40,11 +40,10 @@ You're in the guides section of DigiTax Kenya API Hub. Explore other pages below
 
 <Accordion title="Guides" icon="fa-book-circle">
   * [Create an eTIMS invoice in DigiTax](/docs/create-an-etims-invoice-in-digitax)
-
   * [Item attributes](/docs/item-attributes-items)
-
-  * If you're new here, learn [how to use this site](doc:how-to-use-this-site).
 </Accordion>
+
+> If you're new here, learn [how to use this site](doc:how-to-use-this-site).
 
 ### API Reference
 
