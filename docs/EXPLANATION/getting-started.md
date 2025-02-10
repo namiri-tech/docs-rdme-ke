@@ -42,14 +42,10 @@ Explore our API reference docs to interactively test our API before you being co
 
 <Columns layout="auto">
   <Column>
-    Neque porro quisquam est qui dolorem ipsum quia
+    If you're new here, learn how to use this site here.
   </Column>
 
   <Column>
-    *Lorem ipsum dolor sit amet, consectetur adipiscing elit*
-  </Column>
-
-  <Column>
-    > Ut enim ad minim veniam, quis nostrud ullamco
+    If you're looking for another country or the general homepage for DigiTax API, navigate to this page.
   </Column>
 </Columns>
