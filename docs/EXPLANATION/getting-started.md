@@ -5,6 +5,8 @@ excerpt: >-
   running in short order!
 hidden: false
 ---
+> *If you're new here, learn[how to use this site](doc:how-to-use-this-site)*
+
 ## Electronic Tax Invoicing
 
 African countries in recent years have been opting to digitize their tax systems by imposing e-Invoicing or Electronic Tax Invoicing and Reporting.
@@ -42,8 +44,6 @@ You're in the guides section of DigiTax Kenya API Hub. Explore other pages below
   * [Create an eTIMS invoice in DigiTax](/docs/create-an-etims-invoice-in-digitax)
   * [Item attributes](/docs/item-attributes-items)
 </Accordion>
-
-> If you're new here, learn [how to use this site](doc:how-to-use-this-site).
 
 ### API Reference
 
