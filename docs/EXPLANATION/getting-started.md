@@ -26,7 +26,7 @@ Namiri Technology Limited, the proprietor of the DigiTax platform, has developed
 
 ### DigiTax and eTIMS
 
-For us to support individuals and businesses to generate eTIMS invoices, DigiTax is licensed as an eTIMS OSCU integrator.
+For us to support individuals and businesses to generate eTIMS invoices, DigiTax is licensed as an eTIMS OSCU integrator/ provider.
 
 **OSCU** stands for ***O**nline **S**ales **C**ontrol **U**nit*. This means that the Control Unit needs to connect to the online KRA eTIMS server to sign/ stamp (generate eTIMS metadata and signature) invoices.
 
