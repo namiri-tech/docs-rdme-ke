@@ -9,7 +9,7 @@ hidden: false
 
 ## Electronic Tax Invoicing
 
-African countries in recent years have been opting to digitize their tax systems by imposing e-Invoicing or Electronic Tax Invoicing and Reporting.
+African countries lately have been opting to digitize their tax systems by imposing e-Invoicing or Electronic Tax Invoicing and Reporting.
 
 ### eTIMS
 
