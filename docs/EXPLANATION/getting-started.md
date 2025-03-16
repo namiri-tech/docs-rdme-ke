@@ -20,11 +20,9 @@ hidden: false
   </Card>
 
   <Card title="DigiTax Kenya API Reference" icon="fa-plug">
-    Get the pre-requisites, explore the API endpoints, and learn its feature set via our **interactive API reference** [here](https://ng.docs.digitax.tech/reference).
+    Get the pre-requisites, explore the API endpoints, and learn its feature set via our **interactive API reference** [here](https://ke.docs.digitax.tech/reference).
   </Card>
 </Cards>
-
-If you're new here, learn [how to use this site](doc:how-to-use-this-site)
 
 ## Electronic Tax Invoicing
 
