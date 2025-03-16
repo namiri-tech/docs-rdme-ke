@@ -1,8 +1,9 @@
 ---
-title: 'Getting Started: DigiTax and eTIMS'
+title: 'Getting Started: DigiTax and KRA eTIMS'
 excerpt: >-
-  Overview of how to get started with DigiTax Kenya API. You'll be up and
-  running in short order!
+  **DigiTax Kenya API Hub** contains guides and API reference pages for further
+  understanding, equipping you on how to integrate with the ZRA Smart Invoicing
+  System
 hidden: false
 ---
 <Cards columns={2}>
