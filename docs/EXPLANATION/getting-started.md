@@ -5,7 +5,26 @@ excerpt: >-
   running in short order!
 hidden: false
 ---
-> If you're new here, learn [how to use this site](doc:how-to-use-this-site)
+<Cards columns={2}>
+  <Card title="Navigation" icon="fa-compass">
+    If you're new to the DigiTax Nigeria API Hub, learn how to navigate our pages [here](https://ng.docs.digitax.tech/docs/how-to-use-this-site).
+  </Card>
+
+  <Card title="Support" icon="fa-question">
+    If you get stuck, or have questions, [email us](mailto:support@namiri.tech) OR\
+    Talk to us via the **DigiTax chat** on the bottom right of any page.
+  </Card>
+
+  <Card title="FIRS integration with DigiTax" icon="fa-bars">
+    Explore this page and other detailed guide pages to gain understanding of the FIRS E-Invoicing System and how DigiTax integration works.
+  </Card>
+
+  <Card title="DigiTax Nigeria API Reference" icon="fa-plug">
+    Get the pre-requisites, explore the API endpoints, and learn its feature set via our **interactive API reference** [here](https://ng.docs.digitax.tech/reference).
+  </Card>
+</Cards>
+
+If you're new here, learn [how to use this site](doc:how-to-use-this-site)
 
 ## Electronic Tax Invoicing
 
