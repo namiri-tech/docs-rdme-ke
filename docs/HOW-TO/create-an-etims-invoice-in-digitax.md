@@ -23,7 +23,7 @@ Below is a eTIMS invoice with sections highlighted.
 
 An eTIMS invoice has three key components: (They are highlighted above)
 
-1. A **QR code** redirecting to the a URL on "etims.kra.go.ke"\
+1. A **QR code** redirecting to a URL on "etims.kra.go.ke"\
    The QR code above redirects to this URL: \<[https://etims-sbx.kra.go.ke/common/link/etims/receipt/indexEtimsReceiptData?Data=P000000001G02JHEURBU6RQAMEF3Y](https://etims-sbx.kra.go.ke/common/link/etims/receipt/indexEtimsReceiptData?Data=P000000001G02JHEURBU6RQAMEF3Y)>\
    The structure is `\[[https://etims-sbx.kra.go.ke/common/link/etims/receipt/indexEtimsReceiptData](https://etims-sbx.kra.go.ke/common/link/etims/receipt/indexEtimsReceiptData)`]\([https://etims-sbx.kra.go.ke/common/link/etims/receipt/indexEtimsReceiptData\`](https://etims-sbx.kra.go.ke/common/link/etims/receipt/indexEtimsReceiptData`)) `?Data=` `\{KRAPIN}` `\{KRA Branch ID}` `\{Signature}`
 2. The **tax breakdown** of that invoice
