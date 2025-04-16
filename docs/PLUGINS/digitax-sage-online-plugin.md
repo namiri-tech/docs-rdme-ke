@@ -1,5 +1,6 @@
 ---
 title: DigiTax Sage Online plugin
+excerpt: Streamlining Tax Compliance with Digitax | Sage Online
 deprecated: false
 hidden: false
 metadata:
