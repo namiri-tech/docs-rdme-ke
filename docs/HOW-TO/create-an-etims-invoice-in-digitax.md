@@ -23,26 +23,25 @@ Below is a eTIMS invoice with sections highlighted.
 
 An eTIMS invoice has three key components: (They are highlighted above)
 
-1. A \*\*QR code\*\* redirecting to the a URL on "etims.kra.go.ke" &#x20;
-   &#x20;  The QR code above redirects to this URL: \<https\://etims-sbx.kra.go.ke/common/link/etims/receipt/indexEtimsReceiptData?Data=P000000001G02JHEURBU6RQAMEF3Y> &#x20;
-   &#x20;  The structure is \`https\://etims-sbx.kra.go.ke/common/link/etims/receipt/indexEtimsReceiptData\` \`?Data=\` \`\{KRAPIN}\` \`\{KRA Branch ID}\` \`\{Signature}\`
-   2. The **tax breakdown** of that invoice
-      3. **eTIMS metadata** that includes:
-         * Date and Time of transaction
-           * Invoice number
-             * Signature
-               * Internal Data
-                 <br />
+1. A **QR code** redirecting to the a URL on "etims.kra.go.ke"\
+   The QR code above redirects to this URL: \<[https://etims-sbx.kra.go.ke/common/link/etims/receipt/indexEtimsReceiptData?Data=P000000001G02JHEURBU6RQAMEF3Y](https://etims-sbx.kra.go.ke/common/link/etims/receipt/indexEtimsReceiptData?Data=P000000001G02JHEURBU6RQAMEF3Y)>\
+   The structure is `\[[https://etims-sbx.kra.go.ke/common/link/etims/receipt/indexEtimsReceiptData](https://etims-sbx.kra.go.ke/common/link/etims/receipt/indexEtimsReceiptData)`]\([https://etims-sbx.kra.go.ke/common/link/etims/receipt/indexEtimsReceiptData\`](https://etims-sbx.kra.go.ke/common/link/etims/receipt/indexEtimsReceiptData`)) `?Data=` `\{KRAPIN}` `\{KRA Branch ID}` `\{Signature}`
+2. The **tax breakdown** of that invoice
+3. **eTIMS metadata** that includes:
+   * Date and Time of transaction
+   * Invoice number
+   * Signature
+   * Internal Data
 
 ## Creating an eTIMS invoice via DigiTax API
-
-<br />
 
 To create an eTIMS invoice via the API, you need to:
 
 1. Create an item
-   2. Add stock to that item (if it is stockable). If note skip to step 3
-      3. Make a sale
-         4. Get the sale details
-            <br />
-            > 📘 Why do I have to create an item before generating an invoice?> In eTIMS, every line item in a sale invoice or credit note invoice needs to be registered first
+2. Add stock to that item (if it is stockable). If not, skip to step 3
+3. Make a sale
+4. Get the sale details
+   <br />
+   > 📘 Why do I have to create an item before generating an invoice?
+   >
+   > In eTIMS, every line item in a sale invoice or credit note invoice needs to be registered first
