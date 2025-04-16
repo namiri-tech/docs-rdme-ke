@@ -20,3 +20,5 @@ You can fast-forward or rewind at your convenience. Please note the following ke
 Below is an eTIMS invoice with sections highlighted.
 
 <Image align="center" src="https://files.readme.io/6cf9281ea7dc361e56813535c9ff7006148174363c2e69bd2bda004baca480c4-211.png" />
+
+<br/>
