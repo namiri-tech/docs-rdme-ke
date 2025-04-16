@@ -5,6 +5,8 @@ excerpt: >-
   understanding, equipping you on how to integrate with the ZRA Smart Invoicing
   System
 hidden: false
+metadata:
+  title: DigiTax Kenya API Hub - V1
 ---
 <Cards columns={2}>
   <Card title="Navigation" icon="fa-compass">
