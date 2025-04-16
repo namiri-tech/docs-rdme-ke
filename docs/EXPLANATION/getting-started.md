@@ -7,6 +7,7 @@ excerpt: >-
 hidden: false
 metadata:
   title: DigiTax Kenya API Hub - V1
+  robots: index
 ---
 <Cards columns={2}>
   <Card title="Navigation" icon="fa-compass">
