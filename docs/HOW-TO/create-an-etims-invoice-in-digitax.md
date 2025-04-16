@@ -17,31 +17,6 @@ You can fast-forward or rewind at your convenience. Please note the following ke
 
 ### eTIMS invoice sections
 
-Below is a eTIMS invoice with sections highlighted.
+Below is an eTIMS invoice with sections highlighted.
 
 <Image align="center" src="https://files.readme.io/6cf9281ea7dc361e56813535c9ff7006148174363c2e69bd2bda004baca480c4-211.png" />
-
-An eTIMS invoice has three key components: (They are highlighted above)
-
-1. A **QR code** redirecting to a URL on "etims.kra.go.ke"\
-   The QR code above redirects to this URL: \<[https://etims-sbx.kra.go.ke/common/link/etims/receipt/indexEtimsReceiptData?Data=P000000001G02JHEURBU6RQAMEF3Y](https://etims-sbx.kra.go.ke/common/link/etims/receipt/indexEtimsReceiptData?Data=P000000001G02JHEURBU6RQAMEF3Y)>\
-   The structure is `\[[https://etims-sbx.kra.go.ke/common/link/etims/receipt/indexEtimsReceiptData](https://etims-sbx.kra.go.ke/common/link/etims/receipt/indexEtimsReceiptData)`]\([https://etims-sbx.kra.go.ke/common/link/etims/receipt/indexEtimsReceiptData\`](https://etims-sbx.kra.go.ke/common/link/etims/receipt/indexEtimsReceiptData`)) `?Data=` `\{KRAPIN}` `\{KRA Branch ID}` `\{Signature}`
-2. The **tax breakdown** of that invoice
-3. **eTIMS metadata** that includes:
-   * Date and Time of transaction
-   * Invoice number
-   * Signature
-   * Internal Data
-
-## Creating an eTIMS invoice via DigiTax API
-
-To create an eTIMS invoice via the API, you need to:
-
-1. Create an item
-2. Add stock to that item (if it is stockable). If not, skip to step 3
-3. Make a sale
-4. Get the sale details
-   <br />
-   > 📘 Why do I have to create an item before generating an invoice?
-   >
-   > In eTIMS, every line item in a sale invoice or credit note invoice needs to be registered first
