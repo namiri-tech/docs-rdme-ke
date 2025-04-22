@@ -39,8 +39,6 @@ metadata:
   * <i class="icon-guides" /> [DigiTax Zambia API Hub](https://zm.docs.digitax.tech)
 </Accordion>
 
-<br />
-
 ## Electronic Tax Invoicing in Kenya
 
 African countries lately have been opting to digitize their tax systems by imposing e-Invoicing or Electronic Tax Invoicing and Reporting. Electronic Tax Invoicing is a nascent Fintech category in the Pan-African region.
