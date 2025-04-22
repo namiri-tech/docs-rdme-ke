@@ -6,11 +6,21 @@ hidden: false
 metadata:
   robots: index
 ---
-In every API endpoint like [**Create item**](ref:post_items-1), body parameters (also called query parameters) are passed along with the GET, POST, PUT and DELETE requests.
+In every API endpoint, body parameters (also called query parameters) and/or path parameters are passed along with the GET, POST, PUT and DELETE requests.
 
-The responses contain attributes related to the passed in query parameters, which unveil the data model used in the application.
+> Examples:\
+> **body parameters** for [**Create item**](ref:post_items),
+> **path parameters** for [**Get a specific item**](ref:get_items-item-id) OR
+> **both body parameters and path parameters** for [**Update an item**](ref:put_items-item-id)
 
-We'll break down the attributes consistent with each broad categorization of the API endpoints:
+The responses contain attributes related to the passed-in body parameters and/or path parameters, which unveil the data model used in the application.
 
-1. [Items endpoints](doc:items-attributes)
-2. [Sales endpoints](doc:sales-attributes)
+## Data attributes
+
+We break down the attributes consistent with each broad categorization of the API endpoints in:
+
+1. Related to Items
+   * [Items: General Data Attributes](doc:items-attributes)
+   * [Items classification](doc:items-classification)
+2. Related to Sales
+   * [Sales attributes](doc:sales-attributes)
