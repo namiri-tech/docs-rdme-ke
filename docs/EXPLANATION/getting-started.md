@@ -45,11 +45,11 @@ metadata:
 
 African countries lately have been opting to digitize their tax systems by imposing e-Invoicing or Electronic Tax Invoicing and Reporting. Electronic Tax Invoicing is a nascent Fintech category in the Pan-African region.
 
-Kenya is one of the countries and the country's tax authority/ regulator, **KRA** (Kenya Revenue Authority) has a transformative e-invoicing system, named **eTIMS** (electronic Tax Information Management System). In this documentation, DigiTax Kenya API Hub, we shall simply refer to it as *eTIMS System* or *eTIMS*.
+Kenya is one of the countries and the country's tax authority/ regulator, **KRA** (Kenya Revenue Authority) has a transformative e-invoicing system, named **eTIMS** (electronic Tax Information Management System). In this documentation, DigiTax Kenya API Hub, we shall simply refer to it as *KRA eTIMS* or *eTIMS*.
 
 ## Introduction to KRA eTIMS and DigiTax platform
 
-### eTIMS
+### KRA eTIMS
 
 **eTIMS** (electronic Tax Invoice Management System) is the transformative e-invoicing system by Kenya's country's tax authority, **KRA** (Kenya Revenue Authority). The use of this system and other tax related changes was enacted by the Finance Act, 2023, which was signed on by the President of Kenya on 26 June 2023. Its implementation was halted temporarily by the High Court of Kenya for the next 6 months. It became effective on 1 January 2024 and has been utilized by taxpayers since then.
 
