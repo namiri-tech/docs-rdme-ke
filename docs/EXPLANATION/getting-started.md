@@ -68,9 +68,9 @@ The suite of digital solutions or products under DigiTax, through which one can 
 
 DigiTax connects with regional tax authorities/ regulators, so far:
 
-* DigiTax Nigeria integrates you with <Glossary>FIRS</Glossary> e-Invoicing System
-* DigiTax Kenya integrates you with <Glossary>KRA</Glossary> eTIMS (electronic Tax Information Management System)
-* DigiTax Zambia integrates you with <Glossary>ZRA</Glossary> Smart Invoice System
+* ***DigiTax Nigeria*** integrates you with <Glossary>FIRS</Glossary> e-Invoicing System
+* ***DigiTax Kenya*** integrates you with <Glossary>KRA</Glossary> eTIMS (electronic Tax Information Management System)
+* ***DigiTax Zambia*** integrates you with <Glossary>ZRA</Glossary> Smart Invoice System
 
 to offer you a streamlined invoicing system that ensures compliance and supports the growth of your business.
 
