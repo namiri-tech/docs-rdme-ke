@@ -23,7 +23,7 @@ Explore the guides as outlined on the left-hand menu.
 
 For a great developer experience, the endpoints in the [DigiTax Kenya API reference](/reference) are interactive.
 
-Once you're set up in the DigiTax Dashboard, you can generate a sandbox or LIVE **X-API-Key** for authorization. Read more on the [API prerequisites](ref:prerequisites-of-using-the-api).
+Once you're set up in the DigiTax Dashboard, you can generate a sandbox or LIVE **X-API-Key** for authorization. Read more on the [API prerequisites](https://ke.docs.digitax.tech/docs/start-using-the-api#/prerequisites).
 
 Explore the API endpoints [here](/reference).
 
@@ -39,7 +39,7 @@ We support **cursor-based pagination requests** for endpoints whose **GET** requ
 
 #### Parameters for paginated requests
 
-The following are optional query parameters for paginated requests like [GET eTIMS Invoices](ref:get_invoices).
+The following are optional query parameters for paginated requests like [GET sales](https://ke.docs.digitax.tech/reference/get_sales#/).
 
 | Parameter  | Explanation                                                              |
 | :--------- | :----------------------------------------------------------------------- |
@@ -57,21 +57,21 @@ After making requests via our interactive API reference, the most recent request
 
 ### Parameters
 
-Parameters (or Params) come in two types in the DigiTax Nigeria API - Query Params and Body Params.
+Parameters (or Params) come in two types in the DigiTax Kenya API - Query Params and Body Params.
 
 Below are examples:
 
 * Query Params
 
-  An example is seen in [GET eTIMS Invoices](ref:get_invoices)
+  An example is seen in [Get sales](https://ke.docs.digitax.tech/reference/get_sales#/) endpoint
 
-<Image align="center" width="360px" src="https://files.readme.io/d10de438c8359cc9dd67cfc7b87340a4e6a84abe03aadd17b7b2196be4ea5041-CleanShot_2025-02-27_at_12.49.29_22x.png" />
+<Image align="center" width="360px" src="https://files.readme.io/16a38c0cbfb4c0990f3b5ab449e78b60148acb5ca707e9b0e86478682bafa5a1-CleanShot_2025-04-22_at_21.39.002x.png" />
 
 * Body Params
 
-  An example is seen in [CREATE Party](ref:post_parties)
+  An example is seen in [Create an item](https://ke.docs.digitax.tech/reference/post_items#/) endpoint
 
-  <Image align="center" width="360px" src="https://files.readme.io/cba45b39e32c9188f6331b5dffe3a86ab1950936b7c0a5407181d3406aa8aa5f-CleanShot_2025-02-27_at_12.55.032x.png" />
+  <Image align="center" width="360px" src="https://files.readme.io/8e46970bc75896e25ab54ffa0b83e18d62e8e9411e0382a9d0d3f4002c3c31d5-CleanShot_2025-04-22_at_21.41.282x.png" />
 
 ## 💬 We're here to help
 
