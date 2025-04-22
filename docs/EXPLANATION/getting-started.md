@@ -41,15 +41,37 @@ metadata:
 
 <br />
 
-## Electronic Tax Invoicing
+## Electronic Tax Invoicing in Kenya
 
-African countries lately have been opting to digitize their tax systems by imposing e-Invoicing or Electronic Tax Invoicing and Reporting.
+African countries lately have been opting to digitize their tax systems by imposing e-Invoicing or Electronic Tax Invoicing and Reporting. Electronic Tax Invoicing is a nascent Fintech category in the Pan-African region.
+
+Kenya is one of the countries and the country's tax authority/ regulator, **KRA** (Kenya Revenue Authority) has a transformative e-invoicing system, named **eTIMS** (electronic Tax Information Management System). In this documentation, DigiTax Kenya API Hub, we shall simply refer to it as *eTIMS System* or *eTIMS*.
+
+## Introduction to KRA eTIMS and DigiTax platform
 
 ### eTIMS
 
-Kenya is one of the countries and the country's tax authority, KRA (Kenya Revenue Authority) calls their e-Invoicing platform, **eTIMS** (electronic Tax Invoice Management System).
+**eTIMS** (electronic Tax Invoice Management System) is the transformative e-invoicing system by Kenya's country's tax authority, **KRA** (Kenya Revenue Authority). The use of this system and other tax related changes was enacted by the Finance Act, 2023, which was signed on by the President of Kenya on 26 June 2023. Its implementation was halted temporarily by the High Court of Kenya for the next 6 months. It became effective on 1 January 2024 and has been utilized by taxpayers since then.
 
-## DigiTax
+### DigiTax platform
+
+DigiTax platform, by Namiri Technology (the company), constitutes a suite of digital solutions crafted for effective, simple, and painless tax compliance through **electronic tax invoicing**. These solutions enable taxpayers (individuals and businesses) to generate, digitally sign, and transmit compliant invoices as per connected tax authorities' requirements.
+
+## More about DigiTax
+
+The suite of digital solutions or products under DigiTax are:
+
+* **DigiTax App** (Compatible with Android and Android POS devices),
+* **DigiTax Dashboard** (Responsive, Web-Browser based, Desktop application)
+* **DigiTax API**
+
+DigiTax connects with regional tax authorities/ regulators, so far:
+
+* DigiTax Nigeria integrates you with <Glossary>FIRS</Glossary> e-Invoicing System
+* DigiTax Kenya integrates you with <Glossary>KRA</Glossary> eTIMS (electronic Tax Information Management System)
+* DigiTax Zambia integrates you with <Glossary>ZRA</Glossary> Smart Invoice System
+
+to offer you a streamlined invoicing system that ensures compliance and supports the growth of your business.
 
 Namiri Technology Limited, the proprietor of the DigiTax platform, has developed a suite of **Electronic Tax Invoicing** solutions, through which one can generate eTIMS invoices:
 
