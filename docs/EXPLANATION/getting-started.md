@@ -34,7 +34,7 @@ metadata:
   If you're looking for another country or the general homepage for DigiTax API, navigate to the [DigiTax API homepage](https://docs.digitax.tech), or country-specific API hub pages (ordered alphabetically):
 
   * <i class="icon-guides" /> [DigiTax Kenya API Hub](https://ke.docs.digitax.tech)\
-    **This page is DigiTax Kenya API (Version 1) Hub and only applicable if you were using the DigiTax API before version 2 was released**. Otherwise we encourage you to use the link above to navigate to the latest API version of DigiTax Kenya 👆.
+    This page is DigiTax Kenya API (Version 1) Hub and only applicable if you were using the DigiTax API before version 2 was released. Otherwise we encourage you to use the link above to navigate to the latest API version of DigiTax Kenya 👆.
   * <i class="icon-guides" /> [DigiTax Nigeria API Hub](https://ng.docs.digitax.tech)
   * <i class="icon-guides" /> [DigiTax Zambia API Hub](https://zm.docs.digitax.tech)
 </Accordion>
