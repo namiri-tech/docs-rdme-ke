@@ -85,7 +85,7 @@ These include:
 
 To use this API, you'll need access to DigiTax Dashboard environment to get an X-API-Key. Get in touch with [our team](mailto:support@namiri.tech).
 
-These are the steps required to get up and running - [Prerequisites of using DigiTax API](https://ke.docs.digitax.tech/v1.0/reference/prerequisites-of-using-the-api)
+These are the steps required to get up and running - [Prerequisites of using DigiTax API](https://ke.docs.digitax.tech/docs/start-using-the-api#/prerequisites)
 
 ***
 
@@ -142,7 +142,7 @@ We invite you to use **DigiTax Kenya API** to integrate your system with eTIMS f
 To recap:
 
 * Explore our detailed guides to gain understanding of DigiTax Kenya integration. Learn how to navigate them [here](doc:how-to-use-this-site)
-* Get the [Prerequisites for using DigiTax Kenya API](https://ke.docs.digitax.tech/update/reference/prerequisites-of-using-the-api)
+* Get the [Prerequisites for using DigiTax Kenya API](https://ke.docs.digitax.tech/docs/start-using-the-api#/prerequisites)
 * For support, [email us](mailto:support@namiri.tech) OR talk to us via the **DigiTax chat** on the bottom-right of any page
 
 Welcome to the Less Taxing solution - DigiTax.
