@@ -10,7 +10,7 @@ metadata:
 DigiTax provides the following:
 
 * Asynchronous functionality that automatically retries eTIMS
-* Get notifications on transaction statuses via [Callback URLs](doc:call-back-urls)
+* Get notifications on transaction statuses via [Callback URLs](https://ke.docs.digitax.tech/docs/callback-urls#/)
 * Throttling traffic between the businesses throughput and eTIMS
 
 This functionality is possible due to the DigiTax Queueing system.
@@ -53,7 +53,7 @@ Since transactions are first off entered into the DigiTax Queueing system, we gi
       </td>
 
       <td>
-        Check in later. If you set up [Callback URLs](doc:call-back-urls), we'll post to your system when the eTIMS sync is done.
+        Check in later. If you set up [Callback URLs](https://ke.docs.digitax.tech/docs/callback-urls#/), we'll post to your system when the eTIMS sync is done.
       </td>
     </tr>
 
