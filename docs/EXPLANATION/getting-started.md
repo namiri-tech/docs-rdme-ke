@@ -144,7 +144,7 @@ Explore the API endpoints [here](/reference)
 
 Once again, thank you for reviewing the getting started page of the DigiTax Kenya API hub. We're excited you're here! 💚
 
-We invite you to use **DigiTax Kenya API** to integrate your system with eTIMS for automation and to reduce platform-hopping
+We invite you to use **DigiTax Kenya API** to integrate your system with eTIMS for automation and to reduce platform-hopping.
 
 To recap:
 
