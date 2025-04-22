@@ -18,7 +18,7 @@ You can download the entire list [here](https://www.unspsc.org/) (unspsc.org). T
 3. Search for those copied first four numbers at the guide page - [Items: Item Classification Table](doc:items-item-classification-table)\\\
    (If there are more than one entry, pick the closest by definition)
 
-### Example:
+### Example
 
 **eyeglass frames** are not available on the [Items: Item Classification Table](doc:items-item-classification-table) therefore:
 
