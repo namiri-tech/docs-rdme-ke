@@ -9,7 +9,7 @@ metadata:
 
 For physical items, the packaging unit and quantity unit are self-explanatory.
 
-For services, we advise that you use: "NET" for packaging unit and "pieces/ item" for quantity unit.
+For services, we advise that you use: "NET" for packaging unit and "Pieces/ Item" for quantity unit.
 
 ### On the Dashboard
 
