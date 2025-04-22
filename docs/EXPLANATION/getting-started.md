@@ -118,27 +118,40 @@ The speed at which eTIMS invoices are generated is dependent on network capacity
 
 OSCU is different from VSCU. DigiTax doesn't have a VSCU option. That said, the DigiTax team has developed features like **offline URLs**, **callback URLs**, and others which provide compelling value (including VSCU-like service) that our customers rely on daily.
 
+> 🥇 DigiTax is the leading KRA & ODPC-approved eTIMS integrator
+
 ## DigiTax Kenya API Hub
 
 This API Hub contains guides and API reference pages for further understanding, equipping you on how to integrate with the DigiTax Kenya API.
 
-### Explore DigiTax Nigeria API Guides
+### Explore DigiTax Kenya API Guides
 
 Gain understanding of DigiTax Kenya integration through our detailed guides.
 
 You're in the guides section of DigiTax Kenya API Hub. Explore other pages below to gain context on DigiTax and eTIMS and understanding of how DigiTax makes it easier for you to integrate your invoicing system with eTIMS.
 
-<Accordion title="Guides" icon="fa-book-circle">
-  * [Create an eTIMS invoice in DigiTax](/docs/create-an-etims-invoice-in-digitax)
-  * [Item attributes](/docs/item-attributes-items)
-</Accordion>
+### Explore DigiTax Kenya API reference
 
-### API Reference
+For a great developer experience, the endpoints in the [DigiTax Kenya API reference](/reference) are interactive.
 
-Explore our API reference docs to interactively test our API before you being coding!
+Once you're set up in the DigiTax Dashboard, you can generate a Test/ LIVE **X-API-Key** for authorization.
 
-### DigiTax API Hub homepage
+Explore the API endpoints [here](/reference)
 
-If you're looking for another country or the general homepage for DigiTax API, navigate to the [DigiTax API homepage](https://docs.digitax.tech).
+***
 
-> 🥇 DigiTax is the leading KRA & ODPC-approved eTIMS integrator
+## Once again, welcome to the DigiTax Kenya API Hub
+
+Once again, thank you for reviewing the getting started page of the DigiTax Kenya API hub. We're excited you're here! 💚
+
+We invite you to use **DigiTax Kenya API** to integrate your system with eTIMS for automation and to reduce platform-hopping
+
+To recap:
+
+* Explore our detailed guides to gain understanding of DigiTax Kenya integration. Learn how to navigate them [here](doc:how-to-use-this-site)
+* Get the [Prerequisites for using DigiTax Kenya API](https://ke.docs.digitax.tech/update/reference/prerequisites-of-using-the-api)
+* For support, [email us](mailto:support@namiri.tech) OR talk to us via the **DigiTax chat** on the bottom-right of any page
+
+Welcome to the Less Taxing solution - DigiTax.
+
+<Image align="center" width="300px" src="https://files.readme.io/f982859d4fdca89de7d179a31795b159cb6c2e34a9a4dc578b85aba910daf13f-Full-Logo_Slogan_Colour.png" />
