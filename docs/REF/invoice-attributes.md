@@ -34,15 +34,15 @@ The attributes for sales and credit notes are mostly the same. Notice that the [
 
 ## Payment Type Codes
 
-| Code | Code Name          | Code Description                          |
-| ---- | ------------------ | ----------------------------------------- |
-| 01   | CASH               | CASH                                      |
-| 02   | CREDIT             | CREDIT                                    |
-| 03   | CASH/CREDIT        | CASH/CREDIT                               |
-| 04   | BANK CHECK         | BANK CHECK PAYMENT                        |
-| 05   | DEBIT\&CREDIT CARD | PAYMENT USING CARD                        |
-| 06   | MOBILE MONEY       | ANY TRANSACTION USING MOBILE MONEY SYSTEM |
-| 07   | OTHER              | OTHER MEANS OF PAYMENT                    |
+| Code | Code Name           | Code Description                          |
+| ---- | ------------------- | ----------------------------------------- |
+| 01   | CASH                | CASH                                      |
+| 02   | CREDIT              | CREDIT                                    |
+| 03   | CASH/CREDIT         | CASH/CREDIT                               |
+| 04   | BANK CHECK          | BANK CHECK PAYMENT                        |
+| 05   | DEBIT & CREDIT CARD | PAYMENT USING CARD                        |
+| 06   | MOBILE MONEY        | ANY TRANSACTION USING MOBILE MONEY SYSTEM |
+| 07   | OTHER               | OTHER MEANS OF PAYMENT                    |
 
 ## Invoice Status Codes
 
