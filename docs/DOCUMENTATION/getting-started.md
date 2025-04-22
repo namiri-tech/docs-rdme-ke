@@ -7,7 +7,7 @@ hidden: false
 ---
 <Cards columns={2}>
   <Card title="Navigation" icon="fa-compass">
-    If you're new to the DigiTax Kenya API Hub, learn how to navigate our pages [here](https://ke.docs.digitax.tech/v1.0/docs/how-to-use-this-site).
+    If you're new to the DigiTax Kenya API Hub, learn how to navigate our pages [here](https://ke.docs.digitax.tech/docs/how-to-use-this-site).
   </Card>
 
   <Card title="Support" icon="fa-question">
@@ -20,7 +20,7 @@ hidden: false
   </Card>
 
   <Card title="DigiTax Kenya API Reference" icon="fa-plug">
-    Get the pre-requisites, explore the API endpoints, and learn its feature set via our **interactive API reference** [here](https://ke.docs.digitax.tech/v1.0/reference).
+    Get the pre-requisites, explore the API endpoints, and learn its feature set via our **interactive API reference** [here](https://ke.docs.digitax.tech/reference).
   </Card>
 </Cards>
 
