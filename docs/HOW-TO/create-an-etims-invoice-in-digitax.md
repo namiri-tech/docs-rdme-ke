@@ -31,8 +31,8 @@ Below is an eTIMS invoice with sections highlighted.
 An eTIMS invoice has three key components: (They are highlighted above)
 
 1. A **QR code** redirecting to a URL on the eTIMS platform OR a DigiTax Receipt link\
-   The QR code above redirects to this URL: \<[https://etims-sbx.kra.go.ke/common/link/etims/receipt/indexEtimsReceiptData?Data=P000000001G02JHEURBU6RQAMEF3Y](https://etims-sbx.kra.go.ke/common/link/etims/receipt/indexEtimsReceiptData?Data=P000000001G02JHEURBU6RQAMEF3Y)>\
-   The structure is `\[[https://etims-sbx.kra.go.ke/common/link/etims/receipt/indexEtimsReceiptData](https://etims-sbx.kra.go.ke/common/link/etims/receipt/indexEtimsReceiptData)`]\([https://etims-sbx.kra.go.ke/common/link/etims/receipt/indexEtimsReceiptData\`](https://etims-sbx.kra.go.ke/common/link/etims/receipt/indexEtimsReceiptData`)) `?Data=` `\{KRAPIN}` `\{KRA Branch ID}` `\{Signature}`
+   The QR code above redirects to this URL: …
+   The structure is …
 2. The **tax breakdown** of that invoice
 3. **eTIMS metadata** that includes:
    * Date and Time of transaction
