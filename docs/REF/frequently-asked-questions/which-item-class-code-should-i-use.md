@@ -22,9 +22,9 @@ You can download the entire list [here](https://www.unspsc.org/) (unspsc.org). T
 
 **eyeglass frames** are not available on the [Items: Item Classification Table](doc:items-item-classification-table) therefore:
 
-* I searched for it (step #1 above), got "42142903".
-* (step #2 above) I copy the first four numbers of the code "4214"
-* (step #3 above) In the [Items: Item Classification Table](doc:items-item-classification-table), there are two entries starting with "4214".
+* (*step #1 above*) I searched for "eyeglass frames" and got "42142903".
+* (*step #2 above*) I copy the first four numbers of the code "4214"
+* (*step #3 above*) In the [Items: Item Classification Table](doc:items-item-classification-table), there are two entries starting with "4214".
   1. "42140000" (Patient care and treatment products and supplies)
   2. "42141600" (Basins and bedpans and urinals and admission kits)
 
