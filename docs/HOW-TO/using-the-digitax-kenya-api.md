@@ -1,5 +1,6 @@
 ---
-title: Using the DigiTax Kenya API
+title: Start using the DigiTax Kenya API
+excerpt: All you need to start using the API
 deprecated: false
 hidden: false
 metadata:
