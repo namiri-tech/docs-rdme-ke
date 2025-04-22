@@ -43,7 +43,7 @@ The `trader_invoice_number` is the alphanumeric identifier you generate or pick 
 > * Hyphen: -
 > * Underscore: \_
 > * Period (dot): .
-> * Tilde: \~
+> * Comma: ,
 >
 > We'll release an update that allow other characters.
 
