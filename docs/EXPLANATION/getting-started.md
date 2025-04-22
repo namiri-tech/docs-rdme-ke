@@ -74,7 +74,7 @@ DigiTax connects with regional tax authorities/ regulators, so far:
 
 to offer you a streamlined invoicing system that ensures compliance and supports the growth of your business.
 
-<Image align="center" border={true} caption="DigiTax - Tax authority/ regulators" src="https://files.readme.io/c4b6c503b46201821ae3d228d057ee6db2585be40a27a8607b90ec0d60b733ff-eInvoice.png" />
+<Image align="center" border={true} caption="DigiTax - Tax Regulators" src="https://files.readme.io/c4b6c503b46201821ae3d228d057ee6db2585be40a27a8607b90ec0d60b733ff-eInvoice.png" />
 
 ### DigiTax API Features
 
