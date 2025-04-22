@@ -10,7 +10,7 @@ metadata:
 ---
 ## Overview
 
-DigiTax | Quickbooks integration brings together the power of automated tax management with the convenience and flexibility of online accounting, offering businesses a comprehensive solution to their financial needs and tax compliance.
+**DigiTax | Quickbooks integration** brings together the power of automated tax management with the convenience and flexibility of online accounting, offering businesses a comprehensive solution to their financial needs and tax compliance.
 
 **Simplifying compliance**
 
