@@ -106,19 +106,27 @@ We comply with industry and security best practices.
 
 > **DigiTax Kenya** integrates you with eTIMS
 
+**DigiTax** is a solution that sits between you; the taxpayer, and the KRA eTIMS.
+
+With DigiTax, you gain access to a streamlined invoicing system that ensures compliance and supports your business's growth. Together, DigiTax and FIRS e-Invoicing are transforming how businesses in Nigeria manage their tax and invoicing obligations.
+
 For us to support individuals and businesses to generate eTIMS invoices, DigiTax is licensed as an eTIMS OSCU integrator/ provider.
 
 **OSCU** stands for ***O**nline **S**ales **C**ontrol **U**nit*. This means that the Control Unit needs to connect to the online KRA eTIMS server to sign/ stamp (generate eTIMS metadata and signature) invoices.
 
 The speed at which eTIMS invoices are generated is dependent on network capacity, connectivity, and responsiveness of KRA's eTIMS server and the Control Unit transmitting the network traffic.
 
-OSCU is different from VSCU; and DigiTax doesn't have a VSCU option. That said, the DigiTax team has developed features like **offline URLs**, **callback URLs**, and others which provide compelling value (including VSCU-like service) that our customers rely on daily.
+OSCU is different from VSCU. DigiTax doesn't have a VSCU option. That said, the DigiTax team has developed features like **offline URLs**, **callback URLs**, and others which provide compelling value (including VSCU-like service) that our customers rely on daily.
 
-## Navigating the DigiTax API Hub
+## DigiTax Kenya API Hub
 
-### Guides
+This API Hub contains guides and API reference pages for further understanding, equipping you on how to integrate with the DigiTax Kenya API.
 
-You're in the guides section of DigiTax Kenya API Hub. Explore other pages below to gain context on DigiTax and eTIMS and understanding on how DigiTax makes it easier for you to integrate your invoicing system with eTIMS.
+### Explore DigiTax Nigeria API Guides
+
+Gain understanding of DigiTax Kenya integration through our detailed guides.
+
+You're in the guides section of DigiTax Kenya API Hub. Explore other pages below to gain context on DigiTax and eTIMS and understanding of how DigiTax makes it easier for you to integrate your invoicing system with eTIMS.
 
 <Accordion title="Guides" icon="fa-book-circle">
   * [Create an eTIMS invoice in DigiTax](/docs/create-an-etims-invoice-in-digitax)
