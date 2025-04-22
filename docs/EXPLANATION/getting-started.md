@@ -24,9 +24,22 @@ metadata:
   </Card>
 
   <Card title="DigiTax Kenya API Reference" icon="fa-plug">
-    Get the pre-requisites, explore the API endpoints, and learn its feature set via our **interactive API reference** [here](https://ke.docs.digitax.tech/reference).
+    Get the pre-requisites, explore the API endpoints, and learn its feature set via our **interactive API reference** [here](https://ke.docs.digitax.tech/v1.0/reference).
   </Card>
 </Cards>
+
+<Accordion title="DigiTax is multi-national. Explore other countries here ..." icon="fa-globe">
+  You are currently reading a guide in the DigiTax Kenya API Hub.
+
+  If you're looking for another country or the general homepage for DigiTax API, navigate to the [DigiTax API homepage](https://docs.digitax.tech), or country-specific API hub pages (ordered alphabetically):
+
+  * [DigiTax Kenya API Hub](https://ke.docs.digitax.tech)\
+    **(This page is DigiTax Kenya API (Version 1) Hub and only applicable if you were using the DigiTax API before Version 2 was released. Otherwise we encourage you to use the link above to navigate to the latest API version of DigiTax Kenya.**
+  * [DigiTax Nigeria API Hub](https://ng.docs.digitax.tech)
+  * [DigiTax Zambia API Hub](https://zm.docs.digitax.tech)
+</Accordion>
+
+<br />
 
 ## Electronic Tax Invoicing
 
