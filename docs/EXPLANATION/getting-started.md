@@ -59,11 +59,12 @@ DigiTax platform, by Namiri Technology (the company), constitutes a suite of dig
 
 ## More about DigiTax
 
-The suite of digital solutions or products under DigiTax are:
+The suite of digital solutions or products under DigiTax, through which one can generate eTIMS invoices, are:
 
 * **DigiTax App** (Compatible with Android and Android POS devices),
 * **DigiTax Dashboard** (Responsive, Web-Browser based, Desktop application)
-* **DigiTax API**
+* **DigiTax API** (for system-to-system integration without the issue of platform hopping), and
+* **DigiTax Plugins** like DigiTax WooCommerce, DigiTax Odoo, DigiTax Quickbooks, DigiTax Sage Online, among others.
 
 DigiTax connects with regional tax authorities/ regulators, so far:
 
@@ -73,14 +74,37 @@ DigiTax connects with regional tax authorities/ regulators, so far:
 
 to offer you a streamlined invoicing system that ensures compliance and supports the growth of your business.
 
-Namiri Technology Limited, the proprietor of the DigiTax platform, has developed a suite of **Electronic Tax Invoicing** solutions, through which one can generate eTIMS invoices:
+<Image align="center" border={true} caption="DigiTax - Tax authority/ regulators" src="https://files.readme.io/c4b6c503b46201821ae3d228d057ee6db2585be40a27a8607b90ec0d60b733ff-eInvoice.png" />
 
-* **DigiTax Dashboard** (Web Browser-based Desktop application for e-invoicing),
-* **DigiTax API** (for system-to-system integration without the issue of platform hopping), and
-* **DigiTax App** (Compatible with Android POS devices)
-* **DigiTax Plugins** like DigiTax WooCommerce, DigiTax Odoo, DigiTax Quickbooks, DigiTax Sage Online, among others.
+### DigiTax API Features
 
-### DigiTax and eTIMS
+The DigiTax API is built with various industry standards for API platforms in mind. Read more on this [here](https://ke.docs.digitax.tech/v1.0/reference/using-the-digitax-kenya-api#digitax-api).
+
+> We invite you to use **DigiTax Kenya API** to integrate your system with eTIMS for automation and to reduce platform-hopping
+
+***
+
+These include:
+
+* RESTful API
+* OpenAPI (formerly Swagger): An open-source standard that allows a standardized way to generate, document, and test our APIs.
+* Secure authentication with cryptographically signed JWTs (JSON Web Tokens)
+
+To use this API, you'll need access to DigiTax Dashboard environment to get an X-API-Key. Get in touch with [our team](mailto:support@namiri.tech).
+
+These are the steps required to get up and running - [Prerequisites of using DigiTax API](https://ke.docs.digitax.tech/v1.0/reference/prerequisites-of-using-the-api)
+
+***
+
+### Guaranteed safety and integrity
+
+We comply with industry and security best practices.
+
+> 👍 DigiTax is built with the best industry practices and to the highest security standards
+
+## DigiTax Kenya and eTIMS
+
+> **DigiTax Kenya** integrates you with eTIMS
 
 For us to support individuals and businesses to generate eTIMS invoices, DigiTax is licensed as an eTIMS OSCU integrator/ provider.
 
