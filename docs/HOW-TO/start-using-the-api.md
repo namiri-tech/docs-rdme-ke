@@ -26,9 +26,20 @@ The following are the steps to getting a sandbox business (for testing before yo
 1. [Sign up on DigiTax](https://digitax.tech)
 2. Create a profile and select the appropriate country.
 3. Create a business with a sample correctly formatted TPIN (Tax Payer Identification Number) like `2002720806` and **set it as a TEST business**, with that, you can now transact on the dashboard.
-4. Create the API Key under the "Integrations" tab.
+4. Get API Key (Go to the section **Get API Key** below)
 
 Use the **X-API-Key** in your header when making API calls through the interactive API docs [here](/reference) OR via your integration during testing. This has a quick turn-around of a matter of minutes or hours. Do not wait for days 😊.
+
+## Get API Key
+
+1. Navigate to the "Integrations" menu.\
+   Then select "Add API KEY"
+
+<Image align="center" src="https://files.readme.io/89d5e88147a700b1272d84e18c91a9e3a5cc113f7a00f0dcf3441b8ff1cbe0f4-12.png" />
+
+2. Enter a name and select "API key". *Use "License key for DigiTax plugins*
+
+<Image align="center" width="360px" src="https://files.readme.io/ed7dc99a273e41e8dd31e1201da5c2889ee59221c22fd386ae0c2f8474a2ec04-122.png" />
 
 ## Going LIVE
 
@@ -38,16 +49,7 @@ Create another business with your TPIN (Tax Payer Identification Number) like `2
 
 Follow the steps shared in the email sent by the DigiTax system to your inbox as soon as you successfully create a business.
 
-Once that business goes LIVE, you can go ahead and generate an API Key under the "Integrations" tab. See screenshots below:
-
-Navigate to the "Integrations" menu.\
-Then select "Add API KEY"
-
-<Image align="center" src="https://files.readme.io/89d5e88147a700b1272d84e18c91a9e3a5cc113f7a00f0dcf3441b8ff1cbe0f4-12.png" />
-
-Enter a name and select "Api key". *Use "License key for DigiTax plugins*
-
-<Image align="center" width="360px" src="https://files.readme.io/ed7dc99a273e41e8dd31e1201da5c2889ee59221c22fd386ae0c2f8474a2ec04-122.png" />
+Once that business goes LIVE, you can go ahead and generate an API Key under the "Integrations" tab (See section **Get API Key** above)
 
 Please copy the value that you generate for later use, as you will not see it from the dashboard on subsequent visits. Save it securely.
 
