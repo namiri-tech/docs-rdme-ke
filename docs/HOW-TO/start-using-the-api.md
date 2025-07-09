@@ -37,10 +37,10 @@ Use the **X-API-Key** in your header when making API calls through the interacti
 
 <Image align="center" src="https://files.readme.io/89d5e88147a700b1272d84e18c91a9e3a5cc113f7a00f0dcf3441b8ff1cbe0f4-12.png" />
 
-2. Enter a name and select "API key". *Use "License key for DigiTax plugins*
+2. Enter a name\
+   Select "API key" (OR "License key" if you're using a DigiTax plugin).
 
-<Image align="center" width="360px" src="https://files.readme.io/ed7dc99a273e41e8dd31e1201da5c2889ee59221c22fd386ae0c2f8474a2ec04-122.png" />
-
+   <Image align="center" src="https://files.readme.io/34a987804e69bd0d0063040d313e1d5593815d9d8d3ecb91adde84fb427370d9-CleanShot_2025-07-09_at_10.19.39_22x.png" />
 3. Click "Generate key", copy the key, and click "Save".\
    Test this API key in our interactive DigiTax API Reference before using it in your integration.
 
