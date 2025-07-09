@@ -41,6 +41,13 @@ Use the **X-API-Key** in your header when making API calls through the interacti
 
 <Image align="center" width="360px" src="https://files.readme.io/ed7dc99a273e41e8dd31e1201da5c2889ee59221c22fd386ae0c2f8474a2ec04-122.png" />
 
+3. Click "Generate key", copy the key, and click "Save".\
+   Test this API key in our interactive DigiTax API Reference before using it in your integration.
+
+   <Image align="center" src="https://files.readme.io/c5d05c08b86a9022877bacf22a0ed00d9e9e5be940fee2d313e2556fdff13d7e-CleanShot_2025-07-09_at_09.22.212x.png" />
+
+In case of any questions, kindly reach out to [support@namiri.tech](mailto:support@namiri.tech) or simply start a chat with DigiTax chat, at the bottom right of this page.
+
 ## Going LIVE
 
 To go LIVE on the API, commercial conversations must be complete. If you wish to start those, email [info@namiri.tech](mailto:info@namiri.tech).
