@@ -13,7 +13,7 @@ DigiTax provides the following:
 * Get notifications on transaction statuses via [Callback URLs](https://ke.docs.digitax.tech/docs/callback-urls#/)
 * Throttling traffic between the businesses throughput and eTIMS
 
-This functionality is possible due to the DigiTax Queueing system.
+These features are possible due to the DigiTax Queueing system.
 
 > 📘 You don't run the risk of double-entry
 >
@@ -21,7 +21,7 @@ This functionality is possible due to the DigiTax Queueing system.
 
 ## The different transaction statuses and what they mean
 
-Since transactions are first off entered into the DigiTax Queueing system, we give you the following statuses. This is what they mean.
+Since transactions are first off entered into the DigiTax Queueing system, we give you the following statuses - **Pending**, **Failed**, **Submitted** (not applicable for items) and **Completed**. Below is a table explaining what they mean and your next actions.
 
 ### Transaction statuses
 
@@ -45,39 +45,45 @@ Since transactions are first off entered into the DigiTax Queueing system, we gi
   <tbody>
     <tr>
       <td>
-        pending
+        Pending
       </td>
 
       <td>
-        DigiTax Queueing system is **pending** before trying to reach eTIMS
+        The transaction has been queued in the DigiTax Queueing system.
+        This is the initial status before eTIMS responds to our attempt to sync with their system.
       </td>
 
       <td>
-        Check in later. If you set up [Callback URLs](https://ke.docs.digitax.tech/docs/callback-urls#/), we'll post to your system when the eTIMS sync is done.
+        Check in later.
+        If you set up [Callback URLs](https://ke.docs.digitax.tech/docs/callback-urls#/), we'll post to your system when the eTIMS sync is done. Expect a status of either **Failed** or **Completed**.
       </td>
     </tr>
 
     <tr>
       <td>
-        failed
+        Failed
       </td>
 
       <td>
-        eTIMS rejected the transaction
+        eTIMS sync is complete.
+        eTIMS rejected the transaction.
       </td>
 
       <td>
         Please initiate another transaction.
+        If this persists for several transactions, kindly initiate an email/ chat with us for DigiTax support team to intervene.
+        (**DigiTax chat** is at the bottom right of any page)
       </td>
     </tr>
 
     <tr>
       <td>
-        completed
+        Completed
       </td>
 
       <td>
-        eTIMS has received and accepted the transaction, and we have the final data
+        eTIMS sync is complete.
+        eTIMS has accepted the transaction, and we have the final data in DigiTax accessible via Dashboard, Apps, or API.
       </td>
 
       <td>
@@ -88,15 +94,19 @@ Since transactions are first off entered into the DigiTax Queueing system, we gi
 
     <tr>
       <td>
-        submitted
+        Submitted
+        (Only applies to Sales and Credit Notes)
       </td>
 
       <td>
-        eTIMS has received and accepted the transaction; however, we do not have the final data from their system. Though this is unlikely, we have a workaround to get the data.
+        *This status is rare*
+        eTIMS sync is complete.
+        However, we do not have the final data from their system.
       </td>
 
       <td>
-        If you don't have an `etims_url` kindly initiate an email/ chat with us when this happens. (**DigiTax chat** is at the bottom right of any page)
+        Kindly initiate an email/ chat with us for DigiTax support team to intervene.
+        (**DigiTax chat** is at the bottom right of any page)
       </td>
     </tr>
   </tbody>
