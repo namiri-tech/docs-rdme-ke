@@ -4,7 +4,7 @@ excerpt: >-
   Reverse invoicing allows businesses to enable customers to generate invoices
   on their behalf, streamlining the billing process.
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 ---
