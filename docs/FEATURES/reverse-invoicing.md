@@ -52,9 +52,9 @@ Below are the main endpoints to use:
 2. [Get a business supplier (GET)](https://ke.docs.digitax.tech/reference/get_suppliers-supplier-id)\
    Specify the `supplier_id` - Use this endpoint to confirm status.
    Status should be `COMPLETED` before proceeding.
-3. [Add reverse invoice with item information](https://docs.digitax.tech/reference/post_reverse-invoices-with-items)\
+3. [Add reverse invoice with item information (POST)](https://docs.digitax.tech/reference/post_reverse-invoices-with-items)\
    Include the `supplier_id` among other required attributes - Returns a sale object with `id` (referred to as **sale\_id** below).
-4. [Get reverse invoice](https://docs.digitax.tech/reference/get_reverse-invoices-sale-id)\
+4. [Get reverse invoice (**GET**)](https://docs.digitax.tech/reference/get_reverse-invoices-sale-id)\
    Specify the `sale_id` - Use this endpoint to confirm status.
 
 ### Reverse Invoicing Process in DigiTax Dashboard
