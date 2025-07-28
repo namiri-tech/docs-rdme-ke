@@ -848,7 +848,7 @@ paths:
                         example: '99010000'
                       item_bar_code:
                         type: string
-                        example: 'B4R-C0D3-54MPL3'
+                        example: B4R-C0D3-54MPL3
                       item_tax_type_code:
                         type: string
                         example: D
@@ -1770,7 +1770,7 @@ paths:
                         example: '99010000'
                       item_bar_code:
                         type: string
-                        example: 'B4R-C0D3-54MPL3'
+                        example: B4R-C0D3-54MPL3
                       item_tax_type_code:
                         type: string
                         example: D
@@ -2222,7 +2222,7 @@ components:
         item_bar_code:
           type: string
           description: The bar code or unique product code(UPC) of the item
-          example: 'B4R-C0D3-54MPL3'
+          example: B4R-C0D3-54MPL3
         levies:
           type: array
           items:
