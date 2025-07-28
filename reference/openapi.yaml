@@ -88,11 +88,11 @@ paths:
                 item_class_code:
                   type: string
                   description: The item class code of the item
-                  example: 99020000
+                  example: '99010000'
                 item_type_code:
                   type: string
                   description: The item type code of the item
-                  example: 3
+                  example: '2'
                 item_name:
                   type: string
                   description: The name of the item
@@ -126,7 +126,7 @@ paths:
                   description: >-
                     The callback url to call when we have new information about
                     the item, usually after syncing with eTIMS
-                  example: https://example.site/services/digitaxQueueReceiverPROXY
+                  example: https://example.com/callback
                 levies:
                   type: array
                   items:
@@ -188,7 +188,7 @@ paths:
         description: Item ID in Digitax
         schema:
           type: string
-          example: item_01HC3J1VVVM05YCTS61G7V3KC6
+          example: item_1D-54MPL3-D0C5-F00-B4R-BAZ
     put:
       tags:
         - Items
@@ -206,7 +206,7 @@ paths:
                 item_name:
                   type: string
                   description: The name of an item
-                  example: DigiTax Product 02
+                  example: DigiTax Product 01
                 tax_type_code:
                   type: string
                   description: The tax type code of the item
@@ -307,15 +307,15 @@ paths:
                 customer_tin:
                   type: string
                   description: Customer Tax Identification Number (TIN)
-                  example: P012345678P
+                  example: P012345678Y
                 email:
                   type: string
                   description: Customer Email Address
-                  example: john@doe.com
+                  example: support@digitax.tech
                 phone:
                   type: string
                   description: Customer Phone Number
-                  example: 254712345678
+                  example: '+254112685368'
       responses:
         '201':
           description: Success
@@ -344,7 +344,7 @@ paths:
           schema:
             type: string
             description: Customer ID on DigiTax
-            example: customer_01HC3J1VVVM05YCTS61G7V3KC6
+            example: customer_1D-54MPL3-D0C5-F00-B4R-BAZ
       responses:
         '200':
           description: Success
@@ -372,7 +372,7 @@ paths:
           schema:
             type: string
             description: Customer ID on DigiTax
-            example: customer_01HC3J1VVVM05YCTS61G7V3KC6
+            example: customer_1D-54MPL3-D0C5-F00-B4R-BAZ
       requestBody:
         required: true
         content:
@@ -390,11 +390,11 @@ paths:
                 email:
                   type: string
                   description: Customer Email Address
-                  example: john@doe.com
+                  example: support@digitax.tech
                 phone:
                   type: string
                   description: Customer Phone Number
-                  example: 254712345678
+                  example: '+254112685368'
       responses:
         '200':
           description: Success
@@ -461,7 +461,7 @@ paths:
           schema:
             type: string
             description: Import ID in Digitax
-            example: import_01HC3J1VVVM05YCTS61G7V3KC6
+            example: import_1D-54MPL3-D0C5-F00-B4R-BAZ
       requestBody:
         required: true
         content:
@@ -474,7 +474,7 @@ paths:
                 item_id:
                   type: string
                   description: The id of the item in Digitax
-                  example: item_01HC3J1VVVM05YCTS61G7V3KC6
+                  example: item_1D-54MPL3-D0C5-F00-B4R-BAZ
       responses:
         '200':
           description: Success
@@ -541,7 +541,7 @@ paths:
           schema:
             type: string
             description: Purchase ID in Digitax
-            example: purchase_01HC3J1VVVM05YCTS61G7V3KC6
+            example: purchase_1D-54MPL3-D0C5-F00-B4R-BAZ
       responses:
         '200':
           description: Success
@@ -570,7 +570,7 @@ paths:
           schema:
             type: string
           description: Purchase id
-          example: purchase_01HC3J1VVVM05YCTS61G7V3KC6
+          example: purchase_1D-54MPL3-D0C5-F00-B4R-BAZ
       requestBody:
         required: true
         content:
@@ -588,10 +588,10 @@ paths:
                     properties:
                       purchase_item_id:
                         type: string
-                        example: purchaseitem_01HC3J1VVVM05YCTS61G7V3KC6
+                        example: purchaseitem_1D-54MPL3-D0C5-F00-B4R-BAZ
                       item_id:
                         type: string
-                        example: item_01HC3J1VVVM05YCTS61G7V3KC6
+                        example: item_1D-54MPL3-D0C5-F00-B4R-BAZ
       responses:
         '200':
           description: Success
@@ -629,16 +629,16 @@ paths:
               properties:
                 sale_date:
                   type: string
-                  example: '2023-07-23'
+                  example: '2025-07-29'
                 customer_tin:
                   type: string
-                  example: P123456789Y
+                  example: P012345678Y
                 customer_name:
                   type: string
                   example: John Doe
                 customer_id:
                   type: string
-                  example: customer_01HC3HTDAXQ50E07CWR2A2CFBD
+                  example: customer_1D-54MPL3-D0C5-F00-B4R-BAZ
                 trader_invoice_number:
                   type: string
                   example: '12345678901'
@@ -665,7 +665,7 @@ paths:
                       example: REVERSE
                     issuer:
                       type: string
-                      example: business_01HC3J1VVVM05YCTS61G7V3KC6
+                      example: business_1D-54MPL3-D0C5-F00-B4R-BAZ
                 invoice_details:
                   type: string
                   example: Invoice Details
@@ -691,7 +691,7 @@ paths:
                     properties:
                       id:
                         type: string
-                        example: item_01HC3J1VVVM05YCTS61G7V3KC6
+                        example: item_1D-54MPL3-D0C5-F00-B4R-BAZ
                       quantity:
                         type: number
                         example: 1
@@ -784,16 +784,16 @@ paths:
               properties:
                 sale_date:
                   type: string
-                  example: '2023-07-23'
+                  example: '2025-07-29'
                 customer_tin:
                   type: string
-                  example: P123456789Y
+                  example: P012345678Y
                 customer_name:
                   type: string
                   example: John Doe
                 customer_id:
                   type: string
-                  example: customer_01HC3HTDAXQ50E07CWR2A2CFBD
+                  example: customer_1D-54MPL3-D0C5-F00-B4R-BAZ
                 trader_invoice_number:
                   type: string
                   example: '12345678901'
@@ -820,7 +820,7 @@ paths:
                       example: REVERSE
                     issuer:
                       type: string
-                      example: business_01HC3J1VVVM05YCTS61G7V3KC6
+                      example: business_1D-54MPL3-D0C5-F00-B4R-BAZ
                 invoice_details:
                   type: string
                   example: Invoice Details
@@ -845,10 +845,10 @@ paths:
                         example: Item name
                       item_class_code:
                         type: string
-                        example: '99000000'
+                        example: '99010000'
                       item_bar_code:
                         type: string
-                        example: '99000001'
+                        example: B4R-C0D3-54MPL3
                       item_tax_type_code:
                         type: string
                         example: D
@@ -923,10 +923,10 @@ paths:
                   example: '12345678901'
                 return_date:
                   type: string
-                  example: '2023-07-23'
+                  example: '2025-07-29'
                 sale_id:
                   type: string
-                  example: sale_01HC3J1VVVM05YCTS61G7V3KC6
+                  example: sale_1D-54MPL3-D0C5-F00-B4R-BAZ
                 callback_url:
                   type: string
                   example: https://example.com/callback
@@ -971,10 +971,10 @@ paths:
                   example: '12345678901'
                 return_date:
                   type: string
-                  example: '2023-07-23'
+                  example: '2025-07-29'
                 sale_id:
                   type: string
-                  example: sale_01HC3J1VVVM05YCTS61G7V3KC6
+                  example: sale_1D-54MPL3-D0C5-F00-B4R-BAZ
                 callback_url:
                   type: string
                   example: https://example.com/callback
@@ -995,7 +995,7 @@ paths:
                     properties:
                       item_bar_code:
                         type: string
-                        example: HC3J1VVVM05YCTS61G7V3KC6
+                        example: B4R-C0D3-54MPL3
                       quantity:
                         type: number
                         example: 1
@@ -1058,10 +1058,10 @@ paths:
               properties:
                 return_date:
                   type: string
-                  example: '2023-07-23'
+                  example: '2025-07-29'
                 sale_id:
                   type: string
-                  example: sale_01HC3J1VVVM05YCTS61G7V3KC6
+                  example: sale_1D-54MPL3-D0C5-F00-B4R-BAZ
                 trader_invoice_number:
                   type: string
                   example: '12345678901'
@@ -1085,7 +1085,7 @@ paths:
                     properties:
                       id:
                         type: string
-                        example: item_01HC3J1VVVM05YCTS61G7V3KC6
+                        example: item_1D-54MPL3-D0C5-F00-B4R-BAZ
                       quantity:
                         type: number
                         example: 1
@@ -1169,7 +1169,7 @@ paths:
           schema:
             type: string
             description: Sale ID on DigiTax
-            example: sale_01HC3HTDAXQ50E07CWR2A2CFBD
+            example: sale_1D-54MPL3-D0C5-F00-B4R-BAZ
       responses:
         '200':
           description: Success
@@ -1199,14 +1199,14 @@ paths:
           schema:
             type: string
             description: Business ID on DigiTax
-            example: business_01HC3HTDAXQ50E07CWR2A2CFBD
+            example: business_1D-54MPL3-D0C5-F00-B4R-BAZ
         - in: path
           name: trader_invoice_number
           required: true
           schema:
             type: string
             description: Trader Invoice Number
-            example: 12345678901
+            example: '12345678901'
       responses:
         '200':
           description: Success
@@ -1243,16 +1243,16 @@ paths:
               properties:
                 item_id:
                   type: string
-                  example: item_01HC3J1VVVM05YCTS61G7V3KC6
+                  example: item_1D-54MPL3-D0C5-F00-B4R-BAZ
                 business_id:
                   type: string
-                  example: business_01HC3J1VVVM05YCTS61G7V3KC6
+                  example: business_1D-54MPL3-D0C5-F00-B4R-BAZ
                 quantity:
                   type: number
                   example: 1
                 receiving_item_id:
                   type: string
-                  example: item_01J8HJFH3NG17EGVF0N5GHMPM9
+                  example: item_2D-54MPL3-D0C5-F00-B4R-BAZ
       responses:
         '200':
           description: Success
@@ -1289,7 +1289,7 @@ paths:
                 item_id:
                   type: string
                   description: Item ID in DigiTax
-                  example: item_01HC3J1VVVM05YCTS61G7V3KC6
+                  example: item_1D-54MPL3-D0C5-F00-B4R-BAZ
                 quantity:
                   type: number
                   description: Stock quantity
@@ -1319,10 +1319,10 @@ paths:
                 properties:
                   id:
                     type: string
-                    example: item_01HC3J1VVVM05YCTS61G7V3KC6
+                    example: item_1D-54MPL3-D0C5-F00-B4R-BAZ
                   item_code:
                     type: string
-                    example: KE1PD-U230411121122
+                    example: KE3NTU0000001
                   stock_quantity:
                     type: integer
                     example: 300
@@ -1381,16 +1381,16 @@ paths:
               properties:
                 invoice_number:
                   type: string
-                  example: KRACU0300000024/39
+                  example: KRACU9999999999/99
                 amount:
                   type: integer
                   example: 2000
                 supplier_pin:
                   type: string
-                  example: P000614502H
+                  example: P012345678Y
                 reference_number:
                   type: string
-                  example: P000614502H
+                  example: R3F-N0-54MPL3-D0C5-F00-B4R-BAZ
       responses:
         '201':
           description: Success
@@ -1493,19 +1493,19 @@ paths:
                 supplier_name:
                   type: string
                   description: Supplier Name
-                  example: John Doe Inc.
+                  example: Digi Tax Inc.
                 supplier_tin:
                   type: string
                   description: Supplier Tax Identification Number (TIN)
-                  example: P012345678P
+                  example: P012345678Y
                 email:
                   type: string
                   description: Supplier Email Address
-                  example: accounts@johndoeinc.com
+                  example: support@digitax.tech
                 phone:
                   type: string
                   description: Supplier Phone Number
-                  example: '+254712345678'
+                  example: '+254112685368'
       responses:
         '201':
           description: Success
@@ -1534,7 +1534,7 @@ paths:
           schema:
             type: string
             description: Supplier ID on DigiTax
-            example: supplier_01JS16JDB2B5ESZ8HWJ3CBYP5Y
+            example: supplier_1D-54MPL3-D0C5-F00-B4R-BAZ
       responses:
         '200':
           description: Success
@@ -1569,22 +1569,22 @@ paths:
               properties:
                 supplier_id:
                   type: string
-                  example: supplier_01JS16JDB2B5ESZ8HWJ3CBYP5Y
+                  example: supplier_1D-54MPL3-D0C5-F00-B4R-BAZ
                 sale_date:
                   type: string
-                  example: '2023-07-23'
+                  example: '2025-07-29'
                 customer_tin:
                   type: string
-                  example: P123456789Y
+                  example: P012345678Y
                 customer_name:
                   type: string
                   example: John Doe
                 customer_phone:
                   type: string
-                  example: '+254714267891'
+                  example: '+254112685368'
                 customer_email:
                   type: string
-                  example: john@doe.com
+                  example: support@digitax.tech
                 payment_type_code:
                   type: string
                   example: '07'
@@ -1605,7 +1605,7 @@ paths:
                     properties:
                       id:
                         type: string
-                        example: item_01HC3J1VVVM05YCTS61G7V3KC6
+                        example: item_1D-54MPL3-D0C5-F00-B4R-BAZ
                       quantity:
                         type: number
                         example: 1
@@ -1689,7 +1689,7 @@ paths:
           schema:
             type: string
             description: Reverse invoice ID on DigiTax
-            example: sale_01HC3HTDAXQ50E07CWR2A2CFBD
+            example: sale_1D-54MPL3-D0C5-F00-B4R-BAZ
       responses:
         '200':
           description: Success
@@ -1724,22 +1724,22 @@ paths:
               properties:
                 supplier_id:
                   type: string
-                  example: supplier_01JS16JDB2B5ESZ8HWJ3CBYP5Y
+                  example: supplier_1D-54MPL3-D0C5-F00-B4R-BAZ
                 sale_date:
                   type: string
-                  example: '2023-07-23'
+                  example: '2025-07-28'
                 customer_tin:
                   type: string
-                  example: P123456789Y
+                  example: P012345678Y
                 customer_name:
                   type: string
                   example: John Doe
                 customer_phone:
                   type: string
-                  example: '+254714267891'
+                  example: '+254112685368'
                 customer_email:
                   type: string
-                  example: john@doe.com
+                  example: support@digitax.tech
                 payment_type_code:
                   type: string
                   example: '07'
@@ -1767,10 +1767,10 @@ paths:
                         example: Item name
                       item_class_code:
                         type: string
-                        example: '99000000'
+                        example: '99010000'
                       item_bar_code:
                         type: string
-                        example: '99000001'
+                        example: B4R-C0D3-54MPL3
                       item_tax_type_code:
                         type: string
                         example: D
@@ -1823,14 +1823,14 @@ paths:
           schema:
             type: string
             format: date
-            example: '2025-07-01'
+            example: '2025-07-29'
         - in: query
           name: end_date
           required: true
           schema:
             type: string
             format: date
-            example: '2025-07-31'
+            example: '2025-07-29'
       responses:
         '200':
           description: Success
@@ -1874,7 +1874,7 @@ components:
       properties:
         last_updated:
           type: string
-          example: '2023-02-02T21:00:00.000Z'
+          example: '2025-07-29T17:06:07.036Z'
           description: Timestamp when the data was last updated from eTIMS
     Notice:
       type: object
@@ -1889,15 +1889,15 @@ components:
       properties:
         id:
           type: string
-          example: notice_01HC3J1VVVM05YCTS61G7V3KC6
+          example: notice_1D-54MPL3-D0C5-F00-B4R-BAZ
           description: Notice ID in Digitax
         notice_number:
           type: string
-          example: 01HC3J1VVVM05YCTS61G7V3KC6
+          example: NUM-54MPL3-D0C5-F00-B4R-BAZ
           description: Notice number from eTIMS
         notice_date:
           type: string
-          example: '2023-02-02T21:00:00.000Z'
+          example: '2025-07-29T17:06:07.036Z'
         title:
           type: string
           example: Call to Action
@@ -1927,15 +1927,15 @@ components:
       properties:
         id:
           type: string
-          example: branch_01HC3J1VVVM05YCTS61G7V3KC6
+          example: branch_1D-54MPL3-D0C5-F00-B4R-BAZ
         tax_pin:
           type: string
           description: Branch KRA PIN
-          example: P012345678P
+          example: P012345678Y
         branch_office_id:
           type: string
           description: Branch Office ID
-          example: 0
+          example: '01'
         branch_office_name:
           type: string
           description: Branch Office Name
@@ -1943,7 +1943,7 @@ components:
         branch_status_code:
           type: string
           description: Branch Status Code
-          example: 1
+          example: '1'
         county_name:
           type: string
           description: County Name
@@ -1963,15 +1963,15 @@ components:
         manager_name:
           type: string
           description: Manager Name
-          example: John Doe
+          example: Digi Tax
         manager_contact:
           type: string
           description: Manager Contact
-          example: 712345678
+          example: '+254112685368'
         manager_email:
           type: string
           description: Manager Email
-          example: manager@email.com
+          example: support@digitax.tech
         is_head_office:
           type: boolean
           description: Is Head Office
@@ -1987,7 +1987,7 @@ components:
         id:
           type: string
           description: Customer ID
-          example: customer_01HC3HTDAXQ50E07CWR2A2CFBD
+          example: customer_1D-54MPL3-D0C5-F00-B4R-BAZ
         customer_name:
           type: string
           description: Customer Name
@@ -1995,15 +1995,15 @@ components:
         email:
           type: string
           description: Customer Email
-          example: john@doe.com
+          example: support@digitax.tech
         phone:
           type: string
           description: Customer Phone Number
-          example: 254712345678
+          example: '+254112685368'
         customer_tin:
           type: string
           description: Customer Tax Identification Number (TIN)
-          example: P012345678P
+          example: P012345678Y
         taxpayer_type:
           type: string
           enum:
@@ -2022,7 +2022,7 @@ components:
         id:
           type: string
           description: Insurance ID
-          example: insurance_01HC3J1VVVM05YCTS61G7V3KC6
+          example: insurance_1D-54MPL3-D0C5-F00-B4R-BAZ
         insurance_name:
           type: string
           description: Insurance Name
@@ -2030,7 +2030,7 @@ components:
         insurance_code:
           type: string
           description: Insurance Code
-          example: 123456
+          example: C0D3-54MPL3-D0C5-F00-B4R-BAZ
         premium_rate:
           type: number
           description: Premium Rate
@@ -2066,13 +2066,13 @@ components:
       properties:
         id:
           type: string
-          example: import_01HC3J1VVVM05YCTS61G7V3KC6
+          example: import_1D-54MPL3-D0C5-F00-B4R-BAZ
         task_code:
           type: string
-          example: '202302081365045'
+          example: '202502081365045'
         declaration_date:
           type: string
-          example: '2023-02-02T21:00:00.000Z'
+          example: '2025-07-29T17:06:07.036Z'
           format: date-time
         item_sequence:
           type: integer
@@ -2133,7 +2133,7 @@ components:
           example: UPDATED
         item_id:
           type: string
-          example: item_01HC3J1VVVM05YCTS61G7V3KC6
+          example: item_1D-54MPL3-D0C5-F00-B4R-BAZ
         item_class_code:
           type: string
           example: '30103604'
@@ -2160,15 +2160,15 @@ components:
         id:
           type: string
           description: Item ID in Digitax
-          example: item_01HC3J1VVVM05YCTS61G7V3KC6
+          example: item_1D-54MPL3-D0C5-F00-B4R-BAZ
         item_class_code:
           type: string
           description: The item class code of the item
-          example: 99020000
+          example: '99010000'
         item_type_code:
           type: string
           description: The item type code of the item
-          example: 3
+          example: '2'
         item_name:
           type: string
           description: The name of the item
@@ -2196,7 +2196,7 @@ components:
         etims_item_code:
           type: string
           description: The eTIMS item code of the item
-          example: DT-67717-E7GcGbvYDy
+          example: KE3NTU0000001
         is_stock_item:
           type: boolean
           description: >-
@@ -2222,7 +2222,7 @@ components:
         item_bar_code:
           type: string
           description: The bar code or unique product code(UPC) of the item
-          example: '012345678905'
+          example: B4R-C0D3-54MPL3
         levies:
           type: array
           items:
@@ -2232,10 +2232,10 @@ components:
       properties:
         next:
           type: string
-          example: item_01HC3J1VVVM05YCTS61G7V3KC6
+          example: item_1D-54MPL3-D0C5-F00-B4R-BAZ
         previous:
           type: string
-          example: item_01HC3J1VVVM05YCTS61G7V3KC6
+          example: item_1D-54MPL3-D0C5-F00-B4R-BAZ
         page_size:
           type: integer
           example: 20
@@ -2273,7 +2273,7 @@ components:
           example: S
         serial_number:
           type: string
-          example: KRACU0400000001
+          example: S341AL-NUMB34-54MPL3
         receipt_number:
           type: integer
           example: 38
@@ -2282,12 +2282,12 @@ components:
           example: 38
         sale_detail_url:
           type: string
-          example: https://api.digitax.tech/sales/YKSWCIiuvx
+          example: https://api.digitax.tech/sales/sale_1D-54MPL3-D0C5-F00-B4R-BAZ
           format: url
         offline_url:
           type: string
           example: >-
-            https://receipt.dg.tax/r/business_01JGXVVP4Z3MWQBQ3XSCJ3S4JF/SAL25-204-145657411-MHARTQ
+            https://receipt.dg.tax/r/business_1D-54MPL3-D0C5-F00-B4R-BAZ/SAL25-1D-54MPL3-D0C5-F00-B4R-BAZ
           format: url
         sales_tax_summary:
           type: object
@@ -2367,17 +2367,17 @@ components:
               example: 0
         customer_id:
           type: string
-          example: customer_01HC3HTDAXQ50E07CWR2A2CFBD
+          example: customer_1D-54MPL3-D0C5-F00-B4R-BAZ
         internal_data:
           type: string
-          example: PB3ZSZP3RZR3AUPYBYLUTFJDIA
+          example: 1NT34NAL-4ATA-54MPL3-D0C5-F00-B4R-BAZ
         receipt_signature:
           type: string
-          example: 3JYZVPTPMYBGHG4A
+          example: R3C31PTS1GN8U43
         etims_url:
           type: string
           example: >-
-            https://etims.kra.go.ke/common/link/etims/receipt/indexEtimsReceptData?{P053100692D+00+3JYZVPTPMYBGHG4A}
+            https://etims.kra.go.ke/common/link/etims/receipt/indexEtimsReceiptData?Data=P012345678Y00R3C31PTS1GN8U43
           format: url
         status:
           type: string
@@ -2396,19 +2396,19 @@ components:
           example: John Doe
         customer_tin:
           type: string
-          example: P123456789P
+          example: P012345678Y
         customer_phone_number:
           type: string
           example: '+254112685368'
         customer_email:
           type: string
-          example: info@namiri.tech
+          example: support@digitax.tech
         date:
           type: string
-          example: 10/05/2023
+          example: 29/07/2025
         time:
           type: string
-          example: 04:16:11 pm
+          example: 05:06:07 pm
     SaleItem:
       type: object
       required:
@@ -2426,7 +2426,7 @@ components:
       properties:
         id:
           type: string
-          example: saleitem_01HC3J1VVVM05YCTS61G7V3KC6
+          example: saleitem_1D-54MPL3-D0C5-F00-B4R-BAZ
         quantity:
           type: number
           example: 1
@@ -2456,7 +2456,7 @@ components:
           example: 0
         item_id:
           type: string
-          example: item_01HC3J1VVVM05YCTS61G7V3KC6
+          example: item_1D-54MPL3-D0C5-F00-B4R-BAZ
     Purchase:
       type: object
       required:
@@ -2476,7 +2476,7 @@ components:
       properties:
         id:
           type: string
-          example: purchase_01HC3J1VVVM05YCTS61G7V3KC6
+          example: purchase_1D-54MPL3-D0C5-F00-B4R-BAZ
         registration_type_code:
           type: string
           example: A
@@ -2497,10 +2497,10 @@ components:
           example: '06'
         purchase_date:
           type: string
-          example: '20230620'
+          example: '20250729'
         trader_invoice_number:
           type: string
-          example: '12'
+          example: '12345678901'
         supplier_branch_id:
           type: string
           example: '00'
@@ -2509,7 +2509,7 @@ components:
           example: KENYA REVENUE AUTHORITY
         supplier_invoice_number:
           type: integer
-          example: 12
+          example: 12345678901
         item_list:
           type: array
           items:
@@ -2527,7 +2527,7 @@ components:
       properties:
         id:
           type: string
-          example: purchaseitem_01HC3J1VVVM05YCTS61G7V3KC6
+          example: purchaseitem_1D-54MPL3-D0C5-F00-B4R-BAZ
         quantity:
           type: integer
           example: 3000
@@ -2545,7 +2545,7 @@ components:
           example: 0
         item_id:
           type: string
-          example: item_01HC3J1VVVM05YCTS61G7V3KC6
+          example: item_1D-54MPL3-D0C5-F00-B4R-BAZ
     OfflineUrlSale:
       type: object
       required:
@@ -2571,10 +2571,10 @@ components:
       properties:
         date:
           type: string
-          example: '2023-07-23'
+          example: '2025-07-28'
         time:
           type: string
-          example: '12:00:00'
+          example: '17:06:07'
         trader_invoice_number:
           type: string
           example: '12345678901'
@@ -2586,23 +2586,23 @@ components:
           example: 38
         digitax_id:
           type: string
-          example: sale_01HC3HTDAXQ50E07CWR2A2CFBD
+          example: sale_1D-54MPL3-D0C5-F00-B4R-BAZ
         serial_number:
           type: string
-          example: KRACU0400000001
+          example: S341AL-NUMB34-54MPL3
         receipt_number:
           type: integer
           example: 38
         internal_data:
           type: string
-          example: PB3ZSZP3RZR3AUPYBYLUTFJDIA
+          example: 1NT34NAL-4ATA-54MPL3-D0C5-F00-B4R-BAZ
         receipt_signature:
           type: string
-          example: 3JYZVPTPMYBGHG4A
+          example: R3C31PTS1GN8U43
         etims_url:
           type: string
           example: >-
-            https://etims.kra.go.ke/common/link/etims/receipt/indexEtimsReceptData?{P053100692D+00+3JYZVPTPMYBGHG4A}
+            https://etims.kra.go.ke/common/link/etims/receipt/indexEtimsReceiptData?Data=P012345678Y00R3C31PTS1GN8U43
         sales_tax_summary:
           type: object
           required:
@@ -2680,7 +2680,7 @@ components:
         kra_receipt_url:
           type: string
           example: >-
-            https://etims.kra.go.ke/common/link/etims/receipt/indexEtimsReceptData?{P053100692D+00+3JYZVPTPMYBGHG4A}
+            https://etims.kra.go.ke/common/link/etims/receipt/indexEtimsReceiptData?Data=P012345678Y00R3C31PTS1GN8U43
         total:
           type: number
           example: 600
@@ -2698,13 +2698,13 @@ components:
               example: Business Name
             pin:
               type: string
-              example: P012345678P
+              example: P012345678Y
             email:
               type: string
               example: support@digitax.tech
             phone:
               type: string
-              example: 254712345678
+              example: '+254112685368'
             location:
               type: string
               example: Nairobi
@@ -2718,16 +2718,16 @@ components:
           properties:
             name:
               type: string
-              example: John Doe
+              example: Customer Name
             pin:
               type: string
-              example: P012345678P
+              example: P012345678Y
             email:
               type: string
-              example: support@namiri.tech
+              example: support@digitax.tech
             phone:
               type: string
-              example: 254712345678
+              example: '+254112685368'
         items:
           type: array
           items:
@@ -2741,7 +2741,7 @@ components:
             properties:
               id:
                 type: string
-                example: item_01HC3J1VVVM05YCTS61G7V3KC6
+                example: item_1D-54MPL3-D0C5-F00-B4R-BAZ
               name:
                 type: string
                 example: DigiTax Product 01
@@ -2768,7 +2768,7 @@ components:
           example: success
         created_at:
           type: string
-          example: '2024-09-18T15:09:02.036Z'
+          example: '2025-07-29T17:06:07.036Z'
         data:
           type: object
           description: Invoice verification data
@@ -2783,7 +2783,7 @@ components:
         invoice_timestamp:
           type: string
           description: Invoice timestamp
-          example: '2024-02-12T10:23:06Z'
+          example: '2025-07-29T17:06:07Z'
         number_of_items:
           type: integer
           description: Number of items in the invoice
@@ -2791,7 +2791,7 @@ components:
         invoice_number:
           type: string
           description: Invoice number
-          example: KRACU0300000024/39
+          example: KRACU9999999999/99
     Supplier:
       type: object
       required:
@@ -2803,23 +2803,23 @@ components:
         id:
           type: string
           description: Supplier ID
-          example: supplier_01JS16JDB2B5ESZ8HWJ3CBYP5Y
+          example: supplier_1D-54MPL3-D0C5-F00-B4R-BAZ
         supplier_name:
           type: string
           description: Supplier Name
-          example: John Doe Inc
+          example: Digi Tax Inc.
         email:
           type: string
           description: Supplier Email
-          example: accounts@johndoeinc.com
+          example: support@digitax.tech
         phone:
           type: string
           description: Supplier Phone Number
-          example: '+254712345678'
+          example: '+254112685368'
         supplier_tin:
           type: string
           description: Supplier Tax Identification Number (TIN)
-          example: P012345678P
+          example: P012345678Y
         taxpayer_type:
           type: string
           enum:
@@ -2886,7 +2886,7 @@ components:
         description: >-
           When paginating results, a pointer to an ID after which we want
           results
-        example: item_01HC3J1VVVM05YCTS61G7V3KC6
+        example: item_1D-54MPL3-D0C5-F00-B4R-BAZ
     Before:
       in: query
       name: before
@@ -2896,7 +2896,7 @@ components:
         description: >-
           When paginating results, a pointer to an ID before which we want
           results
-        example: item_01HC3J1VVVM05YCTS61G7V3KC6
+        example: item_1D-54MPL3-D0C5-F00-B4R-BAZ
     PageSize:
       in: query
       name: page_size
