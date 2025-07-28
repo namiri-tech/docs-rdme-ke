@@ -313,7 +313,7 @@ paths:
                 phone:
                   type: string
                   description: Customer Phone Number
-                  example: +254112685368
+                  example: "+254112685368"
       responses:
         default:
           description: Error response
@@ -392,7 +392,7 @@ paths:
                 phone:
                   type: string
                   description: Customer Phone Number
-                  example: +254112685368
+                  example: "+254112685368"
       responses:
         default:
           description: Error response
@@ -630,7 +630,7 @@ paths:
                   example: "2025-07-28"
                 customer_tin:
                   type: string
-                  example: "P123456789Y"
+                  example: "P012345678Y"
                 customer_name:
                   type: string
                   example: John Doe
@@ -1566,16 +1566,16 @@ paths:
                   example: "2025-07-28"
                 customer_tin:
                   type: string
-                  example: "P123456789Y"
+                  example: "P012345678Y"
                 customer_name:
                   type: string
                   example: John Doe
                 customer_phone:
                   type: string
-                  example: "+254714267891"
+                  example: "+254112685368"
                 customer_email:
                   type: string
-                  example: john@doe.com
+                  example: support@digitax.tech
                 payment_type_code:
                   type: string
                   example: "07"
@@ -1865,7 +1865,7 @@ components:
       properties:
         last_updated:
           type: string
-          example: 2023-02-02T21:00:00.000Z
+          example: 2025-07-29T17:06:07.036Z
           description: Timestamp when the data was last updated from eTIMS
     Notice:
       type: object
@@ -1888,7 +1888,7 @@ components:
           description: Notice number from eTIMS
         notice_date:
           type: string
-          example: 2023-02-02T21:00:00.000Z
+          example: 2025-07-29T17:06:07.036Z
         title:
           type: string
           example: Call to Action
@@ -1958,7 +1958,7 @@ components:
         manager_contact:
           type: string
           description: Manager Contact
-          example: +254112685368
+          example: "+254112685368"
         manager_email:
           type: string
           description: Manager Email
@@ -1990,7 +1990,7 @@ components:
         phone:
           type: string
           description: Customer Phone Number
-          example: +254112685368
+          example: "+254112685368"
         customer_tin:
           type: string
           description: Customer Tax Identification Number (TIN)
@@ -2058,10 +2058,10 @@ components:
           example: import_1D-54MPL3-D0C5-F00-B4R-BAZ
         task_code:
           type: string
-          example: "202302081365045"
+          example: "202502081365045"
         declaration_date:
           type: string
-          example: 2023-02-02T21:00:00.000Z
+          example: 2025-07-29T17:06:07.036Z
           format: date-time
         item_sequence:
           type: integer
@@ -2257,7 +2257,7 @@ components:
           example: "S"
         serial_number:
           type: string
-          example: KRACU0400000001
+          example: S341AL-NUMB34-54MPL3
         receipt_number:
           type: integer
           example: 38
@@ -2266,11 +2266,11 @@ components:
           example: 38
         sale_detail_url:
           type: string
-          example: https://api.digitax.tech/sales/YKSWCIiuvx
+          example: https://api.digitax.tech/sales/sale_1D-54MPL3-D0C5-F00-B4R-BAZ
           format: url
         offline_url:
           type: string
-          example: https://receipt.dg.tax/r/business_01JGXVVP4Z3MWQBQ3XSCJ3S4JF/SAL25-204-145657411-MHARTQ
+          example: https://receipt.dg.tax/r/business_1D-54MPL3-D0C5-F00-B4R-BAZ/SAL25-1D-54MPL3-D0C5-F00-B4R-BAZ
           format: url
         sales_tax_summary:
           type: object
@@ -2476,10 +2476,10 @@ components:
           example: "06"
         purchase_date:
           type: string
-          example: "20230620"
+          example: "20250728"
         trader_invoice_number:
           type: string
-          example: "12"
+          example: "12345678901"
         supplier_branch_id:
           type: string
           example: "00"
@@ -2488,7 +2488,7 @@ components:
           example: KENYA REVENUE AUTHORITY
         supplier_invoice_number:
           type: integer
-          example: 12
+          example: 12345678901
         item_list:
           type: array
           items:
@@ -2565,22 +2565,22 @@ components:
           example: 38
         digitax_id:
           type: string
-          example: "sale_01HC3HTDAXQ50E07CWR2A2CFBD"
+          example: "sale_1D-54MPL3-D0C5-F00-B4R-BAZ"
         serial_number:
           type: string
-          example: KRACU0400000001
+          example: S341AL-NUMB34-54MPL3
         receipt_number:
           type: integer
           example: 38
         internal_data:
           type: string
-          example: PB3ZSZP3RZR3AUPYBYLUTFJDIA
+          example: 1NT34NAL-4ATA-54MPL3-D0C5-F00-B4R-BAZ
         receipt_signature:
           type: string
           example: R3C31PTS1GN8U43
         etims_url:
           type: string
-          example: https://etims.kra.go.ke/common/link/etims/receipt/indexEtimsReceptData?Data=P012345678Y00R3C31PTS1GN8U43
+          example: https://etims.kra.go.ke/common/link/etims/receipt/indexEtimsReceiptData?Data=P012345678Y00R3C31PTS1GN8U43
         sales_tax_summary:
           type: object
           required:
@@ -2657,7 +2657,7 @@ components:
           example: completed
         kra_receipt_url:
           type: string
-          example: https://etims.kra.go.ke/common/link/etims/receipt/indexEtimsReceptData?{P053100692D+00+3JYZVPTPMYBGHG4A}
+          example: https://etims.kra.go.ke/common/link/etims/receipt/indexEtimsReceiptData?Data=P012345678Y00R3C31PTS1GN8U43
         total:
           type: number
           example: 600
@@ -2681,7 +2681,7 @@ components:
               example: support@digitax.tech
             phone:
               type: string
-              example: +254112685368
+              example: "+254112685368"
             location:
               type: string
               example: Nairobi
@@ -2701,10 +2701,10 @@ components:
               example: P012345678Y
             email:
               type: string
-              example: support@namiri.tech
+              example: support@digitax.tech
             phone:
               type: string
-              example: +254112685368
+              example: "+254112685368"
         items:
           type: array
           items:
@@ -2760,7 +2760,7 @@ components:
         invoice_timestamp:
           type: string
           description: Invoice timestamp
-          example: "2024-02-12T10:23:06Z"
+          example: "2025-07-29T17:06:07Z"
         number_of_items:
           type: integer
           description: Number of items in the invoice
