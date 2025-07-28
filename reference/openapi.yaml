@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: DigiTax Kenya API
-  description: DigiTax Kenya Public API
+  description: DigiTax Kenya Public API interfacing tax payers and eTIMS
   version: '3'
   termsOfService: https://digitax.tech/page/terms
   contact:
