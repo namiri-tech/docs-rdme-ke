@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: DigiTax Kenya API
   description: DigiTax Kenya Public API
-  version: '3'
+  version: "3"
   termsOfService: https://digitax.tech/page/terms
   contact:
     name: DigiTax
@@ -22,18 +22,18 @@ paths:
       security:
         - apiKeyAuth: []
       responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Branch'
         default:
           description: Error response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: "#/components/schemas/Error"
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Branch"
   /branches:
     get:
       summary: Get a list of business branches
@@ -42,7 +42,13 @@ paths:
       security:
         - apiKeyAuth: []
       responses:
-        '200':
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "200":
           description: Success
           content:
             application/json:
@@ -54,13 +60,7 @@ paths:
                   data:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Branch'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
+                      $ref: "#/components/schemas/Branch"
   /items:
     post:
       tags:
@@ -88,11 +88,11 @@ paths:
                 item_class_code:
                   type: string
                   description: The item class code of the item
-                  example: '99010000'
+                  example: 99020000
                 item_type_code:
                   type: string
                   description: The item type code of the item
-                  example: '2'
+                  example: 3
                 item_name:
                   type: string
                   description: The name of the item
@@ -123,29 +123,27 @@ paths:
                   example: 100
                 callback_url:
                   type: string
-                  description: >-
-                    The callback url to call when we have new information about
-                    the item, usually after syncing with eTIMS
-                  example: https://example.com/callback
+                  description: The callback url to call when we have new information about the item, usually after syncing with eTIMS
+                  example: https://example.site/services/digitaxQueueReceiverPROXY
                 levies:
                   type: array
                   items:
                     type: string
                     description: List of levies applied to the sale
-                    example: CTL
+                    example: "CTL"
       responses:
-        '201':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Item'
         default:
           description: Error response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: "#/components/schemas/Error"
+        "201":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Item"
     get:
       tags:
         - Items
@@ -154,11 +152,17 @@ paths:
       security:
         - apiKeyAuth: []
       parameters:
-        - $ref: '#/components/parameters/Before'
-        - $ref: '#/components/parameters/After'
-        - $ref: '#/components/parameters/PageSize'
+        - $ref: "#/components/parameters/Before"
+        - $ref: "#/components/parameters/After"
+        - $ref: "#/components/parameters/PageSize"
       responses:
-        '200':
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "200":
           description: Success
           content:
             application/json:
@@ -169,17 +173,11 @@ paths:
                   - data
                 properties:
                   pagination:
-                    $ref: '#/components/schemas/Pagination'
+                    $ref: "#/components/schemas/Pagination"
                   data:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Item'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
+                      $ref: "#/components/schemas/Item"
   /items/{item_id}:
     parameters:
       - in: path
@@ -188,7 +186,7 @@ paths:
         description: Item ID in Digitax
         schema:
           type: string
-          example: item_1D-54MPL3-D0C5-F00-B4R-BAZ
+          example: item_01HC3J1VVVM05YCTS61G7V3KC6
     put:
       tags:
         - Items
@@ -216,18 +214,18 @@ paths:
                   description: The default price of the item
                   example: 1000
       responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Item'
         default:
           description: Error response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: "#/components/schemas/Error"
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Item"
     get:
       tags:
         - Items
@@ -236,18 +234,18 @@ paths:
       security:
         - apiKeyAuth: []
       responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Item'
         default:
           description: Error response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: "#/components/schemas/Error"
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Item"
   /customers:
     get:
       tags:
@@ -257,11 +255,17 @@ paths:
       security:
         - apiKeyAuth: []
       parameters:
-        - $ref: '#/components/parameters/Before'
-        - $ref: '#/components/parameters/After'
-        - $ref: '#/components/parameters/PageSize'
+        - $ref: "#/components/parameters/Before"
+        - $ref: "#/components/parameters/After"
+        - $ref: "#/components/parameters/PageSize"
       responses:
-        '200':
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "200":
           description: Success
           content:
             application/json:
@@ -272,17 +276,11 @@ paths:
                   - data
                 properties:
                   pagination:
-                    $ref: '#/components/schemas/Pagination'
+                    $ref: "#/components/schemas/Pagination"
                   data:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Customer'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
+                      $ref: "#/components/schemas/Customer"
     post:
       tags:
         - Customers
@@ -307,28 +305,28 @@ paths:
                 customer_tin:
                   type: string
                   description: Customer Tax Identification Number (TIN)
-                  example: P012345678Y
+                  example: P012345678P
                 email:
                   type: string
                   description: Customer Email Address
-                  example: support@digitax.tech
+                  example: john@doe.com
                 phone:
                   type: string
                   description: Customer Phone Number
-                  example: '+254112685368'
+                  example: +254712345678
       responses:
-        '201':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Customer'
         default:
           description: Error response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: "#/components/schemas/Error"
+        "201":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Customer"
   /customers/{customer_id}:
     get:
       tags:
@@ -344,20 +342,20 @@ paths:
           schema:
             type: string
             description: Customer ID on DigiTax
-            example: customer_1D-54MPL3-D0C5-F00-B4R-BAZ
+            example: customer_01HC3J1VVVM05YCTS61G7V3KC6
       responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Customer'
         default:
           description: Error response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: "#/components/schemas/Error"
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Customer"
     put:
       tags:
         - Customers
@@ -372,7 +370,7 @@ paths:
           schema:
             type: string
             description: Customer ID on DigiTax
-            example: customer_1D-54MPL3-D0C5-F00-B4R-BAZ
+            example: customer_01HC3J1VVVM05YCTS61G7V3KC6
       requestBody:
         required: true
         content:
@@ -390,24 +388,24 @@ paths:
                 email:
                   type: string
                   description: Customer Email Address
-                  example: support@digitax.tech
+                  example: john@doe.com
                 phone:
                   type: string
                   description: Customer Phone Number
-                  example: '+254112685368'
+                  example: +254712345678
       responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Customer'
         default:
           description: Error response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: "#/components/schemas/Error"
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Customer"
   /imports:
     get:
       tags:
@@ -417,11 +415,17 @@ paths:
       security:
         - apiKeyAuth: []
       parameters:
-        - $ref: '#/components/parameters/Before'
-        - $ref: '#/components/parameters/After'
-        - $ref: '#/components/parameters/PageSize'
+        - $ref: "#/components/parameters/Before"
+        - $ref: "#/components/parameters/After"
+        - $ref: "#/components/parameters/PageSize"
       responses:
-        '200':
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "200":
           description: Success
           content:
             application/json:
@@ -433,19 +437,13 @@ paths:
                   - data
                 properties:
                   pagination:
-                    $ref: '#/components/schemas/Pagination'
+                    $ref: "#/components/schemas/Pagination"
                   meta:
-                    $ref: '#/components/schemas/FetchMeta'
+                    $ref: "#/components/schemas/FetchMeta"
                   data:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Import'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
+                      $ref: "#/components/schemas/Import"
   /imports/{import_id}/link:
     put:
       tags:
@@ -461,7 +459,7 @@ paths:
           schema:
             type: string
             description: Import ID in Digitax
-            example: import_1D-54MPL3-D0C5-F00-B4R-BAZ
+            example: import_01HC3J1VVVM05YCTS61G7V3KC6
       requestBody:
         required: true
         content:
@@ -474,20 +472,20 @@ paths:
                 item_id:
                   type: string
                   description: The id of the item in Digitax
-                  example: item_1D-54MPL3-D0C5-F00-B4R-BAZ
+                  example: item_01HC3J1VVVM05YCTS61G7V3KC6
       responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Import'
         default:
           description: Error response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: "#/components/schemas/Error"
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Import"
   /purchases:
     get:
       tags:
@@ -497,11 +495,17 @@ paths:
       security:
         - apiKeyAuth: []
       parameters:
-        - $ref: '#/components/parameters/Before'
-        - $ref: '#/components/parameters/After'
-        - $ref: '#/components/parameters/PageSize'
+        - $ref: "#/components/parameters/Before"
+        - $ref: "#/components/parameters/After"
+        - $ref: "#/components/parameters/PageSize"
       responses:
-        '200':
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "200":
           description: Success
           content:
             application/json:
@@ -513,19 +517,13 @@ paths:
                   - meta
                 properties:
                   pagination:
-                    $ref: '#/components/schemas/Pagination'
+                    $ref: "#/components/schemas/Pagination"
                   meta:
-                    $ref: '#/components/schemas/FetchMeta'
+                    $ref: "#/components/schemas/FetchMeta"
                   data:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Purchase'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
+                      $ref: "#/components/schemas/Purchase"
   /purchases/{purchase_id}:
     get:
       tags:
@@ -541,20 +539,20 @@ paths:
           schema:
             type: string
             description: Purchase ID in Digitax
-            example: purchase_1D-54MPL3-D0C5-F00-B4R-BAZ
+            example: purchase_01HC3J1VVVM05YCTS61G7V3KC6
       responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Purchase'
         default:
           description: Error response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: "#/components/schemas/Error"
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Purchase"
   /purchases/{purchase_id}/link-items:
     post:
       tags:
@@ -570,7 +568,7 @@ paths:
           schema:
             type: string
           description: Purchase id
-          example: purchase_1D-54MPL3-D0C5-F00-B4R-BAZ
+          example: purchase_01HC3J1VVVM05YCTS61G7V3KC6
       requestBody:
         required: true
         content:
@@ -588,23 +586,23 @@ paths:
                     properties:
                       purchase_item_id:
                         type: string
-                        example: purchaseitem_1D-54MPL3-D0C5-F00-B4R-BAZ
+                        example: purchaseitem_01HC3J1VVVM05YCTS61G7V3KC6
                       item_id:
                         type: string
-                        example: item_1D-54MPL3-D0C5-F00-B4R-BAZ
+                        example: item_01HC3J1VVVM05YCTS61G7V3KC6
       responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Purchase'
         default:
           description: Error response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: "#/components/schemas/Error"
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Purchase"
   /sales:
     post:
       tags:
@@ -629,28 +627,28 @@ paths:
               properties:
                 sale_date:
                   type: string
-                  example: '2025-07-28'
+                  example: "2023-07-23"
                 customer_tin:
                   type: string
-                  example: P012345678Y
+                  example: "P123456789Y"
                 customer_name:
                   type: string
                   example: John Doe
                 customer_id:
                   type: string
-                  example: customer_1D-54MPL3-D0C5-F00-B4R-BAZ
+                  example: customer_01HC3HTDAXQ50E07CWR2A2CFBD
                 trader_invoice_number:
                   type: string
-                  example: '12345678901'
+                  example: "12345678901"
                 receipt_type_code:
                   type: string
                   example: S
                 payment_type_code:
                   type: string
-                  example: '07'
+                  example: "07"
                 invoice_status_code:
                   type: string
-                  example: '01'
+                  example: "01"
                 callback_url:
                   type: string
                   example: https://example.com/callback
@@ -665,10 +663,10 @@ paths:
                       example: REVERSE
                     issuer:
                       type: string
-                      example: business_1D-54MPL3-D0C5-F00-B4R-BAZ
+                      example: business_01HC3J1VVVM05YCTS61G7V3KC6
                 invoice_details:
                   type: string
-                  example: Invoice Details
+                  example: "Invoice Details"
                 is_tax_exempt:
                   type: boolean
                   description: Indicates if the sale is tax exempt
@@ -691,16 +689,16 @@ paths:
                     properties:
                       id:
                         type: string
-                        example: item_1D-54MPL3-D0C5-F00-B4R-BAZ
+                        example: item_01HC3J1VVVM05YCTS61G7V3KC6
                       quantity:
                         type: number
                         example: 1
                       unit_price:
                         type: number
-                        example: 3500
+                        example: 3500.00
                       total_amount:
                         type: number
-                        example: 3500
+                        example: 3500.00
                       package_unit_quantity:
                         type: number
                         example: 1
@@ -712,20 +710,20 @@ paths:
                         example: 0
                       item_description:
                         type: string
-                        example: DigiTax Product 01
+                        example: "DigiTax Product 01"
       responses:
-        '201':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Sale'
         default:
           description: Error response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: "#/components/schemas/Error"
+        "201":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Sale"
     get:
       tags:
         - Sales
@@ -734,11 +732,17 @@ paths:
       security:
         - apiKeyAuth: []
       parameters:
-        - $ref: '#/components/parameters/Before'
-        - $ref: '#/components/parameters/After'
-        - $ref: '#/components/parameters/PageSize'
+        - $ref: "#/components/parameters/Before"
+        - $ref: "#/components/parameters/After"
+        - $ref: "#/components/parameters/PageSize"
       responses:
-        '200':
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "200":
           description: Success
           content:
             application/json:
@@ -749,17 +753,11 @@ paths:
                   - data
                 properties:
                   pagination:
-                    $ref: '#/components/schemas/Pagination'
+                    $ref: "#/components/schemas/Pagination"
                   data:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Sale'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
+                      $ref: "#/components/schemas/Sale"
   /sales-with-items:
     post:
       tags:
@@ -784,10 +782,10 @@ paths:
               properties:
                 sale_date:
                   type: string
-                  example: '2025-07-28'
+                  example: "2023-07-23"
                 customer_tin:
                   type: string
-                  example: P012345678Y
+                  example: "P123456789Y"
                 customer_name:
                   type: string
                   example: John Doe
@@ -796,16 +794,16 @@ paths:
                   example: customer_01HC3HTDAXQ50E07CWR2A2CFBD
                 trader_invoice_number:
                   type: string
-                  example: '12345678901'
+                  example: "12345678901"
                 receipt_type_code:
                   type: string
                   example: S
                 payment_type_code:
                   type: string
-                  example: '07'
+                  example: "07"
                 invoice_status_code:
                   type: string
-                  example: '01'
+                  example: "01"
                 callback_url:
                   type: string
                   example: https://example.com/callback
@@ -820,10 +818,10 @@ paths:
                       example: REVERSE
                     issuer:
                       type: string
-                      example: business_1D-54MPL3-D0C5-F00-B4R-BAZ
+                      example: business_01HC3J1VVVM05YCTS61G7V3KC6
                 invoice_details:
                   type: string
-                  example: Invoice Details
+                  example: "Invoice Details"
                 items:
                   type: array
                   items:
@@ -842,28 +840,28 @@ paths:
                     properties:
                       item_name:
                         type: string
-                        example: Item name
+                        example: "Item name"
                       item_class_code:
                         type: string
-                        example: '99000000'
+                        example: "99000000"
                       item_bar_code:
                         type: string
-                        example: '99000001'
+                        example: "99000001"
                       item_tax_type_code:
                         type: string
-                        example: D
+                        example: "D"
                       quantity:
                         type: number
                         example: 1
                       unit_price:
                         type: number
-                        example: 3500
+                        example: 3500.00
                       total_amount:
                         type: number
-                        example: 3500
+                        example: 3500.00
                       taxable_amount:
                         type: number
-                        example: 3500
+                        example: 3500.00
                       tax_amount:
                         type: number
                         example: 0
@@ -878,27 +876,24 @@ paths:
                         example: 0
                       item_description:
                         type: string
-                        example: DigiTax Product 01
+                        example: "DigiTax Product 01"
                       is_stockable:
                         type: boolean
-                        description: >-
-                          Indicates if the item is stockable. Stockable items
-                          are treated as FINISHED goods, whereas non-stockable
-                          items are treated as SERVICES.
+                        description: Indicates if the item is stockable. Stockable items are treated as FINISHED goods, whereas non-stockable items are treated as SERVICES.
                         example: true
       responses:
-        '201':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Sale'
         default:
           description: Error response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: "#/components/schemas/Error"
+        "201":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Sale"
   /credit-notes/express:
     post:
       tags:
@@ -920,32 +915,32 @@ paths:
               properties:
                 trader_invoice_number:
                   type: string
-                  example: '12345678901'
+                  example: "12345678901"
                 return_date:
                   type: string
-                  example: '2025-07-28'
+                  example: "2023-07-23"
                 sale_id:
                   type: string
-                  example: sale_1D-54MPL3-D0C5-F00-B4R-BAZ
+                  example: "sale_01HC3J1VVVM05YCTS61G7V3KC6"
                 callback_url:
                   type: string
                   example: https://example.com/callback
                 invoice_details:
                   type: string
-                  example: General Invoice Details
+                  example: "General Invoice Details"
       responses:
-        '201':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Sale'
         default:
           description: Error response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: "#/components/schemas/Error"
+        "201":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Sale"
   /credit-notes-with-barcode:
     post:
       tags:
@@ -968,19 +963,19 @@ paths:
               properties:
                 trader_invoice_number:
                   type: string
-                  example: '12345678901'
+                  example: "12345678901"
                 return_date:
                   type: string
-                  example: '2025-07-28'
+                  example: "2023-07-23"
                 sale_id:
                   type: string
-                  example: sale_1D-54MPL3-D0C5-F00-B4R-BAZ
+                  example: "sale_01HC3J1VVVM05YCTS61G7V3KC6"
                 callback_url:
                   type: string
                   example: https://example.com/callback
                 invoice_details:
                   type: string
-                  example: General Invoice Details
+                  example: "General Invoice Details"
                 items:
                   type: array
                   items:
@@ -995,19 +990,19 @@ paths:
                     properties:
                       item_bar_code:
                         type: string
-                        example: C0D3-54MPL3-D0C5-F00-B4R-BAZ
+                        example: HC3J1VVVM05YCTS61G7V3KC6
                       quantity:
                         type: number
                         example: 1
                       unit_price:
                         type: number
-                        example: 3500
+                        example: 3500.00
                       total_amount:
                         type: number
-                        example: 3500
+                        example: 3500.00
                       taxable_amount:
                         type: number
-                        example: 3500
+                        example: 3500.00
                       tax_amount:
                         type: number
                         example: 0
@@ -1022,20 +1017,20 @@ paths:
                         example: 0
                       item_description:
                         type: string
-                        example: DigiTax Product 01
+                        example: "DigiTax Product 01"
       responses:
-        '201':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Sale'
         default:
           description: Error response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: "#/components/schemas/Error"
+        "201":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Sale"
   /credit-notes:
     post:
       tags:
@@ -1058,19 +1053,19 @@ paths:
               properties:
                 return_date:
                   type: string
-                  example: '2025-07-28'
+                  example: "2023-07-23"
                 sale_id:
                   type: string
-                  example: sale_1D-54MPL3-D0C5-F00-B4R-BAZ
+                  example: "sale_01HC3J1VVVM05YCTS61G7V3KC6"
                 trader_invoice_number:
                   type: string
-                  example: '12345678901'
+                  example: "12345678901"
                 callback_url:
                   type: string
                   example: https://example.com/callback
                 invoice_details:
                   type: string
-                  example: General Invoice Details
+                  example: "General Invoice Details"
                 items:
                   type: array
                   items:
@@ -1085,16 +1080,16 @@ paths:
                     properties:
                       id:
                         type: string
-                        example: item_1D-54MPL3-D0C5-F00-B4R-BAZ
+                        example: item_01HC3J1VVVM05YCTS61G7V3KC6
                       quantity:
                         type: number
                         example: 1
                       unit_price:
                         type: number
-                        example: 3500
+                        example: 3500.00
                       total_amount:
                         type: number
-                        example: 3500
+                        example: 3500.00
                       package_unit_quantity:
                         type: number
                         example: 1
@@ -1106,20 +1101,20 @@ paths:
                         example: 0
                       item_description:
                         type: string
-                        example: DigiTax Product 01
+                        example: "DigiTax Product 01"
       responses:
-        '201':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Sale'
         default:
           description: Error response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: "#/components/schemas/Error"
+        "201":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Sale"
     get:
       tags:
         - Sales
@@ -1128,11 +1123,17 @@ paths:
       security:
         - apiKeyAuth: []
       parameters:
-        - $ref: '#/components/parameters/Before'
-        - $ref: '#/components/parameters/After'
-        - $ref: '#/components/parameters/PageSize'
+        - $ref: "#/components/parameters/Before"
+        - $ref: "#/components/parameters/After"
+        - $ref: "#/components/parameters/PageSize"
       responses:
-        '200':
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "200":
           description: Success
           content:
             application/json:
@@ -1143,17 +1144,11 @@ paths:
                   - data
                 properties:
                   pagination:
-                    $ref: '#/components/schemas/Pagination'
+                    $ref: "#/components/schemas/Pagination"
                   data:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Sale'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
+                      $ref: "#/components/schemas/Sale"
   /sales/{sale_id}:
     get:
       tags:
@@ -1169,29 +1164,27 @@ paths:
           schema:
             type: string
             description: Sale ID on DigiTax
-            example: sale_1D-54MPL3-D0C5-F00-B4R-BAZ
+            example: sale_01HC3HTDAXQ50E07CWR2A2CFBD
       responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Sale'
         default:
           description: Error response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: "#/components/schemas/Error"
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Sale"
   /sale/{business_id}/{trader_invoice_number}:
     get:
       tags:
         - Sales
       x-visibility: internal
       summary: Offline url for sales
-      description: >-
-        This endpoint allows you to generate a URL for offline sales and share
-        with clients to monitor sale status
+      description: This endpoint allows you to generate a URL for offline sales and share with clients to monitor sale status
       parameters:
         - in: path
           name: business_id
@@ -1199,28 +1192,28 @@ paths:
           schema:
             type: string
             description: Business ID on DigiTax
-            example: business_1D-54MPL3-D0C5-F00-B4R-BAZ
+            example: business_01HC3HTDAXQ50E07CWR2A2CFBD
         - in: path
           name: trader_invoice_number
           required: true
           schema:
             type: string
             description: Trader Invoice Number
-            example: '12345678901'
+            example: 12345678901
       responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                allOf:
-                  - $ref: '#/components/schemas/OfflineUrlSale'
         default:
           description: Error response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: "#/components/schemas/Error"
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/OfflineUrlSale"
   /stock/transfer:
     post:
       tags:
@@ -1243,10 +1236,10 @@ paths:
               properties:
                 item_id:
                   type: string
-                  example: item_1D-54MPL3-D0C5-F00-B4R-BAZ
+                  example: item_01HC3J1VVVM05YCTS61G7V3KC6
                 business_id:
                   type: string
-                  example: business_1D-54MPL3-D0C5-F00-B4R-BAZ
+                  example: business_01HC3J1VVVM05YCTS61G7V3KC6
                 quantity:
                   type: number
                   example: 1
@@ -1254,18 +1247,18 @@ paths:
                   type: string
                   example: item_01J8HJFH3NG17EGVF0N5GHMPM9
       responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Success'
         default:
           description: Error response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: "#/components/schemas/Error"
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Success"
   /stock/adjust:
     put:
       tags:
@@ -1289,24 +1282,28 @@ paths:
                 item_id:
                   type: string
                   description: Item ID in DigiTax
-                  example: item_1D-54MPL3-D0C5-F00-B4R-BAZ
+                  example: item_01HC3J1VVVM05YCTS61G7V3KC6
                 quantity:
                   type: number
                   description: Stock quantity
                   example: 100
                 action:
                   type: string
-                  enum:
-                    - ADD
-                    - DEDUCT
+                  enum: [ADD, DEDUCT]
                   description: Adjust type
                   example: ADD
                 movement_type:
                   type: string
                   description: Stock movement type code
-                  example: '01'
+                  example: "01"
       responses:
-        '200':
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "200":
           description: Success
           content:
             application/json:
@@ -1319,19 +1316,13 @@ paths:
                 properties:
                   id:
                     type: string
-                    example: item_1D-54MPL3-D0C5-F00-B4R-BAZ
+                    example: item_01HC3J1VVVM05YCTS61G7V3KC6
                   item_code:
                     type: string
-                    example: KE3NTU0000001
+                    example: KE1PD-U230411121122
                   stock_quantity:
                     type: integer
                     example: 300
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
   /notices:
     get:
       summary: Get list of KRA notices for business
@@ -1340,7 +1331,13 @@ paths:
       security:
         - apiKeyAuth: []
       responses:
-        '200':
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "200":
           description: Success
           content:
             application/json:
@@ -1351,17 +1348,11 @@ paths:
                   - data
                 properties:
                   meta:
-                    $ref: '#/components/schemas/FetchMeta'
+                    $ref: "#/components/schemas/FetchMeta"
                   data:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Notice'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
+                      $ref: "#/components/schemas/Notice"
   /invoice-verifications:
     post:
       tags:
@@ -1381,29 +1372,29 @@ paths:
               properties:
                 invoice_number:
                   type: string
-                  example: KRACU9999999999/99
+                  example: "KRACU0300000024/39"
                 amount:
                   type: integer
                   example: 2000
                 supplier_pin:
                   type: string
-                  example: P012345678Y
+                  example: P000614502H
                 reference_number:
                   type: string
-                  example: R3F-N0-54MPL3-D0C5-F00-B4R-BAZ
+                  example: P000614502H
       responses:
-        '201':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/InvoiceVerification'
         default:
           description: Error response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: "#/components/schemas/Error"
+        "201":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InvoiceVerification"
     get:
       summary: Get invoice verifications
       description: List invoice verifications
@@ -1412,11 +1403,17 @@ paths:
       security:
         - apiKeyAuth: []
       parameters:
-        - $ref: '#/components/parameters/Before'
-        - $ref: '#/components/parameters/After'
-        - $ref: '#/components/parameters/PageSize'
+        - $ref: "#/components/parameters/Before"
+        - $ref: "#/components/parameters/After"
+        - $ref: "#/components/parameters/PageSize"
       responses:
-        '200':
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "200":
           description: Success
           content:
             application/json:
@@ -1427,17 +1424,11 @@ paths:
                   - data
                 properties:
                   pagination:
-                    $ref: '#/components/schemas/Pagination'
+                    $ref: "#/components/schemas/Pagination"
                   data:
                     type: array
                     items:
-                      $ref: '#/components/schemas/InvoiceVerification'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
+                      $ref: "#/components/schemas/InvoiceVerification"
   /suppliers:
     get:
       tags:
@@ -1447,11 +1438,17 @@ paths:
       security:
         - apiKeyAuth: []
       parameters:
-        - $ref: '#/components/parameters/Before'
-        - $ref: '#/components/parameters/After'
-        - $ref: '#/components/parameters/PageSize'
+        - $ref: "#/components/parameters/Before"
+        - $ref: "#/components/parameters/After"
+        - $ref: "#/components/parameters/PageSize"
       responses:
-        '200':
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "200":
           description: Success
           content:
             application/json:
@@ -1462,17 +1459,11 @@ paths:
                   - data
                 properties:
                   pagination:
-                    $ref: '#/components/schemas/Pagination'
+                    $ref: "#/components/schemas/Pagination"
                   data:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Supplier'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
+                      $ref: "#/components/schemas/Supplier"
     post:
       tags:
         - Suppliers
@@ -1493,32 +1484,32 @@ paths:
                 supplier_name:
                   type: string
                   description: Supplier Name
-                  example: Digi Tax Inc.
+                  example: John Doe Inc.
                 supplier_tin:
                   type: string
                   description: Supplier Tax Identification Number (TIN)
-                  example: P012345678Y
+                  example: P012345678P
                 email:
                   type: string
                   description: Supplier Email Address
-                  example: support@digitax.tech
+                  example: accounts@johndoeinc.com
                 phone:
                   type: string
                   description: Supplier Phone Number
-                  example: '+254112685368'
+                  example: "+254712345678"
       responses:
-        '201':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Supplier'
         default:
           description: Error response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: "#/components/schemas/Error"
+        "201":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Supplier"
   /suppliers/{supplier_id}:
     get:
       tags:
@@ -1536,18 +1527,18 @@ paths:
             description: Supplier ID on DigiTax
             example: supplier_01JS16JDB2B5ESZ8HWJ3CBYP5Y
       responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Supplier'
         default:
           description: Error response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: "#/components/schemas/Error"
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Supplier"
   /reverse-invoices:
     post:
       tags:
@@ -1572,25 +1563,25 @@ paths:
                   example: supplier_01JS16JDB2B5ESZ8HWJ3CBYP5Y
                 sale_date:
                   type: string
-                  example: '2025-07-28'
+                  example: "2023-07-23"
                 customer_tin:
                   type: string
-                  example: P012345678Y
+                  example: "P123456789Y"
                 customer_name:
                   type: string
                   example: John Doe
                 customer_phone:
                   type: string
-                  example: '+254112685368'
+                  example: "+254714267891"
                 customer_email:
                   type: string
-                  example: support@digitax.tech
+                  example: john@doe.com
                 payment_type_code:
                   type: string
-                  example: '07'
+                  example: "07"
                 invoice_details:
                   type: string
-                  example: Invoice Details
+                  example: "Invoice Details"
                 items:
                   type: array
                   items:
@@ -1605,16 +1596,16 @@ paths:
                     properties:
                       id:
                         type: string
-                        example: item_1D-54MPL3-D0C5-F00-B4R-BAZ
+                        example: item_01HC3J1VVVM05YCTS61G7V3KC6
                       quantity:
                         type: number
                         example: 1
                       unit_price:
                         type: number
-                        example: 3500
+                        example: 3500.00
                       total_amount:
                         type: number
-                        example: 3500
+                        example: 3500.00
                       package_unit_quantity:
                         type: number
                         example: 1
@@ -1626,20 +1617,20 @@ paths:
                         example: 0
                       item_description:
                         type: string
-                        example: DigiTax Product 01
+                        example: "DigiTax Product 01"
       responses:
-        '201':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Sale'
         default:
           description: Error response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: "#/components/schemas/Error"
+        "201":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Sale"
     get:
       tags:
         - Reverse Invoicing
@@ -1648,11 +1639,17 @@ paths:
       security:
         - apiKeyAuth: []
       parameters:
-        - $ref: '#/components/parameters/Before'
-        - $ref: '#/components/parameters/After'
-        - $ref: '#/components/parameters/PageSize'
+        - $ref: "#/components/parameters/Before"
+        - $ref: "#/components/parameters/After"
+        - $ref: "#/components/parameters/PageSize"
       responses:
-        '200':
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "200":
           description: Success
           content:
             application/json:
@@ -1663,17 +1660,11 @@ paths:
                   - data
                 properties:
                   pagination:
-                    $ref: '#/components/schemas/Pagination'
+                    $ref: "#/components/schemas/Pagination"
                   data:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Sale'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
+                      $ref: "#/components/schemas/Sale"
   /reverse-invoices/{sale_id}:
     get:
       tags:
@@ -1691,18 +1682,18 @@ paths:
             description: Reverse invoice ID on DigiTax
             example: sale_01HC3HTDAXQ50E07CWR2A2CFBD
       responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Sale'
         default:
           description: Error response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: "#/components/schemas/Error"
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Sale"
   /reverse-invoices-with-items:
     post:
       tags:
@@ -1724,28 +1715,28 @@ paths:
               properties:
                 supplier_id:
                   type: string
-                  example: supplier_1D-54MPL3-D0C5-F00-B4R-BAZ
+                  example: supplier_01JS16JDB2B5ESZ8HWJ3CBYP5Y
                 sale_date:
                   type: string
-                  example: '2025-07-28'
+                  example: "2023-07-23"
                 customer_tin:
                   type: string
-                  example: P012345678Y
+                  example: "P123456789Y"
                 customer_name:
                   type: string
                   example: John Doe
                 customer_phone:
                   type: string
-                  example: '+254112685368'
+                  example: "+254714267891"
                 customer_email:
                   type: string
-                  example: support@digitax.tech
+                  example: john@doe.com
                 payment_type_code:
                   type: string
-                  example: '07'
+                  example: "07"
                 invoice_details:
                   type: string
-                  example: Invoice Details
+                  example: "Invoice Details"
                 items:
                   type: array
                   items:
@@ -1764,25 +1755,25 @@ paths:
                     properties:
                       item_name:
                         type: string
-                        example: Item name
+                        example: "Item name"
                       item_class_code:
                         type: string
-                        example: '99000000'
+                        example: "99000000"
                       item_bar_code:
                         type: string
-                        example: '99000001'
+                        example: "99000001"
                       item_tax_type_code:
                         type: string
-                        example: D
+                        example: "D"
                       quantity:
                         type: number
                         example: 1
                       unit_price:
                         type: number
-                        example: 3500
+                        example: 3500.00
                       total_amount:
                         type: number
-                        example: 3500
+                        example: 3500.00
                       package_unit_quantity:
                         type: number
                         example: 1
@@ -1794,20 +1785,20 @@ paths:
                         example: 0
                       item_description:
                         type: string
-                        example: DigiTax Product 01
+                        example: "DigiTax Product 01"
       responses:
-        '201':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Sale'
         default:
           description: Error response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: "#/components/schemas/Error"
+        "201":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Sale"
   /sales-summary:
     get:
       tags:
@@ -1823,27 +1814,27 @@ paths:
           schema:
             type: string
             format: date
-            example: '2025-07-01'
+            example: "2025-07-01"
         - in: query
           name: end_date
           required: true
           schema:
             type: string
             format: date
-            example: '2025-07-31'
+            example: "2025-07-31"
       responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/SalesSummary'
         default:
           description: Error response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: "#/components/schemas/Error"
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SalesSummary"
 components:
   schemas:
     Success:
@@ -1874,7 +1865,7 @@ components:
       properties:
         last_updated:
           type: string
-          example: '2025-07-29T17:06:07.036Z'
+          example: 2023-02-02T21:00:00.000Z
           description: Timestamp when the data was last updated from eTIMS
     Notice:
       type: object
@@ -1889,15 +1880,15 @@ components:
       properties:
         id:
           type: string
-          example: notice_1D-54MPL3-D0C5-F00-B4R-BAZ
+          example: notice_01HC3J1VVVM05YCTS61G7V3KC6
           description: Notice ID in Digitax
         notice_number:
           type: string
-          example: 1D-54MPL3-D0C5-F00-B4R-BAZ
+          example: 01HC3J1VVVM05YCTS61G7V3KC6
           description: Notice number from eTIMS
         notice_date:
           type: string
-          example: '2025-07-29T17:06:07.036Z'
+          example: 2023-02-02T21:00:00.000Z
         title:
           type: string
           example: Call to Action
@@ -1927,11 +1918,11 @@ components:
       properties:
         id:
           type: string
-          example: branch_1D-54MPL3-D0C5-F00-B4R-BAZ
+          example: branch_01HC3J1VVVM05YCTS61G7V3KC6
         tax_pin:
           type: string
           description: Branch KRA PIN
-          example: P012345678Y
+          example: P012345678P
         branch_office_id:
           type: string
           description: Branch Office ID
@@ -1967,11 +1958,11 @@ components:
         manager_contact:
           type: string
           description: Manager Contact
-          example: '+254112685368'
+          example: 712345678
         manager_email:
           type: string
           description: Manager Email
-          example: support@digitax.tech
+          example: manager@email.com
         is_head_office:
           type: boolean
           description: Is Head Office
@@ -1987,7 +1978,7 @@ components:
         id:
           type: string
           description: Customer ID
-          example: customer_1D-54MPL3-D0C5-F00-B4R-BAZ
+          example: customer_01HC3HTDAXQ50E07CWR2A2CFBD
         customer_name:
           type: string
           description: Customer Name
@@ -1995,20 +1986,18 @@ components:
         email:
           type: string
           description: Customer Email
-          example: support@digitax.tech
+          example: john@doe.com
         phone:
           type: string
           description: Customer Phone Number
-          example: '+254112685368'
+          example: +254712345678
         customer_tin:
           type: string
           description: Customer Tax Identification Number (TIN)
-          example: P012345678Y
+          example: P012345678P
         taxpayer_type:
           type: string
-          enum:
-            - INDIVIDUAL
-            - BUSINESS
+          enum: [INDIVIDUAL, BUSINESS]
           description: Taxpayer Type
           example: INDIVIDUAL
     Insurance:
@@ -2022,7 +2011,7 @@ components:
         id:
           type: string
           description: Insurance ID
-          example: insurance_1D-54MPL3-D0C5-F00-B4R-BAZ
+          example: insurance_01HC3J1VVVM05YCTS61G7V3KC6
         insurance_name:
           type: string
           description: Insurance Name
@@ -2030,7 +2019,7 @@ components:
         insurance_code:
           type: string
           description: Insurance Code
-          example: C0D3-54MPL3-D0C5-F00-B4R-BAZ
+          example: 123456
         premium_rate:
           type: number
           description: Premium Rate
@@ -2066,13 +2055,13 @@ components:
       properties:
         id:
           type: string
-          example: import_1D-54MPL3-D0C5-F00-B4R-BAZ
+          example: import_01HC3J1VVVM05YCTS61G7V3KC6
         task_code:
           type: string
-          example: '202502081365045'
+          example: "202302081365045"
         declaration_date:
           type: string
-          example: '2025-07-29T17:06:07.036Z'
+          example: 2023-02-02T21:00:00.000Z
           format: date-time
         item_sequence:
           type: integer
@@ -2082,7 +2071,7 @@ components:
           example: 23BUSIM400040606
         hs_code:
           type: string
-          example: '30049000'
+          example: "30049000"
         item_name:
           type: string
           example: MEDICAMENT; NORMAL SALINE 0.9% I.V. [ NS ]; CT; 1450; 500ML;
@@ -2091,7 +2080,7 @@ components:
           example: UG
         import_item_status_code:
           type: string
-          example: '2'
+          example: "2"
         export_nation_code:
           type: string
           example: UG
@@ -2133,10 +2122,10 @@ components:
           example: UPDATED
         item_id:
           type: string
-          example: item_1D-54MPL3-D0C5-F00-B4R-BAZ
+          example: item_01HC3J1VVVM05YCTS61G7V3KC6
         item_class_code:
           type: string
-          example: '30103604'
+          example: "30103604"
         item_code:
           type: string
           example: KE2CRM0000015
@@ -2160,7 +2149,7 @@ components:
         id:
           type: string
           description: Item ID in Digitax
-          example: item_1D-54MPL3-D0C5-F00-B4R-BAZ
+          example: item_01HC3J1VVVM05YCTS61G7V3KC6
         item_class_code:
           type: string
           description: The item class code of the item
@@ -2199,9 +2188,7 @@ components:
           example: DT-67717-E7GcGbvYDy
         is_stock_item:
           type: boolean
-          description: >-
-            Indicates whether the item is a stock item or not. Can either be
-            "false" or "true"
+          description: Indicates whether the item is a stock item or not. Can either be "false" or "true"
           example: 1000
         stock_quantity:
           type: number
@@ -2213,16 +2200,13 @@ components:
           example: true
         status:
           type: string
-          enum:
-            - PENDING
-            - FAILED
-            - COMPLETE
+          enum: [PENDING, FAILED, COMPLETE]
           description: sync status against eTIMS
           example: COMPLETE
         item_bar_code:
           type: string
           description: The bar code or unique product code(UPC) of the item
-          example: '012345678905'
+          example: "012345678905"
         levies:
           type: array
           items:
@@ -2232,10 +2216,10 @@ components:
       properties:
         next:
           type: string
-          example: item_1D-54MPL3-D0C5-F00-B4R-BAZ
+          example: item_01HC3J1VVVM05YCTS61G7V3KC6
         previous:
           type: string
-          example: item_1D-54MPL3-D0C5-F00-B4R-BAZ
+          example: item_01HC3J1VVVM05YCTS61G7V3KC6
         page_size:
           type: integer
           example: 20
@@ -2264,16 +2248,16 @@ components:
           example: sale_01HC3HTDAXQ50E07CWR2A2CFBD
         trader_invoice_number:
           type: string
-          example: '12345678901'
+          example: "12345678901"
         original_sale_id:
           type: string
-          example: sale_01HC3HTDAXQ50E07CWR2A2CFBD
+          example: "sale_01HC3HTDAXQ50E07CWR2A2CFBD"
         receipt_type_code:
           type: string
-          example: S
+          example: "S"
         serial_number:
           type: string
-          example: S341AL-NUMB34-54MPL3
+          example: KRACU0400000001
         receipt_number:
           type: integer
           example: 38
@@ -2282,12 +2266,11 @@ components:
           example: 38
         sale_detail_url:
           type: string
-          example: https://api.digitax.tech/sales/sale_1D-54MPL3-D0C5-F00-B4R-BAZ
+          example: https://api.digitax.tech/sales/YKSWCIiuvx
           format: url
         offline_url:
           type: string
-          example: >-
-            https://receipt.dg.tax/r/business_1D-54MPL3-D0C5-F00-B4R-BAZ/SAL25-1D-54MPL3-D0C5-F00-B4R-BAZ
+          example: https://receipt.dg.tax/r/business_01JGXVVP4Z3MWQBQ3XSCJ3S4JF/SAL25-204-145657411-MHARTQ
           format: url
         sales_tax_summary:
           type: object
@@ -2370,45 +2353,41 @@ components:
           example: customer_01HC3HTDAXQ50E07CWR2A2CFBD
         internal_data:
           type: string
-          example: 1NT34NAL-4ATA-54MPL3-D0C5-F00-B4R-BAZ
+          example: PB3ZSZP3RZR3AUPYBYLUTFJDIA
         receipt_signature:
           type: string
-          example: R3C31PTS1GN8U43
+          example: 3JYZVPTPMYBGHG4A
         etims_url:
           type: string
-          example: >-
-            https://etims.kra.go.ke/common/link/etims/receipt/indexEtimsReceiptData?Data=P012345678Y00R3C31PTS1GN8U43
+          example: https://etims.kra.go.ke/common/link/etims/receipt/indexEtimsReceptData?{P053100692D+00+3JYZVPTPMYBGHG4A}
           format: url
         status:
           type: string
-          enum:
-            - PENDING
-            - FAILED
-            - COMPLETED
+          enum: [PENDING, FAILED, COMPLETED]
           description: status against KRA
           example: completed
         item_list:
           type: array
           items:
-            $ref: '#/components/schemas/SaleItem'
+            $ref: "#/components/schemas/SaleItem"
         customer_name:
           type: string
-          example: John Doe
+          example: "John Doe"
         customer_tin:
           type: string
-          example: P012345678Y
+          example: "P123456789P"
         customer_phone_number:
           type: string
-          example: '+254112685368'
+          example: "+254112685368"
         customer_email:
           type: string
-          example: support@digitax.tech
+          example: "info@namiri.tech"
         date:
           type: string
-          example: 28/07/2025
+          example: "10/05/2023"
         time:
           type: string
-          example: 05:06:07 pm
+          example: "04:16:11 pm"
     SaleItem:
       type: object
       required:
@@ -2426,7 +2405,7 @@ components:
       properties:
         id:
           type: string
-          example: saleitem_1D-54MPL3-D0C5-F00-B4R-BAZ
+          example: saleitem_01HC3J1VVVM05YCTS61G7V3KC6
         quantity:
           type: number
           example: 1
@@ -2456,7 +2435,7 @@ components:
           example: 0
         item_id:
           type: string
-          example: item_1D-54MPL3-D0C5-F00-B4R-BAZ
+          example: item_01HC3J1VVVM05YCTS61G7V3KC6
     Purchase:
       type: object
       required:
@@ -2476,7 +2455,7 @@ components:
       properties:
         id:
           type: string
-          example: purchase_1D-54MPL3-D0C5-F00-B4R-BAZ
+          example: purchase_01HC3J1VVVM05YCTS61G7V3KC6
         registration_type_code:
           type: string
           example: A
@@ -2485,35 +2464,35 @@ components:
           example: 4000
         purchase_type_code:
           type: string
-          example: 'N'
+          example: N
         receipt_type_code:
           type: string
           example: P
         payment_type_code:
           type: string
-          example: '07'
+          example: "07"
         purchase_status_code:
           type: string
-          example: '06'
+          example: "06"
         purchase_date:
           type: string
-          example: '20250728'
+          example: "20230620"
         trader_invoice_number:
           type: string
-          example: '12345678901'
+          example: "12"
         supplier_branch_id:
           type: string
-          example: '00'
+          example: "00"
         supplier_name:
           type: string
           example: KENYA REVENUE AUTHORITY
         supplier_invoice_number:
           type: integer
-          example: 12345678901
+          example: 12
         item_list:
           type: array
           items:
-            $ref: '#/components/schemas/PurchaseItem'
+            $ref: "#/components/schemas/PurchaseItem"
     PurchaseItem:
       type: object
       required:
@@ -2527,7 +2506,7 @@ components:
       properties:
         id:
           type: string
-          example: purchaseitem_1D-54MPL3-D0C5-F00-B4R-BAZ
+          example: purchaseitem_01HC3J1VVVM05YCTS61G7V3KC6
         quantity:
           type: integer
           example: 3000
@@ -2545,7 +2524,7 @@ components:
           example: 0
         item_id:
           type: string
-          example: item_1D-54MPL3-D0C5-F00-B4R-BAZ
+          example: item_01HC3J1VVVM05YCTS61G7V3KC6
     OfflineUrlSale:
       type: object
       required:
@@ -2571,13 +2550,13 @@ components:
       properties:
         date:
           type: string
-          example: '2025-07-28'
+          example: "2023-07-23"
         time:
           type: string
-          example: '12:00:00'
+          example: "12:00:00"
         trader_invoice_number:
           type: string
-          example: '12345678901'
+          example: "12345678901"
         invoice_number:
           type: integer
           example: 38
@@ -2586,23 +2565,22 @@ components:
           example: 38
         digitax_id:
           type: string
-          example: sale_1D-54MPL3-D0C5-F00-B4R-BAZ
+          example: "sale_01HC3HTDAXQ50E07CWR2A2CFBD"
         serial_number:
           type: string
-          example: S341AL-NUMB34-54MPL3
+          example: KRACU0400000001
         receipt_number:
           type: integer
           example: 38
         internal_data:
           type: string
-          example: 1NT34NAL-4ATA-54MPL3-D0C5-F00-B4R-BAZ
+          example: PB3ZSZP3RZR3AUPYBYLUTFJDIA
         receipt_signature:
           type: string
-          example: R3C31PTS1GN8U43
+          example: 3JYZVPTPMYBGHG4A
         etims_url:
           type: string
-          example: >-
-            https://etims.kra.go.ke/common/link/etims/receipt/indexEtimsReceiptData?Data=P012345678Y00R3C31PTS1GN8U43
+          example: https://etims.kra.go.ke/common/link/etims/receipt/indexEtimsReceptData?{P053100692D+00+3JYZVPTPMYBGHG4A}
         sales_tax_summary:
           type: object
           required:
@@ -2679,8 +2657,7 @@ components:
           example: completed
         kra_receipt_url:
           type: string
-          example: >-
-            https://etims.kra.go.ke/common/link/etims/receipt/indexEtimsReceiptData?Data=P012345678Y00R3C31PTS1GN8U43
+          example: https://etims.kra.go.ke/common/link/etims/receipt/indexEtimsReceptData?{P053100692D+00+3JYZVPTPMYBGHG4A}
         total:
           type: number
           example: 600
@@ -2698,13 +2675,13 @@ components:
               example: Business Name
             pin:
               type: string
-              example: P012345678Y
+              example: P012345678P
             email:
               type: string
               example: support@digitax.tech
             phone:
               type: string
-              example: '+254112685368'
+              example: +254712345678
             location:
               type: string
               example: Nairobi
@@ -2718,16 +2695,16 @@ components:
           properties:
             name:
               type: string
-              example: Customer Name
+              example: John Doe
             pin:
               type: string
-              example: P012345678Y
+              example: P012345678P
             email:
               type: string
-              example: support@digitax.tech
+              example: support@namiri.tech
             phone:
               type: string
-              example: '+254112685368'
+              example: +254712345678
         items:
           type: array
           items:
@@ -2741,7 +2718,7 @@ components:
             properties:
               id:
                 type: string
-                example: item_1D-54MPL3-D0C5-F00-B4R-BAZ
+                example: item_01HC3J1VVVM05YCTS61G7V3KC6
               name:
                 type: string
                 example: DigiTax Product 01
@@ -2768,11 +2745,11 @@ components:
           example: success
         created_at:
           type: string
-          example: '2025-07-29T17:06:07.036Z'
+          example: "2024-09-18T15:09:02.036Z"
         data:
           type: object
           description: Invoice verification data
-          $ref: '#/components/schemas/VerificationDetail'
+          $ref: "#/components/schemas/VerificationDetail"
     VerificationDetail:
       type: object
       required:
@@ -2783,7 +2760,7 @@ components:
         invoice_timestamp:
           type: string
           description: Invoice timestamp
-          example: '2025-07-29T17:06:07Z'
+          example: "2024-02-12T10:23:06Z"
         number_of_items:
           type: integer
           description: Number of items in the invoice
@@ -2791,7 +2768,7 @@ components:
         invoice_number:
           type: string
           description: Invoice number
-          example: KRACU9999999999/99
+          example: "KRACU0300000024/39"
     Supplier:
       type: object
       required:
@@ -2803,7 +2780,7 @@ components:
         id:
           type: string
           description: Supplier ID
-          example: supplier_1D-54MPL3-D0C5-F00-B4R-BAZ
+          example: supplier_01JS16JDB2B5ESZ8HWJ3CBYP5Y
         supplier_name:
           type: string
           description: Supplier Name
@@ -2811,20 +2788,18 @@ components:
         email:
           type: string
           description: Supplier Email
-          example: support@digitax.tech
+          example: accounts@johndoeinc.com
         phone:
           type: string
           description: Supplier Phone Number
-          example: '+254112685368'
+          example: "+254712345678"
         supplier_tin:
           type: string
           description: Supplier Tax Identification Number (TIN)
-          example: P012345678Y
+          example: P012345678P
         taxpayer_type:
           type: string
-          enum:
-            - INDIVIDUAL
-            - BUSINESS
+          enum: [INDIVIDUAL, BUSINESS]
           description: Taxpayer Type
           example: INDIVIDUAL
         invoicing:
@@ -2835,24 +2810,17 @@ components:
           properties:
             reverse_invoice_type:
               type: string
-              enum:
-                - REGULAR
-                - THIRD_PARTY
+              enum: [REGULAR, THIRD_PARTY]
               description: Reverse invoice type
               example: REGULAR
             reverse_invoice_authorisation:
               type: string
-              enum:
-                - IMPLICIT
-                - EXPLICIT
+              enum: [IMPLICIT, EXPLICIT]
               description: Reverse invoice authorisation
               example: IMPLICIT
         status:
           type: string
-          enum:
-            - PENDING
-            - FAILED
-            - COMPLETED
+          enum: [PENDING, FAILED, COMPLETED]
           description: status against KRA
     Summary:
       type: object
@@ -2875,7 +2843,7 @@ components:
         summary:
           type: object
           additionalProperties:
-            $ref: '#/components/schemas/Summary'
+            $ref: "#/components/schemas/Summary"
   parameters:
     After:
       in: query
@@ -2883,20 +2851,16 @@ components:
       required: false
       schema:
         type: string
-        description: >-
-          When paginating results, a pointer to an ID after which we want
-          results
-        example: item_1D-54MPL3-D0C5-F00-B4R-BAZ
+        description: When paginating results, a pointer to an ID after which we want results
+        example: item_01HC3J1VVVM05YCTS61G7V3KC6
     Before:
       in: query
       name: before
       required: false
       schema:
         type: string
-        description: >-
-          When paginating results, a pointer to an ID before which we want
-          results
-        example: item_1D-54MPL3-D0C5-F00-B4R-BAZ
+        description: When paginating results, a pointer to an ID before which we want results
+        example: item_01HC3J1VVVM05YCTS61G7V3KC6
     PageSize:
       in: query
       name: page_size
