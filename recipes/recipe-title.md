@@ -44,7 +44,7 @@ recipe:
 
 <!-- json@2 -->
 
-
+Review the Item classification code table here: https://ke.docs.digitax.tech/docs/items-item-classification-table#/
 
 # Specify the Item type code
 
