@@ -1,5 +1,5 @@
 ---
-title: Recipe Title
+title: Create an Item
 description: Recipe Description
 hidden: false
 recipe:
@@ -17,7 +17,7 @@ recipe:
   "tax_type_code": "B",
   "default_unit_price": 1000,
   "stock_quantity": 100,
-  "callback_url": "https://example.com/callback", // optional
+  "callback_url": "https://example.com/callback",
 }
 ```
 
@@ -40,7 +40,61 @@ recipe:
 }
 ```
 
-# Create an Item
+# Specify the Item classification code
 
-<!-- json@ -->
+<!-- json@2 -->
+
+
+
+# Specify the Item type code
+
+<!-- json@3 -->
+
+
+
+# Specify the Item name
+
+<!-- json@4 -->
+
+
+
+# Specify the item's country of origin
+
+<!-- json@5 -->
+
+
+
+# Specify the item package unit code
+
+<!-- json@6 -->
+
+
+
+# Specify the item quantity unit code
+
+<!-- json@7 -->
+
+
+
+# Specify the item tax type code
+
+<!-- json@8 -->
+
+
+
+# Specify the item's default unit price
+
+<!-- json@9 -->
+
+
+
+# Specify the item's stock quantity
+
+<!-- json@10 -->
+
+
+
+# Specify the callback URL (optional)
+
+<!-- json@11 -->
 
