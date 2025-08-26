@@ -8,12 +8,12 @@ metadata:
 ---
 | Code | Code Description        |
 | :--- | :---------------------- |
-| 1    | INCOMING IMPORT         |
-| 2    | INCOMING PURCHASE       |
-| 3    | INCOMING RETURN         |
-| 4    | INCOMING STOCK MOVEMENT |
-| 5    | INCOMING PROCESSING     |
-| 6    | INCOMING ADJUSTMENT     |
+| 01   | INCOMING IMPORT         |
+| 02   | INCOMING PURCHASE       |
+| 03   | INCOMING RETURN         |
+| 04   | INCOMING STOCK MOVEMENT |
+| 05   | INCOMING PROCESSING     |
+| 06   | INCOMING ADJUSTMENT     |
 | 11   | OUTGOING SALE           |
 | 12   | OUTGOING RETURN         |
 | 13   | OUTGOING STOCK MOVEMENT |
