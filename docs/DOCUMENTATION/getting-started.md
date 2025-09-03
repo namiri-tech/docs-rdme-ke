@@ -24,7 +24,7 @@ hidden: false
   </Card>
 </Cards>
 
-<Accordion title="DigiTax is multi-national. Explore other countries here ..." icon="fa-globe">
+<Accordion title="DigiTax is Pan African. Explore other countries here ..." icon="fa-globe">
   You are currently reading a guide in the DigiTax Kenya API Hub.
 
   If you're looking for another country or the general homepage for DigiTax API, navigate to the [DigiTax API homepage](https://docs.digitax.tech), or country-specific API hub pages (ordered alphabetically):
@@ -38,7 +38,7 @@ hidden: false
 
 African countries lately have been opting to digitize their tax systems by imposing e-Invoicing or Electronic Tax Invoicing and Reporting. Electronic Tax Invoicing is a nascent Fintech category in the Pan-African region.
 
-Kenya is one of the countries and the country's tax authority/ regulator, **KRA** (Kenya Revenue Authority) has a transformative e-invoicing system, named **eTIMS** (electronic Tax Information Management System). In this documentation, DigiTax Kenya API Hub, we shall simply refer to it as *KRA eTIMS* or *eTIMS*.
+Kenya is one of the countries and the country's tax authority/ regulator, **KRA** (Kenya Revenue Authority) has a transformative e-invoicing system, named **eTIMS** (electronic Tax Information Management System). In this documentation, DigiTax Kenya API Hub, we shall simply refer to it as _KRA eTIMS_ or _eTIMS_.
 
 ## Introduction to KRA eTIMS and DigiTax platform
 
@@ -61,9 +61,9 @@ The suite of digital solutions or products under DigiTax, through which one can 
 
 DigiTax connects with regional tax authorities/ regulators, so far:
 
-* ***DigiTax Nigeria*** integrates you with <Glossary>FIRS</Glossary> e-Invoicing System
-* ***DigiTax Kenya*** integrates you with <Glossary>KRA</Glossary> eTIMS (electronic Tax Information Management System)
-* ***DigiTax Zambia*** integrates you with <Glossary>ZRA</Glossary> Smart Invoice System
+* _**DigiTax Nigeria**_ integrates you with <Glossary>FIRS</Glossary> e-Invoicing System
+* _**DigiTax Kenya**_ integrates you with <Glossary>KRA</Glossary> eTIMS (electronic Tax Information Management System)
+* _**DigiTax Zambia**_ integrates you with <Glossary>ZRA</Glossary> Smart Invoice System
 
 to offer you a streamlined invoicing system that ensures compliance and supports the growth of your business.
 
@@ -105,13 +105,15 @@ With DigiTax, you gain access to a streamlined invoicing system that ensures com
 
 For us to support individuals and businesses to generate eTIMS invoices, DigiTax is licensed as an eTIMS OSCU integrator/ provider.
 
-**OSCU** stands for ***O**nline **S**ales **C**ontrol **U**nit*. This means that the Control Unit needs to connect to the online KRA eTIMS server to sign/ stamp (generate eTIMS metadata and signature) invoices.
+**OSCU** stands for _**O**nline **S**ales **C**ontrol **U**nit_. This means that the Control Unit needs to connect to the online KRA eTIMS server to sign/ stamp (generate eTIMS metadata and signature) invoices.
 
 The speed at which eTIMS invoices are generated is dependent on network capacity, connectivity, and responsiveness of KRA's eTIMS server and the Control Unit transmitting the network traffic.
 
 OSCU is different from VSCU. DigiTax doesn't have a VSCU option. That said, the DigiTax team has developed features like **offline URLs**, **callback URLs**, and others which provide compelling value (including VSCU-like service) that our customers rely on daily.
 
-> 🥇 DigiTax is the leading KRA & ODPC-approved eTIMS integrator
+<Callout icon="🥇" theme="default">
+  ### DigiTax is the leading KRA & ODPC-approved eTIMS integrator
+</Callout>
 
 ## DigiTax Kenya API Hub
 
