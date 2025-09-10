@@ -8,6 +8,7 @@ hidden: true
 icon: 🥷
 metadata:
   title: Invoice verification feature
+  description: Invoice verification seeks to streamline verification of invoices
   robots: index
 ---
 ## Overview
