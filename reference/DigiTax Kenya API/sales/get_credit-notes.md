@@ -1,5 +1,5 @@
 ---
-title: Get credit notes
+title: Get FIRS Credit Notes
 excerpt: List credit notes
 api:
   file: openapi.yaml

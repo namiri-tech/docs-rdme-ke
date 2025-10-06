@@ -1,5 +1,5 @@
 ---
-title: Get list of items owned by the business
+title: Get FIRS Items
 excerpt: Get list of items owned by the business
 api:
   file: openapi.yaml
