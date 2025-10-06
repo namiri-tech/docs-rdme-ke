@@ -1,5 +1,5 @@
 ---
-title: Create Credit Note
+title: Add credit note
 excerpt: Add credit note
 api:
   file: openapi.yaml

@@ -1,5 +1,5 @@
 ---
-title: Create Item
+title: Create an item
 excerpt: Create an item
 api:
   file: openapi.yaml
