@@ -1957,6 +1957,7 @@ components:
         - manager_name
         - manager_contact
         - manager_email
+        - business_id
       properties:
         id:
           type: string
@@ -2009,6 +2010,10 @@ components:
           type: boolean
           description: Is Head Office
           example: true
+        business_id:
+          type: string
+          description: Business ID
+          example: business_01JPAF3FHV3M85T2KVEDQQGFGJ
     Customer:
       type: object
       required:
