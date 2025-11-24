@@ -1585,6 +1585,7 @@ paths:
                 - supplier_id
                 - items
                 - sale_date
+                - trader_invoice_number
               properties:
                 supplier_id:
                   type: string
@@ -1610,6 +1611,9 @@ paths:
                 invoice_details:
                   type: string
                   example: Invoice Details
+                trader_invoice_number:
+                  type: string
+                  example: '12345678901'
                 items:
                   type: array
                   items:
@@ -1740,6 +1744,7 @@ paths:
                 - supplier_id
                 - items
                 - sale_date
+                - trader_invoice_number
               properties:
                 supplier_id:
                   type: string
@@ -1765,6 +1770,9 @@ paths:
                 invoice_details:
                   type: string
                   example: Invoice Details
+                trader_invoice_number:
+                  type: string
+                  example: '12345678901'
                 items:
                   type: array
                   items:
@@ -1851,6 +1859,7 @@ paths:
                 - items
                 - return_date
                 - sale_id
+                - trader_invoice_number
               properties:
                 return_date:
                   type: string
@@ -1864,6 +1873,9 @@ paths:
                 invoice_details:
                   type: string
                   example: General Invoice Details
+                trader_invoice_number:
+                  type: string
+                  example: '12345678901'
                 items:
                   type: array
                   items:
@@ -1935,6 +1947,7 @@ paths:
                 - items
                 - return_date
                 - sale_id
+                - trader_invoice_number
               properties:
                 return_date:
                   type: string
@@ -1948,6 +1961,9 @@ paths:
                 invoice_details:
                   type: string
                   example: General Invoice Details
+                trader_invoice_number:
+                  type: string
+                  example: '12345678901'
                 items:
                   type: array
                   items:
