@@ -5,7 +5,7 @@ excerpt: >-
   invoices they receive (likely before payment) streamlining the payout process
 deprecated: false
 hidden: false
-icon: 🥷
+icon: fad fa-magnifying-glass
 metadata:
   title: Invoice verification feature
   description: Invoice verification seeks to streamline verification of invoices
