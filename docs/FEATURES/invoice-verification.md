@@ -4,7 +4,7 @@ excerpt: >-
   Invoicing verification allows customers to confirm the validity of the
   invoices they receive (likely before payment) streamlining the payout process
 deprecated: false
-hidden: true
+hidden: false
 icon: 🥷
 metadata:
   title: Invoice verification feature
