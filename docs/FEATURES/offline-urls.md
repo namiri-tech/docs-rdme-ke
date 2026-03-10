@@ -42,9 +42,28 @@ The business_id would be **`business_01KK0ZMC0XTYBXXPBS8BN3SDTA`** which:
 
 ### via the DigiTax API
 
-If you make a GET request to 
+If you make a GET request to the <Anchor label="endpoint `https://api.digitax.tech/ke/v2/etims-info`" target="_blank" href="https://ke.docs.digitax.tech/reference/get_etims-info">endpoint `https://api.digitax.tech/ke/v2/etims-info`</Anchor> the response includes the **business_id**:
 
-### What is the `trader_invoice_number`?
+```json
+{
+  "id": "branch_01HC3J1VVVM05YCTS61G7V3KC6",
+  "tax_pin": "P012345678P",
+  "branch_office_id": 0,
+  "branch_office_name": "Head Office",
+  "branch_status_code": 1,
+  "county_name": "Nairobi",
+  "sub_county_name": "Westlands",
+  "tax_locality_name": "CBD",
+  "location_description": "1st Floor",
+  "manager_name": "John Doe",
+  "manager_contact": 712345678,
+  "manager_email": "manager@email.com",
+  "is_head_office": true,
+  "business_id": "business_01JPAF3FHV3M85T2KVEDQQGFGJ"
+}
+```
+
+## What is the `trader_invoice_number`?
 
 The `trader_invoice_number` is the alphanumeric identifier you generate or pick from your system to tie an invoice in your records (or system records) with an invoice on DigiTax and consequently on eTIMS.
 
@@ -83,3 +102,5 @@ If the transaction is incomplete, like the one below, you do not get a link to v
   See screenshot below.
 
   <Image align="center" src="https://files.readme.io/fad68e4f4debcb2f04208a6f5d60c2ff3e7e784764d4a45fb7e03506f9ccdd0f-A4.png" />
+
+<br />
