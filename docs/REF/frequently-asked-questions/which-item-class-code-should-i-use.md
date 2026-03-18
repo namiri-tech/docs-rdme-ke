@@ -19,7 +19,7 @@ You can download the entire list [here](https://www.unspsc.org/) (unspsc.org). T
 
 ## Default item class code values
 
-The <Anchor label="Item Classification Table" target="_blank" href="doc:items-item-classification-table">Item Classification Table</Anchor> contains hundreds of classification codes (yet it's not full exhaustive). To get as specific as possible to the classification code as possible, refer to the steps in [Specific Values](https://ke.docs.digitax.tech/docs/which-item-class-code-should-i-use#specific-item-class-code-values).
+The <Anchor label="Item Classification Table" target="_blank" href="doc:items-item-classification-table">Item Classification Table</Anchor> contains hundreds of classification codes (yet it's not full exhaustive). To get as specific as possible to the classification code as possible, refer to the steps in [this specific item class code values list](https://ke.docs.digitax.tech/docs/which-item-class-code-should-i-use#specific-item-class-code-values).
 
 Otherwise, below are some common item class code values that you can use while testing or for convenience.
 
@@ -45,7 +45,7 @@ Otherwise, below are some common item class code values that you can use while t
 
 ## Specific item class code values
 
-<Callout icon="👍">
+<Callout icon="👍" theme="okay">
   Use of Specifi
 </Callout>
 
@@ -54,21 +54,21 @@ Otherwise, below are some common item class code values that you can use while t
 1. Search for the item name [here](https://usa.databasesets.com/unspsc) (usa.databasesets.com/unspsc). If no result is returned, use synonyms or segments of the name (especially if it is a compound word like _eyeglass_)
 2. Copy the first four numbers of the item's code from the item you've determined as exactly matching your item, or closest to it by definition.
 3. Search for those copied first four numbers at the guide page - [Items: Item Classification Table](doc:items-item-classification-table)\  
-   (If there are more than one entry, pick the closest by definition)
+   (If there is more than one entry, pick the closest by definition).
 
 ### Example
 
-**eyeglass frames** are not available on the [Items: Item Classification Table](doc:items-item-classification-table) therefore:
+**Eyeglass frames** are not available on the [Items: Item Classification Table](doc:items-item-classification-table) therefore:
 
 * (_step #1 above_) I searched for "eyeglass frames" and got "42142903".
-* (_step #2 above_) I copy the first four numbers of the code "4214"
+* (_step #2 above_) I copy the first four numbers of the code, "4214"
 * (_step #3 above_) In the [Items: Item Classification Table](doc:items-item-classification-table), there are two entries starting with "4214".
   1. "42140000" (Patient care and treatment products and supplies)
   2. "42141600" (Basins and bedpans and urinals and admission kits)
 
 I'll use "42140000" which is more general, instead of "42141600".
 
-Moreover, **eyeglass frames** are close in definition to "Patient care and treatment products and supplies" than "Patient care and treatment products and supplies", right?
+Moreover, **eyeglass frames** are closer in definition to "Patient care and treatment products and supplies" than "Patient care and treatment products and supplies", right?
 
 ### On the dashboard
 
