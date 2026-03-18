@@ -32,16 +32,17 @@ Use the **X-API-Key** in your header when making API calls through the interacti
 
 ## Get API Key
 
-1. Navigate to the "Integrations" menu.\
+1. Navigate to the "Integrations" menu.  
    Then select "Add API KEY"
 
 <Image align="center" src="https://files.readme.io/89d5e88147a700b1272d84e18c91a9e3a5cc113f7a00f0dcf3441b8ff1cbe0f4-12.png" />
 
-2. Enter a name\
-   Select "API key" (OR "License key" if you're using a DigiTax plugin).
+2. Enter a name  
+
+   Stick with 'API Key' for standard integrations. 'License Key' is restricted to specific systems; please only select this option if directed by the support team.
 
    <Image align="center" src="https://files.readme.io/34a987804e69bd0d0063040d313e1d5593815d9d8d3ecb91adde84fb427370d9-CleanShot_2025-07-09_at_10.19.39_22x.png" />
-3. Click "Generate key", copy the key, and click "Save".\
+3. Click "Generate key", copy the key, and click "Save".  
    Test this API key in our interactive DigiTax API Reference before using it in your integration.
 
    <Image align="center" src="https://files.readme.io/c5d05c08b86a9022877bacf22a0ed00d9e9e5be940fee2d313e2556fdff13d7e-CleanShot_2025-07-09_at_09.22.212x.png" />
@@ -56,7 +57,7 @@ Create another business with your TPIN (Tax Payer Identification Number) like `2
 
 Follow the steps shared in the email sent by the DigiTax system to your inbox as soon as you successfully create a business.
 
-Once that business goes LIVE, you can go ahead and generate an API Key under the "Integrations" tab (See section **Get API Key** above)
+Once that business goes LIVE, you can go ahead and generate an API key under the "Integrations" tab (see section **Get API Key** above)
 
 Please copy the value that you generate for later use, as you will not see it from the dashboard on subsequent visits. Save it securely.
 
@@ -66,7 +67,7 @@ Please copy the value that you generate for later use, as you will not see it fr
 
 ## API Keys management
 
-Once you generate an API key, you have the option to deactivate them (when necessary).
+Once you generate an API key, you have the option to deactivate it (when necessary).
 
 Navigate to the "Integrations" menu and click on the "padlock" icon under the "Action" column.
 
@@ -76,4 +77,4 @@ Click "Deactivate key" if you'd like to invalidate the key for API use.
 
 <Image align="center" width="500px" src="https://files.readme.io/be46c930b7a8555cd7e51b5393f0615bff598950d0a608c8761e89f790b1585c-12222.png" />
 
-*To making tax compliance less taxing.*
+_To making tax compliance less taxing._
