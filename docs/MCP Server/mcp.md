@@ -19,7 +19,7 @@ DigiTax Kenya API Hub hosts a remote MCP server at `https://ke.docs.digitax.tech
 
 <Tabs>
   <Tab title="Cursor">
-    **Add to `~/.cursor/mcp.json`:**
+    **Add to`~/.cursor/mcp.json`:**
 
     ```json
     {
@@ -30,24 +30,10 @@ DigiTax Kenya API Hub hosts a remote MCP server at `https://ke.docs.digitax.tech
       }
     }
     ```
-
-    </Tab>
-  <Tab title="Windsurf">
-    **Add to `~/.codeium/windsurf/mcp_config.json`:**
-
-    ```json
-    {
-      "mcpServers": {
-        "dgtx-ke": {
-          "url": "https://ke.docs.digitax.tech/mcp"
-        }
-      }
-    }
-    ```
-
   </Tab>
-  <Tab title="Claude Desktop">
-    **Add to `claude_desktop_config.json`:**
+
+  <Tab title="Windsurf">
+    **Add to`~/.codeium/windsurf/mcp_config.json`:**
 
     ```json
     {
@@ -58,7 +44,20 @@ DigiTax Kenya API Hub hosts a remote MCP server at `https://ke.docs.digitax.tech
       }
     }
     ```
+  </Tab>
 
+  <Tab title="Claude Desktop">
+    **Add to`claude_desktop_config.json`:**
+
+    ```json
+    {
+      "mcpServers": {
+        "dgtx-ke": {
+          "url": "https://ke.docs.digitax.tech/mcp"
+        }
+      }
+    }
+    ```
   </Tab>
 </Tabs>
 
