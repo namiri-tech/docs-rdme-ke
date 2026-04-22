@@ -625,7 +625,6 @@ paths:
               type: object
               required:
                 - trader_invoice_number
-                - receipt_type_code
                 - payment_type_code
                 - invoice_status_code
                 - items
@@ -646,9 +645,6 @@ paths:
                 trader_invoice_number:
                   type: string
                   example: '12345678901'
-                receipt_type_code:
-                  type: string
-                  example: S
                 payment_type_code:
                   type: string
                   example: '07'
@@ -658,18 +654,6 @@ paths:
                 callback_url:
                   type: string
                   example: https://example.com/callback
-                invoice_auth:
-                  type: object
-                  required:
-                    - type
-                    - issuer
-                  properties:
-                    type:
-                      type: string
-                      example: REVERSE
-                    issuer:
-                      type: string
-                      example: business_01HC3J1VVVM05YCTS61G7V3KC6
                 invoice_details:
                   type: string
                   example: Invoice Details
@@ -1523,7 +1507,10 @@ paths:
                   example: accounts@johndoeinc.com
                 phone:
                   type: string
-                  description: Supplier Phone Number
+                  description: >-
+                    Supplier Phone Number. Required when onboarding a reverse
+                    invoicing supplier unless the business has been configured
+                    to allow it to be omitted
                   example: '+254712345678'
       responses:
         '201':
