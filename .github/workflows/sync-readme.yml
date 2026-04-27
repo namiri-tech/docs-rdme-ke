@@ -3,6 +3,7 @@ name: Sync OpenAPI spec to README.com
 on:
   push:
     branches:
+      - v1.0
       - v2.0
     paths:
       - 'reference/openapi.yaml'
