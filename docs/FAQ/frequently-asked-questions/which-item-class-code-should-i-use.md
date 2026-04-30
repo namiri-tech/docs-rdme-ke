@@ -51,7 +51,7 @@ Otherwise, below are some common item class code values that you can use while t
 
 ### Process
 
-1. Search for the item name [here](https://usa.databasesets.com/unspsc) (usa.databasesets.com/unspsc). If no result is returned, use synonyms or segments of the name (especially if it is a compound word like _eyeglass_)
+1. Search for the item name at [usa.databasesets.com/unspsc](https://usa.databasesets.com/unspsc). If no result is returned, use synonyms or segments of the name (especially if it is a compound word like _eyeglass_)
 2. Copy the first four numbers of the item's code from the item you've determined as exactly matching your item, or closest to it by definition.
 3. Search for those copied first four numbers at the guide page - [Items: Item Classification Table](doc:items-item-classification-table)\  
    (If there is more than one entry, pick the closest by definition).
