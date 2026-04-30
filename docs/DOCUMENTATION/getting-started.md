@@ -4,6 +4,7 @@ excerpt: >-
   **DigiTax Kenya API Hub** contains guides and API reference pages for further
   understanding, equipping you on how to integrate with the KRA eTIMS System
 hidden: false
+icon: 📖
 ---
 <Cards columns={2}>
   <Card title="Navigation" icon="fa-compass">
