@@ -9,7 +9,7 @@ metadata:
 
 An item_class_code is required when creating an item. eTIMS uses a subset of the open, global, multi-sector standard for efficient, accurate classification of products and services - United Nations Standard Products and Services Code® (UNSPSC®).
 
-You can download the entire list [here](https://www.unspsc.org/) (unspsc.org). To determine which item class code to use, follow the steps below.
+You can download the entire list at [ungm.org/public/unspsc](https://www.ungm.org/public/unspsc). To determine which item class code to use, follow the steps below.
 
 <Callout icon="📘" theme="info">
   All item types are classified with item class codes
