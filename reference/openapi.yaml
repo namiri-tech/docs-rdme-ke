@@ -156,7 +156,7 @@ paths:
                   items:
                     type: string
                     description: >-
-                      List of levies applied to the sale<br>**CTL** stands for
+                      List of levies applied to the sale<br>- **CTL** stands for
                       Catering Levy
                     example: CTL
       responses:
@@ -698,6 +698,9 @@ paths:
                   description: Indicates if the sale is tax exempt
                   example: false
                 service_charge_rate:
+                  description: >-
+                    Service charge rate applied to the sale. Value must be
+                    between 0.00 and 1.00 (representing 0% to 100%)
                   type: number
                   format: double
                   example: 0.02
