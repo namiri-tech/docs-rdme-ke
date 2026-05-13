@@ -131,7 +131,7 @@ paths:
                   example: https://example.site/services/digitaxQueueReceiverPROXY
                 item_bar_code:
                   type: string
-                  description: The bar code of the item
+                  description: The bar code or unique product code (UPC) of the item
                   example: 1T3MB4RC0D3
                 levies:
                   type: array
@@ -400,7 +400,7 @@ paths:
                 phone:
                   type: string
                   description: Customer Phone Number
-                  example: 254712345678
+                  example: "+254712345678"
       responses:
         "200":
           description: Success
@@ -793,7 +793,7 @@ paths:
               properties:
                 sale_date:
                   type: string
-                  example: "2023-07-23"
+                  example: "2026-05-13"
                 customer_tin:
                   type: string
                   example: P123456789Y
@@ -859,7 +859,7 @@ paths:
                         example: "99000000"
                       item_bar_code:
                         type: string
-                        example: "99000001"
+                        example: HC3J1VVVM05YCTS61G7V3KC6
                       item_tax_type_code:
                         type: string
                         example: D
@@ -1393,10 +1393,10 @@ paths:
                   example: 2000
                 supplier_pin:
                   type: string
-                  example: P000614502H
+                  example: P123456789P
                 reference_number:
                   type: string
-                  example: P000614502H
+                  example: P123456789P
       responses:
         "201":
           description: Success
@@ -1591,7 +1591,7 @@ paths:
                   example: John Doe
                 customer_phone:
                   type: string
-                  example: "+254714267891"
+                  example: "+254712345678"
                 customer_email:
                   type: string
                   example: john@doe.com
@@ -1749,7 +1749,7 @@ paths:
                   example: John Doe
                 customer_phone:
                   type: string
-                  example: "+254714267891"
+                  example: "+254712345678"
                 customer_email:
                   type: string
                   example: john@doe.com
@@ -1786,7 +1786,7 @@ paths:
                         example: "99000000"
                       item_bar_code:
                         type: string
-                        example: "99000001"
+                        example: HC3J1VVVM05YCTS61G7V3KC6
                       item_tax_type_code:
                         type: string
                         example: D
@@ -2049,14 +2049,14 @@ paths:
           schema:
             type: string
             format: date
-            example: "2025-07-01"
+            example: "2026-05-13"
         - in: query
           name: end_date
           required: true
           schema:
             type: string
             format: date
-            example: "2025-07-31"
+            example: "2026-05-17"
       responses:
         "200":
           description: Success
@@ -2230,7 +2230,7 @@ components:
         phone:
           type: string
           description: Customer Phone Number
-          example: 254712345678
+          example: "+254712345678"
         customer_tin:
           type: string
           description: Customer Tax Identification Number (TIN)
@@ -2452,7 +2452,7 @@ components:
           example: COMPLETE
         item_bar_code:
           type: string
-          description: The bar code or unique product code(UPC) of the item
+          description: The bar code or unique product code (UPC) of the item
           example: "012345678905"
         levies:
           type: array
@@ -2943,7 +2943,7 @@ components:
               example: support@digitax.tech
             phone:
               type: string
-              example: 254712345678
+              example: "+254712345678"
             location:
               type: string
               example: Nairobi
@@ -2966,7 +2966,7 @@ components:
               example: support@namiri.tech
             phone:
               type: string
-              example: 254712345678
+              example: "+254712345678"
         items:
           type: array
           items:
