@@ -94,7 +94,10 @@ paths:
                   example: '99020000'
                 item_type_code:
                   type: string
-                  description: The item type code of the item
+                  description: >-
+                    The item type code of the item. Consult the <a
+                    href="https://ke.docs.digitax.tech/docs/item-attributes-items#item-type-codes"
+                    target="_blank">**Item Type Code Reference**
                   example: 3
                 item_name:
                   type: string
@@ -102,19 +105,31 @@ paths:
                   example: DigiTax Product 01
                 origin_nation_code:
                   type: string
-                  description: The country of origin code of the item
+                  description: >-
+                    The country of origin code of the item. Consult the <a
+                    href="https://ke.docs.digitax.tech/docs/item-attributes-items#country-codes"
+                    target="_blank">**Country Code Reference**
                   example: KE
                 package_unit_code:
                   type: string
-                  description: The package unit code of the item
+                  description: >-
+                    The package unit code of the item. Consult the <a
+                    href="https://ke.docs.digitax.tech/docs/item-attributes-items#packaging-unit-codes"
+                    target="_blank">**Packaging Unit Code Reference**
                   example: NT
                 quantity_unit_code:
                   type: string
-                  description: The quantity unit code of the item
+                  description: >-
+                    The quantity unit code of the item. Consult the <a
+                    href="https://ke.docs.digitax.tech/docs/item-attributes-items#quantity-unit-codes"
+                    target="_blank">**Quantity Unit Code Reference**
                   example: U
                 tax_type_code:
                   type: string
-                  description: The tax type code of the item
+                  description: >-
+                    The tax type code of the item. Consult the <a
+                    href="https://ke.docs.digitax.tech/docs/item-attributes-items#taxation-type-codes"
+                    target="_blank">**Tax Type Code Reference**
                   example: D
                 default_unit_price:
                   type: number
@@ -128,7 +143,9 @@ paths:
                   type: string
                   description: >-
                     The callback URL to call when we have new information about
-                    the item, usually after syncing with eTIMS
+                    the item, usually after syncing with eTIMS. Consult the <a
+                    href="https://ke.docs.digitax.tech/docs/callback-urls"
+                    target="_blank">**Callback URL guide**
                   example: https://example.site/services/digitaxQueueReceiverPROXY
                 item_bar_code:
                   type: string
@@ -651,12 +668,26 @@ paths:
                   type: string
                   example: '12345678901'
                 payment_type_code:
+                  description: >-
+                    The payment type code. Consult the <a
+                    href="https://ke.docs.digitax.tech/docs/invoice-attributes#payment-type-codes"
+                    target="_blank">**Payment Type Code Reference**
                   type: string
                   example: '07'
                 invoice_status_code:
+                  description: >-
+                    The invoice status code. Consult the <a
+                    href="https://ke.docs.digitax.tech/docs/invoice-attributes#invoice-status-codes"
+                    target="_blank">**Invoice Status Code Reference**</a>.
                   type: string
                   example: '01'
                 callback_url:
+                  description: >-
+                    The callback URL to call when we have new information about
+                    the sae/invoice, usually after syncing with eTIMS. Consult
+                    the <a
+                    href="https://ke.docs.digitax.tech/docs/callback-urls"
+                    target="_blank">**Callback URL guide**
                   type: string
                   example: https://example.com/callback
                 invoice_details:
@@ -819,6 +850,12 @@ paths:
                   type: string
                   example: '01'
                 callback_url:
+                  description: >-
+                    The callback URL to call when we have new information about
+                    the sale/invoice, usually after syncing with eTIMS. Consult
+                    the <a
+                    href="https://ke.docs.digitax.tech/docs/callback-urls"
+                    target="_blank">**Callback URL guide**
                   type: string
                   example: https://example.com/callback
                 invoice_auth:
@@ -862,7 +899,7 @@ paths:
                         example: '99000000'
                       item_bar_code:
                         type: string
-                        example: HC3J1VVVM05YCTS61G7V3KC6
+                        example: 1T3MB4RC0D3
                       item_tax_type_code:
                         type: string
                         example: D
@@ -942,6 +979,12 @@ paths:
                   type: string
                   example: sale_01HC3J1VVVM05YCTS61G7V3KC6
                 callback_url:
+                  description: >-
+                    The callback URL to call when we have new information about
+                    the credit note, usually after syncing with eTIMS. Consult
+                    the <a
+                    href="https://ke.docs.digitax.tech/docs/callback-urls"
+                    target="_blank">**Callback URL guide**
                   type: string
                   example: https://example.com/callback
                 invoice_details:
@@ -990,6 +1033,12 @@ paths:
                   type: string
                   example: sale_01HC3J1VVVM05YCTS61G7V3KC6
                 callback_url:
+                  description: >-
+                    The callback URL to call when we have new information about
+                    the credit note, usually after syncing with eTIMS. Consult
+                    the <a
+                    href="https://ke.docs.digitax.tech/docs/callback-urls"
+                    target="_blank">**Callback URL guide**
                   type: string
                   example: https://example.com/callback
                 invoice_details:
@@ -1007,7 +1056,7 @@ paths:
                     properties:
                       item_bar_code:
                         type: string
-                        example: HC3J1VVVM05YCTS61G7V3KC6
+                        example: 1T3MB4RC0D3
                       quantity:
                         type: number
                         example: 1
@@ -1078,6 +1127,12 @@ paths:
                   type: string
                   example: '12345678901'
                 callback_url:
+                  description: >-
+                    The callback URL to call when we have new information about
+                    the credit note, usually after syncing with eTIMS. Consult
+                    the <a
+                    href="https://ke.docs.digitax.tech/docs/callback-urls"
+                    target="_blank">**Callback URL guide**
                   type: string
                   example: https://example.com/callback
                 invoice_details:
@@ -1789,7 +1844,7 @@ paths:
                         example: '99000000'
                       item_bar_code:
                         type: string
-                        example: HC3J1VVVM05YCTS61G7V3KC6
+                        example: 1T3MB4RC0D3
                       item_tax_type_code:
                         type: string
                         example: D
@@ -1860,6 +1915,12 @@ paths:
                   type: string
                   example: sale_01HC3J1VVVM05YCTS61G7V3KC6
                 callback_url:
+                  description: >-
+                    The callback URL to call when we have new information about
+                    the reverse credit note, usually after syncing with eTIMS.
+                    Consult the <a
+                    href="https://ke.docs.digitax.tech/docs/callback-urls"
+                    target="_blank">**Callback URL guide**
                   type: string
                   example: https://example.com/callback
                 invoice_details:
@@ -1880,7 +1941,7 @@ paths:
                     properties:
                       item_bar_code:
                         type: string
-                        example: HC3J1VVVM05YCTS61G7V3KC6
+                        example: 1T3MB4RC0D3
                       quantity:
                         type: number
                         example: 1
@@ -1948,6 +2009,12 @@ paths:
                   type: string
                   example: sale_01HC3J1VVVM05YCTS61G7V3KC6
                 callback_url:
+                  description: >-
+                    The callback URL to call when we have new information about
+                    the reverse credit note, usually after syncing with eTIMS.
+                    Consult the <a
+                    href="https://ke.docs.digitax.tech/docs/callback-urls"
+                    target="_blank">**Callback URL guide**
                   type: string
                   example: https://example.com/callback
                 invoice_details:
