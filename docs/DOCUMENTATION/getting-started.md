@@ -30,9 +30,9 @@ icon: 📖
 
   If you're looking for another country or the general homepage for DigiTax API, navigate to the [DigiTax API homepage](https://docs.digitax.tech), or country-specific API hub pages (ordered alphabetically):
 
-  * <i class="icon-guides" /> **DigiTax Kenya API Hub (You are here 🎉)**
-  * <i class="icon-guides" /> [DigiTax Nigeria API Hub](https://ng.docs.digitax.tech)
-  * <i class="icon-guides" /> [DigiTax Zambia API Hub](https://zm.docs.digitax.tech)
+  * <i class="icon-guides"></i> **DigiTax Kenya API Hub (You are here 🎉)**
+  * <i class="icon-guides"></i> [DigiTax Nigeria API Hub](https://ng.docs.digitax.tech)
+  * <i class="icon-guides"></i> [DigiTax Zambia API Hub](https://zm.docs.digitax.tech)
 </Accordion>
 
 ## Electronic Tax Invoicing in Kenya
@@ -55,20 +55,22 @@ DigiTax platform, by Namiri Technology (the company), constitutes a suite of dig
 
 The suite of digital solutions or products under DigiTax, through which one can generate eTIMS invoices, are:
 
-* **DigiTax App** (Compatible with Android and Android POS devices),
-* **DigiTax Dashboard** (Responsive, Web-Browser based, Desktop application)
-* **DigiTax API** (for system-to-system integration without the issue of platform hopping), and
-* **DigiTax Plugins** like DigiTax WooCommerce, DigiTax Odoo, DigiTax Quickbooks, DigiTax Sage Online, among others.
+- **DigiTax App** (Compatible with Android and Android POS devices),
+- **DigiTax Dashboard** (Responsive, Web-Browser based, Desktop application)
+- **DigiTax API** (for system-to-system integration without the issue of platform hopping), and
+- **DigiTax Plugins** like DigiTax WooCommerce, DigiTax Odoo, DigiTax Quickbooks, DigiTax Sage Online, among others.
 
-DigiTax connects with regional tax authorities/ regulators, so far:
+DigiTax connects with regional tax authorities/ regulators so far:
 
-* _**DigiTax Nigeria**_ integrates you with <Glossary>FIRS</Glossary> e-Invoicing System
-* _**DigiTax Kenya**_ integrates you with <Glossary>KRA</Glossary> eTIMS (electronic Tax Information Management System)
-* _**DigiTax Zambia**_ integrates you with <Glossary>ZRA</Glossary> Smart Invoice System
+- **_DigiTax Nigeria_** integrates you with <Glossary>FIRS</Glossary> e-Invoicing System
+- **_DigiTax Kenya_** integrates you with <Glossary>KRA</Glossary> eTIMS (electronic Tax Information Management System)
+- **_DigiTax Zambia_** integrates you with <Glossary>ZRA</Glossary> Smart Invoice System
 
 to offer you a streamlined invoicing system that ensures compliance and supports the growth of your business.
 
-<Image align="center" border={true} caption="DigiTax - Tax Regulators" src="https://files.readme.io/c4b6c503b46201821ae3d228d057ee6db2585be40a27a8607b90ec0d60b733ff-eInvoice.png" />
+
+<Image src="https://files.readme.io/c4b6c503b46201821ae3d228d057ee6db2585be40a27a8607b90ec0d60b733ff-eInvoice.png" align="center" caption="DigiTax - Tax Regulators" border={true} />
+
 
 ### DigiTax API Features
 
@@ -80,13 +82,13 @@ The DigiTax API is built with various industry standards for API platforms in mi
 
 These include:
 
-* RESTful API
-* OpenAPI (formerly Swagger): An open-source standard that allows a standardized way to generate, document, and test our APIs.
-* Secure authentication with cryptographically signed JWTs (JSON Web Tokens)
+- RESTful API
+- OpenAPI (formerly Swagger): An open-source standard that allows a standardized way to generate, document, and test our APIs.
+- Secure authentication with cryptographically signed JWTs (JSON Web Tokens)
 
 To use this API, you'll need access to DigiTax Dashboard environment to get an X-API-Key. Get in touch with [our team](mailto:support@namiri.tech).
 
-These are the steps required to get up and running - [Prerequisites of using DigiTax API](https://ke.docs.digitax.tech/docs/start-using-the-api#/prerequisites)
+These are the steps required to get up and running - [Prerequisites of using the DigiTax API](https://ke.docs.digitax.tech/docs/start-using-the-api#/prerequisites)
 
 ***
 
@@ -100,21 +102,19 @@ We comply with industry and security best practices.
 
 > **DigiTax Kenya** integrates you with eTIMS
 
-**DigiTax** is a solution that sits between you; the taxpayer, and the KRA eTIMS.
+**DigiTax** is a solution that sits between you, the taxpayer, and the KRA eTIMS.
 
 With DigiTax, you gain access to a streamlined invoicing system that ensures compliance and supports your business's growth. Together, DigiTax and FIRS e-Invoicing are transforming how businesses in Nigeria manage their tax and invoicing obligations.
 
 For us to support individuals and businesses to generate eTIMS invoices, DigiTax is licensed as an eTIMS OSCU integrator/ provider.
 
-**OSCU** stands for _**O**nline **S**ales **C**ontrol **U**nit_. This means that the Control Unit needs to connect to the online KRA eTIMS server to sign/ stamp (generate eTIMS metadata and signature) invoices.
+**OSCU** stands for **_O_**_nline&#x20;_**_S_**_ales&#x20;_**_C_**_ontrol&#x20;_**_U_**_nit_. This means that the Control Unit needs to connect to the online KRA eTIMS server to sign/ stamp (generate eTIMS metadata and signature) invoices.
 
-The speed at which eTIMS invoices are generated is dependent on network capacity, connectivity, and responsiveness of KRA's eTIMS server and the Control Unit transmitting the network traffic.
+The speed at which eTIMS invoices are generated is dependent on the network capacity, connectivity, and responsiveness of KRA's eTIMS server and the Control Unit transmitting the network traffic.
 
 OSCU is different from VSCU. DigiTax doesn't have a VSCU option. That said, the DigiTax team has developed features like **offline URLs**, **callback URLs**, and others which provide compelling value (including VSCU-like service) that our customers rely on daily.
 
-<Callout icon="🥇" theme="default">
-  ### DigiTax is the leading KRA & ODPC-approved eTIMS integrator
-</Callout>
+> 🥇 DigiTax is the leading KRA & ODPC-approved eTIMS integrator
 
 ## DigiTax Kenya API Hub
 
@@ -124,7 +124,7 @@ This API Hub contains guides and API reference pages for further understanding, 
 
 Gain understanding of DigiTax Kenya integration through our detailed guides.
 
-You're in the guides section of DigiTax Kenya API Hub. Explore other pages below to gain context on DigiTax and eTIMS and understanding of how DigiTax makes it easier for you to integrate your invoicing system with eTIMS.
+You're in the guides section of the DigiTax Kenya API Hub. Explore other pages below to gain context on DigiTax and eTIMS and an understanding of how DigiTax makes it easier for you to integrate your invoicing system with eTIMS.
 
 ### Explore DigiTax Kenya API reference
 
@@ -140,14 +140,18 @@ Explore the API endpoints [here](/reference)
 
 Once again, thank you for reviewing the getting started page of the DigiTax Kenya API hub. We're excited you're here! 💚
 
-We invite you to use **DigiTax Kenya API** to integrate your system with eTIMS for automation and to reduce platform-hopping.
+We invite you to use the **DigiTax Kenya API** to integrate your system with eTIMS for automation and to reduce platform-hopping.
 
 To recap:
 
-* Explore our detailed guides to gain understanding of DigiTax Kenya integration. Learn how to navigate them [here](doc:how-to-use-this-site)
-* Get the [Prerequisites for using DigiTax Kenya API](https://ke.docs.digitax.tech/docs/start-using-the-api#/prerequisites)
-* For support, [email us](mailto:support@namiri.tech) OR talk to us via the **DigiTax chat** on the bottom-right of any page
+- Explore our detailed guides to gain an understanding of DigiTax Kenya integration. Learn how to navigate them [here](doc:how-to-use-this-site)
+- Get the [Prerequisites for using DigiTax Kenya API](https://ke.docs.digitax.tech/docs/start-using-the-api#/prerequisites)
+- For support, [email us](mailto:support@namiri.tech) OR talk to us via the **DigiTax chat** on the bottom-right of any page
 
 Welcome to the Less Taxing solution - DigiTax.
 
-<Image align="center" width="300px" src="https://files.readme.io/f982859d4fdca89de7d179a31795b159cb6c2e34a9a4dc578b85aba910daf13f-Full-Logo_Slogan_Colour.png" />
+
+<Image src="https://files.readme.io/f982859d4fdca89de7d179a31795b159cb6c2e34a9a4dc578b85aba910daf13f-Full-Logo_Slogan_Colour.png" align="center" width="300px" />
+
+
+<br />
