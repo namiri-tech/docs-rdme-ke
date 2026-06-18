@@ -893,7 +893,7 @@ paths:
                         example: "99000000"
                       item_bar_code:
                         type: string
-                        example: HC3J1VVVM05YCTS61G7V3KC6
+                        example: 1T3MB4RC0D3
                       item_tax_type_code:
                         type: string
                         example: D
@@ -913,6 +913,11 @@ paths:
                         type: number
                         example: 0
                       package_unit_quantity:
+                        description: >-
+                          Quantity in package units for the item (number of package
+                          units included in this line). For example, a "dozen"
+                          equals 12 - if you are selling one dozen, set
+                          package_unit_quantity to 12
                         type: number
                         example: 1
                       discount_rate:
@@ -973,6 +978,10 @@ paths:
                   type: string
                   example: sale_01HC3J1VVVM05YCTS61G7V3KC6
                 callback_url:
+                  description: >-
+                    The callback URL to call when we have new information about
+                    the credit note, usually after syncing with eTIMS. Consult the <a
+                    href="https://ke.docs.digitax.tech/docs/callback-urls" target="_blank">**Callback URL guide**
                   type: string
                   example: https://example.com/callback
                 invoice_details:
@@ -1021,6 +1030,10 @@ paths:
                   type: string
                   example: sale_01HC3J1VVVM05YCTS61G7V3KC6
                 callback_url:
+                  description: >-
+                    The callback URL to call when we have new information about
+                    the credit note, usually after syncing with eTIMS. Consult the <a
+                    href="https://ke.docs.digitax.tech/docs/callback-urls" target="_blank">**Callback URL guide**
                   type: string
                   example: https://example.com/callback
                 invoice_details:
@@ -1035,10 +1048,11 @@ paths:
                       - quantity
                       - unit_price
                       - total_amount
+                      - package_unit_quantity
                     properties:
                       item_bar_code:
                         type: string
-                        example: HC3J1VVVM05YCTS61G7V3KC6
+                        example: 1T3MB4RC0D3
                       quantity:
                         type: number
                         example: 1
@@ -1055,6 +1069,11 @@ paths:
                         type: number
                         example: 0
                       package_unit_quantity:
+                        description: >-
+                          Quantity in package units for the item (number of package
+                          units included in this line). For example, a "dozen"
+                          equals 12 - if you are selling one dozen, set
+                          package_unit_quantity to 12
                         type: number
                         example: 1
                       discount_rate:
@@ -1109,6 +1128,10 @@ paths:
                   type: string
                   example: "12345678901"
                 callback_url:
+                  description: >-
+                    The callback URL to call when we have new information about
+                    the credit note, usually after syncing with eTIMS. Consult the <a
+                    href="https://ke.docs.digitax.tech/docs/callback-urls" target="_blank">**Callback URL guide**
                   type: string
                   example: https://example.com/callback
                 invoice_details:
@@ -1123,6 +1146,7 @@ paths:
                       - quantity
                       - unit_price
                       - total_amount
+                      - package_unit_quantity
                     properties:
                       id:
                         type: string
@@ -1137,6 +1161,11 @@ paths:
                         type: number
                         example: 3500
                       package_unit_quantity:
+                        description: >-
+                          Quantity in package units for the item (number of package
+                          units included in this line). For example, a "dozen"
+                          equals 12 - if you are selling one dozen, set
+                          package_unit_quantity to 12
                         type: number
                         example: 1
                       discount_rate:
@@ -1662,6 +1691,11 @@ paths:
                         type: number
                         example: 3500
                       package_unit_quantity:
+                        description: >-
+                          Quantity in package units for the item (number of package
+                          units included in this line). For example, a "dozen"
+                          equals 12 - if you are selling one dozen, set
+                          package_unit_quantity to 12
                         type: number
                         example: 1
                       discount_rate:
@@ -1804,13 +1838,12 @@ paths:
                       - id
                       - quantity
                       - unit_price
-                      - discount_rate
-                      - discount_amount
                       - total_amount
                       - item_name
                       - item_class_code
                       - item_bar_code
                       - item_tax_type_code
+                      - package_unit_quantity
                     properties:
                       item_name:
                         type: string
@@ -1820,7 +1853,7 @@ paths:
                         example: "99000000"
                       item_bar_code:
                         type: string
-                        example: HC3J1VVVM05YCTS61G7V3KC6
+                        example: 1T3MB4RC0D3
                       item_tax_type_code:
                         type: string
                         example: D
@@ -1840,6 +1873,11 @@ paths:
                         type: number
                         example: 0
                       package_unit_quantity:
+                        description: >-
+                          Quantity in package units for the item (number of package
+                          units included in this line). For example, a "dozen"
+                          equals 12 - if you are selling one dozen, set
+                          package_unit_quantity to 12
                         type: number
                         example: 1
                       discount_rate:
@@ -1891,6 +1929,10 @@ paths:
                   type: string
                   example: sale_01HC3J1VVVM05YCTS61G7V3KC6
                 callback_url:
+                  description: >-
+                    The callback URL to call when we have new information about
+                    the reverse credit note, usually after syncing with eTIMS. Consult the <a
+                    href="https://ke.docs.digitax.tech/docs/callback-urls" target="_blank">**Callback URL guide**
                   type: string
                   example: https://example.com/callback
                 invoice_details:
@@ -1908,10 +1950,11 @@ paths:
                       - quantity
                       - unit_price
                       - total_amount
+                      - package_unit_quantity
                     properties:
                       item_bar_code:
                         type: string
-                        example: HC3J1VVVM05YCTS61G7V3KC6
+                        example: 1T3MB4RC0D3
                       quantity:
                         type: number
                         example: 1
@@ -1928,6 +1971,11 @@ paths:
                         type: number
                         example: 0
                       package_unit_quantity:
+                        description: >-
+                          Quantity in package units for the item (number of package
+                          units included in this line). For example, a "dozen"
+                          equals 12 - if you are selling one dozen, set
+                          package_unit_quantity to 12
                         type: number
                         example: 1
                       discount_rate:
@@ -1979,6 +2027,10 @@ paths:
                   type: string
                   example: sale_01HC3J1VVVM05YCTS61G7V3KC6
                 callback_url:
+                  description: >-
+                    The callback URL to call when we have new information about
+                    the reverse credit note, usually after syncing with eTIMS. Consult the <a
+                    href="https://ke.docs.digitax.tech/docs/callback-urls" target="_blank">**Callback URL guide**
                   type: string
                   example: https://example.com/callback
                 invoice_details:
@@ -1996,6 +2048,7 @@ paths:
                       - quantity
                       - unit_price
                       - total_amount
+                      - package_unit_quantity
                     properties:
                       id:
                         type: string
@@ -2010,6 +2063,11 @@ paths:
                         type: number
                         example: 3500
                       package_unit_quantity:
+                        description: >-
+                          Quantity in package units for the item (number of package
+                          units included in this line). For example, a "dozen"
+                          equals 12 - if you are selling one dozen, set
+                          package_unit_quantity to 12
                         type: number
                         example: 1
                       discount_rate:
