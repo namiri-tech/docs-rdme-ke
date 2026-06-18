@@ -93,7 +93,9 @@ paths:
                   example: "99020000"
                 item_type_code:
                   type: string
-                  description: The item type code of the item
+                  description: The item type code of the item. Consult the <a
+                    href="https://ke.docs.digitax.tech/docs/item-attributes-items#item-type-codes" target="_blank">**Item Type
+                    Code Reference**
                   example: 3
                 item_name:
                   type: string
@@ -101,19 +103,29 @@ paths:
                   example: DigiTax Product 01
                 origin_nation_code:
                   type: string
-                  description: The country of origin code of the item
+                  description:
+                    The country of origin code of the item. Consult the <a
+                    href="https://ke.docs.digitax.tech/docs/item-attributes-items#country-codes" target="_blank">**Country
+                    Code Reference**
                   example: KE
                 package_unit_code:
                   type: string
-                  description: The package unit code of the item
+                  description: The package unit code of the item. Consult the <a
+                    href="https://ke.docs.digitax.tech/docs/item-attributes-items#packaging-unit-codes" target="_blank">**Packaging Unit
+                    Code Reference**
                   example: NT
                 quantity_unit_code:
                   type: string
-                  description: The quantity unit code of the item
+                  description:
+                    The quantity unit code of the item. Consult the <a
+                    href="https://ke.docs.digitax.tech/docs/item-attributes-items#quantity-unit-codes" target="_blank">**Quantity Unit
+                    Code Reference**
                   example: U
                 tax_type_code:
                   type: string
-                  description: The tax type code of the item
+                  description: The tax type code of the item. Consult the <a
+                    href="https://ke.docs.digitax.tech/docs/item-attributes-items#taxation-type-codes" target="_blank">**Tax Type
+                    Code Reference**
                   example: D
                 default_unit_price:
                   type: number
@@ -127,7 +139,8 @@ paths:
                   type: string
                   description: >-
                     The callback URL to call when we have new information about
-                    the item, usually after syncing with eTIMS
+                    the item, usually after syncing with eTIMS. Consult the <a
+                    href="https://ke.docs.digitax.tech/docs/callback-urls" target="_blank">**Callback URL guide**
                   example: https://example.site/services/digitaxQueueReceiverPROXY
                 item_bar_code:
                   type: string
@@ -137,7 +150,7 @@ paths:
                   type: array
                   items:
                     type: string
-                    description: List of levies applied to the sale<br>**CTL** stands for Catering Levy
+                    description: List of levies applied to the sale<br>- **CTL** stands for Catering Levy
                     example: CTL
       responses:
         "201":
@@ -648,12 +661,20 @@ paths:
                   type: string
                   example: "12345678901"
                 payment_type_code:
+                  description: The payment type code. Consult the <a
+                    href="https://ke.docs.digitax.tech/docs/invoice-attributes#payment-type-codes" target="_blank">**Payment Type
+                    Code Reference**
                   type: string
                   example: "07"
                 invoice_status_code:
+                  description: The invoice status code. Consult the <a href="https://ke.docs.digitax.tech/docs/invoice-attributes#invoice-status-codes" target="_blank">**Invoice Status Code Reference**</a>.
                   type: string
                   example: "01"
                 callback_url:
+                  description: >-
+                    The callback URL to call when we have new information about
+                    the sae/invoice, usually after syncing with eTIMS. Consult the <a
+                    href="https://ke.docs.digitax.tech/docs/callback-urls" target="_blank">**Callback URL guide**
                   type: string
                   example: https://example.com/callback
                 invoice_details:
@@ -664,6 +685,9 @@ paths:
                   description: Indicates if the sale is tax exempt
                   example: false
                 service_charge_rate:
+                  description: >-
+                    Service charge rate applied to the sale. Value must be between
+                    0.00 and 1.00 (representing 0% to 100%)
                   type: number
                   format: double
                   example: 0.02
@@ -691,6 +715,11 @@ paths:
                         type: number
                         example: 3500
                       package_unit_quantity:
+                        description: >-
+                          Quantity in package units for the item (number of package
+                          units included in this line). For example, a "dozen"
+                          equals 12 - if you are selling one dozen, set
+                          package_unit_quantity to 12
                         type: number
                         example: 1
                       discount_rate:
@@ -816,6 +845,10 @@ paths:
                   type: string
                   example: "01"
                 callback_url:
+                  description: >-
+                    The callback URL to call when we have new information about
+                    the sale/invoice, usually after syncing with eTIMS. Consult the <a
+                    href="https://ke.docs.digitax.tech/docs/callback-urls" target="_blank">**Callback URL guide**
                   type: string
                   example: https://example.com/callback
                 invoice_auth:
@@ -850,6 +883,7 @@ paths:
                       - item_class_code
                       - item_bar_code
                       - item_tax_type_code
+                      - package_unit_quantity
                     properties:
                       item_name:
                         type: string
