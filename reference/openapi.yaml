@@ -666,15 +666,28 @@ paths:
                 customer_tin:
                   type: string
                   example: P123456789Y
+                  description: The KRA-approved tax identification number of the customer.
                 customer_name:
                   type: string
                   example: John Doe
+                  description: >-
+                    The customer's name. If only the customer_name is provided
+                    and the customer_tin is omitted, a given sale will not have
+                    any customer details
                 customer_id:
                   type: string
                   example: customer_01HC3HTDAXQ50E07CWR2A2CFBD
+                  description: >-
+                    The DigiTax-generated customer ID. If both the customer_id
+                    and customer_tin+customer_name are provided, the customer_id
+                    is prioritised.
                 trader_invoice_number:
                   type: string
                   example: '12345678901'
+                  description: >-
+                    A unique identifier of the sale. It is recommended that you
+                    pass your unique, in-house invoice reference number in this
+                    field.
                 payment_type_code:
                   type: string
                   example: '07'
@@ -687,6 +700,9 @@ paths:
                 invoice_details:
                   type: string
                   example: Invoice Details
+                  description: >-
+                    Allows for additional details to be captured in the invoice.
+                    This is not transmitted to KRA.
                 is_tax_exempt:
                   type: boolean
                   description: Indicates if the sale is tax exempt
@@ -708,24 +724,43 @@ paths:
                       id:
                         type: string
                         example: item_01HC3J1VVVM05YCTS61G7V3KC6
+                        description: >-
+                          The DigiTax-generated item ID of a sale. This is
+                          obtained after creating a sale using the [Add
+                          Items](https://ke.docs.digitax.tech/reference/post_items)
+                          endpoint.
                       quantity:
                         type: number
                         example: 1
+                        description: The number of items being purchased by a customer
                       unit_price:
                         type: number
                         example: 3500
+                        description: >-
+                          The unit price of each item being purchased inclusive
+                          of applicable taxes.
                       total_amount:
                         type: number
                         example: 3500
+                        description: >-
+                          The product of the quantity and unit_price i.e.
+                          quantity x unit_price. This is inclusive of any
+                          applicable taxes.
                       package_unit_quantity:
                         type: number
                         example: 1
                       discount_rate:
                         type: number
                         example: 0
+                        description: >-
+                          The rate at which an item is discounted, calculated as
+                          discount_amount / total_amount.
                       discount_amount:
                         type: number
                         example: 0
+                        description: >-
+                          The amount at which an item is discounted. This should
+                          not exceed the total_amount.
                       item_description:
                         type: string
                         example: DigiTax Product 01
@@ -824,15 +859,28 @@ paths:
                 customer_tin:
                   type: string
                   example: P123456789Y
+                  description: The KRA-approved tax identification number of the customer.
                 customer_name:
                   type: string
                   example: John Doe
+                  description: >-
+                    The customer's name. If only the customer_name is provided
+                    and the customer_tin is omitted, a given sale will not have
+                    any customer details
                 customer_id:
                   type: string
                   example: customer_01HC3HTDAXQ50E07CWR2A2CFBD
+                  description: >-
+                    The DigiTax-generated customer ID. If both the customer_id
+                    and customer_tin+customer_name are provided, the customer_id
+                    is prioritised.
                 trader_invoice_number:
                   type: string
                   example: '12345678901'
+                  description: >-
+                    A unique identifier of the sale. It is recommended that you
+                    pass your unique, in-house invoice reference number in this
+                    field.
                 receipt_type_code:
                   type: string
                   example: S
@@ -852,6 +900,11 @@ paths:
                   example: https://example.com/callback
                 invoice_auth:
                   type: object
+                  deprecated: true
+                  description: >-
+                    This field has been replaced with dedicated endpoints for
+                    reverse invoicing seen
+                    [HERE](https://ke.docs.digitax.tech/reference/post_reverse-invoices).
                   required:
                     - type
                     - issuer
@@ -865,6 +918,9 @@ paths:
                 invoice_details:
                   type: string
                   example: Invoice Details
+                  description: >-
+                    Allows for additional details to be captured in the invoice.
+                    This is not transmitted to KRA.
                 is_tax_exempt:
                   type: boolean
                   description: Indicates if the sale is tax exempt
@@ -886,39 +942,73 @@ paths:
                       item_name:
                         type: string
                         example: Item name
+                        description: The name of the item
                       item_class_code:
                         type: string
                         example: '99000000'
+                        description: >-
+                          The item class code of the item. <br>Refer to the
+                          [DigiTax Kenya eTIMS Item Classification Code
+                          list](https://ke.docs.digitax.tech/docs/items-item-classification-table)
+                          for more information.
                       item_bar_code:
                         type: string
                         example: '99000001'
+                        description: >-
+                          The unique user-provided identifier for the particular
+                          item.
                       item_tax_type_code:
                         type: string
                         example: D
+                        description: >-
+                          The tax type code of the item. <br>Refer to the
+                          [DigiTax Kenya eTIMS Tax Type Codes
+                          list](https://ke.docs.digitax.tech/docs/item-attributes-items#taxation-type-codes)
+                          for more information.
                       quantity:
                         type: number
                         example: 1
+                        description: The number of items being purchased by a customer
                       unit_price:
                         type: number
                         example: 3500
+                        description: >-
+                          The unit price of each item being purchased inclusive
+                          of applicable taxes.
                       total_amount:
                         type: number
                         example: 3500
+                        description: >-
+                          The product of the quantity and unit_price i.e.
+                          quantity x unit_price. This is inclusive of any
+                          applicable taxes.
                       taxable_amount:
                         type: number
                         example: 3500
+                        description: >-
+                          The taxable amount of the item, calculated as
+                          (total_amount - discount_amount)/(1 + tax_rate).
                       tax_amount:
                         type: number
                         example: 0
+                        description: >-
+                          The tax amount of the item, calculated as
+                          (total_amount - discount_amount) - taxable_amount.
                       package_unit_quantity:
                         type: number
                         example: 1
                       discount_rate:
                         type: number
                         example: 0
+                        description: >-
+                          The rate at which an item is discounted, calculated as
+                          discount_amount / total_amount.
                       discount_amount:
                         type: number
                         example: 0
+                        description: >-
+                          The amount at which an item is discounted. This should
+                          not exceed the total_amount.
                       item_description:
                         type: string
                         example: DigiTax Product 01
@@ -947,7 +1037,10 @@ paths:
       tags:
         - Sales
       summary: Add express credit note
-      description: Add express credit note
+      description: >-
+        Add express credit note i.e. a full credit note for a particular sale.
+        This should be used when a credit note has not previously been generated
+        for a sale.
       security:
         - apiKeyAuth: []
       requestBody:
@@ -964,6 +1057,10 @@ paths:
                 trader_invoice_number:
                   type: string
                   example: '12345678901'
+                  description: >-
+                    A unique identifier of the sale. It is recommended that you
+                    pass your unique, in-house invoice reference number in this
+                    field.
                 return_date:
                   type: string
                   description: The date of the return (YYYY-MM-DD)
@@ -971,12 +1068,17 @@ paths:
                 sale_id:
                   type: string
                   example: sale_01HC3J1VVVM05YCTS61G7V3KC6
+                  description: The DigiTax-generated sale ID of the original sale.
                 callback_url:
                   type: string
                   example: https://example.com/callback
                 invoice_details:
                   type: string
                   example: General Invoice Details
+                credit_note_reason:
+                  type: string
+                  example: '06'
+                  description: The reason for creditting the original sale.
       responses:
         '201':
           description: Success
@@ -1013,6 +1115,10 @@ paths:
                 trader_invoice_number:
                   type: string
                   example: '12345678901'
+                  description: >-
+                    A unique identifier of the sale. It is recommended that you
+                    pass your unique, in-house invoice reference number in this
+                    field.
                 return_date:
                   type: string
                   description: The date of the return (YYYY-MM-DD)
@@ -1020,12 +1126,17 @@ paths:
                 sale_id:
                   type: string
                   example: sale_01HC3J1VVVM05YCTS61G7V3KC6
+                  description: The DigiTax-generated sale ID of the original sale.
                 callback_url:
                   type: string
                   example: https://example.com/callback
                 invoice_details:
                   type: string
                   example: General Invoice Details
+                credit_note_reason:
+                  type: string
+                  example: '06'
+                  description: The reason for creditting the original sale.
                 items:
                   type: array
                   items:
@@ -1039,30 +1150,52 @@ paths:
                       item_bar_code:
                         type: string
                         example: HC3J1VVVM05YCTS61G7V3KC6
+                        description: >-
+                          The unique user-provided identifier for the particular
+                          item.
                       quantity:
                         type: number
                         example: 1
+                        description: The number of items being credited.
                       unit_price:
                         type: number
                         example: 3500
+                        description: >-
+                          The amount per item that is being credited, inclusive
+                          of taxes if applicable.
                       total_amount:
                         type: number
                         example: 3500
+                        description: >-
+                          The total amount being credited. <br>This should be
+                          equal to the quantity x unit_price.
                       taxable_amount:
                         type: number
                         example: 3500
+                        description: >-
+                          The taxable amount of the item, calculated as
+                          (total_amount - discount_amount)/(1 + tax_rate).
                       tax_amount:
                         type: number
                         example: 0
+                        description: >-
+                          The tax amount of the item, calculated as
+                          (total_amount - discount_amount) - taxable_amount.
                       package_unit_quantity:
                         type: number
                         example: 1
                       discount_rate:
                         type: number
                         example: 0
+                        description: >-
+                          The rate at which an item is discounted, calculated as
+                          discount_amount / total_amount.
                       discount_amount:
                         type: number
                         example: 0
+                        description: >-
+                          The amount at which an item is discounted. This should
+                          not exceed the total_amount.
                       item_description:
                         type: string
                         example: DigiTax Product 01
@@ -1106,15 +1239,24 @@ paths:
                 sale_id:
                   type: string
                   example: sale_01HC3J1VVVM05YCTS61G7V3KC6
+                  description: The DigiTax-generated sale ID of the original sale.
                 trader_invoice_number:
                   type: string
                   example: '12345678901'
+                  description: >-
+                    A unique identifier of the sale. It is recommended that you
+                    pass your unique, in-house invoice reference number in this
+                    field.
                 callback_url:
                   type: string
                   example: https://example.com/callback
                 invoice_details:
                   type: string
                   example: General Invoice Details
+                credit_note_reason:
+                  type: string
+                  example: '06'
+                  description: The reason for creditting the original sale.
                 items:
                   type: array
                   items:
@@ -1128,27 +1270,48 @@ paths:
                       id:
                         type: string
                         example: item_01HC3J1VVVM05YCTS61G7V3KC6
+                        description: >-
+                          The DigiTax-generated item ID for the item being
+                          credited.
                       sale_item_id:
                         type: string
                         example: sale_item_01HC3J1VVVM05YCTS61G7V3KC6
+                        description: >-
+                          The DigiTax-generated sale item ID for the item being
+                          credited. Only applicable if your business has the
+                          duplicate-service-item feature enabled.
                       quantity:
                         type: number
                         example: 1
+                        description: The number of items being credited.
                       unit_price:
                         type: number
                         example: 3500
+                        description: >-
+                          The unit price of each item being purchased inclusive
+                          of applicable taxes.
                       total_amount:
                         type: number
                         example: 3500
+                        description: >-
+                          The product of the quantity and unit_price i.e.
+                          quantity x unit_price. This is inclusive of any
+                          applicable taxes.
                       package_unit_quantity:
                         type: number
                         example: 1
                       discount_rate:
                         type: number
                         example: 0
+                        description: >-
+                          The rate at which an item is discounted, calculated as
+                          discount_amount / total_amount.
                       discount_amount:
                         type: number
                         example: 0
+                        description: >-
+                          The amount at which an item is discounted. This should
+                          not exceed the total_amount.
                       item_description:
                         type: string
                         example: DigiTax Product 01
@@ -1643,6 +1806,10 @@ paths:
                 trader_invoice_number:
                   type: string
                   example: '12345678901'
+                  description: >-
+                    A unique identifier of the sale. It is recommended that you
+                    pass your unique, in-house invoice reference number in this
+                    field.
                 callback_url:
                   type: string
                   example: https://example.com/callback
@@ -1806,6 +1973,10 @@ paths:
                 trader_invoice_number:
                   type: string
                   example: '12345678901'
+                  description: >-
+                    A unique identifier of the sale. It is recommended that you
+                    pass your unique, in-house invoice reference number in this
+                    field.
                 callback_url:
                   type: string
                   example: https://example.com/callback
@@ -1913,6 +2084,10 @@ paths:
                 trader_invoice_number:
                   type: string
                   example: '12345678901'
+                  description: >-
+                    A unique identifier of the sale. It is recommended that you
+                    pass your unique, in-house invoice reference number in this
+                    field.
                 items:
                   type: array
                   items:
@@ -2002,6 +2177,10 @@ paths:
                 trader_invoice_number:
                   type: string
                   example: '12345678901'
+                  description: >-
+                    A unique identifier of the sale. It is recommended that you
+                    pass your unique, in-house invoice reference number in this
+                    field.
                 items:
                   type: array
                   items:
@@ -2561,6 +2740,9 @@ components:
         receipt_type_code:
           type: string
           example: S
+        credit_note_reason:
+          type: string
+          example: '06'
         sale_detail_url:
           type: string
           example: https://api.digitax.tech/sales/YKSWCIiuvx
