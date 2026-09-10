@@ -104,7 +104,7 @@ We comply with industry and security best practices.
 
 **DigiTax** is a solution that sits between you, the taxpayer, and the KRA eTIMS.
 
-With DigiTax, you gain access to a streamlined invoicing system that ensures compliance and supports your business's growth. Together, DigiTax and FIRS e-Invoicing are transforming how businesses in Nigeria manage their tax and invoicing obligations.
+With DigiTax, you gain access to a streamlined invoicing system that ensures compliance and supports your business's growth. Together, DigiTax and KRA eTIMS are transforming how businesses in Kenya manage their tax and invoicing obligations.
 
 For us to support individuals and businesses to generate eTIMS invoices, DigiTax is licensed as an eTIMS OSCU integrator/ provider.
 
