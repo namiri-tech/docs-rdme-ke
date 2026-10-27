@@ -17,6 +17,9 @@ paths:
   /etims-info:
     get:
       summary: Get eTIMS information on the business
+      description: >-
+        Retrieves the business information associated with the authenticated API
+        key.
       tags:
         - Businesses
       security:
@@ -37,6 +40,9 @@ paths:
   /branches:
     get:
       summary: Get a list of business branches
+      description: >-
+        Retrieves the list of business branches associated with the
+        authenticated API key.
       tags:
         - Businesses
       security:
@@ -52,6 +58,7 @@ paths:
                   - data
                 properties:
                   data:
+                    description: The list of business branches.
                     type: array
                     items:
                       $ref: '#/components/schemas/Branch'
@@ -103,7 +110,7 @@ paths:
                   example: '3'
                 item_name:
                   type: string
-                  description: The name of the item
+                  description: The name of the item.
                   example: DigiTax Product 01
                 origin_nation_code:
                   type: string
@@ -139,7 +146,7 @@ paths:
                   example: D
                 default_unit_price:
                   type: number
-                  description: The default price of the item
+                  description: The default unit price of the item.
                   example: 1000
                 stock_quantity:
                   type: number
@@ -148,8 +155,11 @@ paths:
                 callback_url:
                   type: string
                   description: >-
-                    The callback url to call when we have new information about
-                    the item, usually after syncing with eTIMS
+                    Optional URL where DigiTax sends an HTTP POST callback with
+                    event `item.sync` when the item is successfully synced to
+                    eTIMS. See [Callback
+                    URLs](https://ke.docs.digitax.tech/docs/callback-urls) for
+                    the payload.
                   example: https://example.site/services/digitaxQueueReceiverPROXY
                 item_bar_code:
                   type: string
@@ -162,9 +172,12 @@ paths:
                   example: '7994391127606'
                 levies:
                   type: array
+                  description: >-
+                    The levy codes to apply to the item, e.g. `CTL` for the 2%
+                    Catering Levy. Unrecognised codes are rejected.
                   items:
                     type: string
-                    description: List of levies applied to the sale
+                    description: A levy code applied to the item.
                     example: CTL
       responses:
         '201':
@@ -183,7 +196,9 @@ paths:
       tags:
         - Items
       summary: Get list of items owned by the business
-      description: Get list of items owned by the business
+      description: >-
+        Retrieves a paginated list of items belonging to the authenticated
+        business.
       security:
         - apiKeyAuth: []
       parameters:
@@ -204,6 +219,7 @@ paths:
                   pagination:
                     $ref: '#/components/schemas/Pagination'
                   data:
+                    description: The list of items belonging to the business.
                     type: array
                     items:
                       $ref: '#/components/schemas/Item'
@@ -218,7 +234,7 @@ paths:
       - in: path
         name: item_id
         required: true
-        description: Item ID in DigiTax
+        description: The DigiTax ID of the item.
         schema:
           type: string
           example: item_01HC3J1VVVM05YCTS61G7V3KC6
@@ -226,7 +242,9 @@ paths:
       tags:
         - Items
       summary: Update an item
-      description: Update an item
+      description: >-
+        Updates the supported fields of an existing item identified by its
+        DigiTax ID.
       security:
         - apiKeyAuth: []
       requestBody:
@@ -238,15 +256,14 @@ paths:
               properties:
                 item_name:
                   type: string
-                  description: The name of an item
+                  description: The name of an item. Leave unset to keep the current name.
                   example: DigiTax Product 02
                 tax_type_code:
                   type: string
-                  description: The tax type code of the item
-                  example: A
+                  description: The tax type code of the item.
                 default_unit_price:
                   type: number
-                  description: The default price of the item
+                  description: The default unit price of the item.
                   example: 1000
       responses:
         '200':
@@ -265,7 +282,7 @@ paths:
       tags:
         - Items
       summary: Get a specific item
-      description: Get a specific item
+      description: Retrieves the details of an item identified by its DigiTax item ID.
       security:
         - apiKeyAuth: []
       responses:
@@ -286,7 +303,9 @@ paths:
       tags:
         - Customers
       summary: Get a list of business customers
-      description: Get a list of business customers
+      description: >-
+        Retrieves a paginated list of customers associated with the
+        authenticated business.
       security:
         - apiKeyAuth: []
       parameters:
@@ -307,6 +326,7 @@ paths:
                   pagination:
                     $ref: '#/components/schemas/Pagination'
                   data:
+                    description: The list of customers associated with the business.
                     type: array
                     items:
                       $ref: '#/components/schemas/Customer'
@@ -320,7 +340,9 @@ paths:
       tags:
         - Customers
       summary: Save business customer
-      description: Save business customer
+      description: >-
+        Creates a customer record for the authenticated business using the
+        supplied customer details.
       security:
         - apiKeyAuth: []
       requestBody:
@@ -335,19 +357,22 @@ paths:
               properties:
                 customer_name:
                   type: string
-                  description: Customer Name
+                  description: The name of the customer.
                   example: John Doe
                 customer_tin:
                   type: string
-                  description: Customer Tax Identification Number (TIN)
+                  description: >-
+                    The customer's Tax Identification Number (TIN) - an
+                    11-character KRA PIN consisting of a leading A or P, 9
+                    digits, and a trailing letter.
                   example: P012345678P
                 email:
                   type: string
-                  description: Customer Email Address
+                  description: The customer's email address.
                   example: john@doe.com
                 phone:
                   type: string
-                  description: Customer Phone Number
+                  description: The customer's phone number.
                   example: 254712345678
       responses:
         '201':
@@ -374,6 +399,7 @@ paths:
         - in: path
           name: customer_id
           required: true
+          description: The DigiTax ID of the customer to retrieve.
           schema:
             type: string
             description: Customer ID on DigiTax
@@ -395,13 +421,16 @@ paths:
       tags:
         - Customers
       summary: Update a business customer
-      description: Update a business customer
+      description: >-
+        Updates an existing customer record identified by its DigiTax customer
+        ID.
       security:
         - apiKeyAuth: []
       parameters:
         - in: path
           name: customer_id
           required: true
+          description: The DigiTax ID of the customer to update.
           schema:
             type: string
             description: Customer ID on DigiTax
@@ -414,19 +443,24 @@ paths:
               type: object
               required:
                 - customer_name
-                - customer_tin
               properties:
                 customer_name:
                   type: string
-                  description: Customer Name
+                  description: >-
+                    The customer's name. This field is required; send an empty
+                    string to keep the current name.
                   example: John Doe
                 email:
                   type: string
-                  description: Customer Email Address
+                  description: >-
+                    The customer's email address. Leave unset to keep the
+                    current email address.
                   example: john@doe.com
                 phone:
                   type: string
-                  description: Customer Phone Number
+                  description: >-
+                    The customer's phone number. Leave unset to keep the current
+                    phone number.
                   example: 254712345678
       responses:
         '200':
@@ -446,7 +480,7 @@ paths:
       tags:
         - Imports
       summary: Get list of import items received from eTIMS
-      description: Get list of import items received from eTIMS
+      description: Retrieves a paginated list of imported items from eTIMS.
       security:
         - apiKeyAuth: []
       parameters:
@@ -470,6 +504,7 @@ paths:
                   meta:
                     $ref: '#/components/schemas/FetchMeta'
                   data:
+                    description: The list of imported items retrieved from eTIMS.
                     type: array
                     items:
                       $ref: '#/components/schemas/Import'
@@ -484,16 +519,19 @@ paths:
       tags:
         - Imports
       summary: Link import item to an item in DigiTax
-      description: Link import item to an item in DigiTax
+      description: >-
+        Links an imported item to an existing DigiTax item and adds the imported
+        quantity to that item's stock balance. If the import is already linked,
+        its stock is not added again.
       security:
         - apiKeyAuth: []
       parameters:
         - in: path
           name: import_id
           required: true
+          description: The DigiTax ID of the import item to link.
           schema:
             type: string
-            description: Import ID in DigiTax
             example: import_01HC3J1VVVM05YCTS61G7V3KC6
       requestBody:
         required: true
@@ -506,7 +544,9 @@ paths:
               properties:
                 item_id:
                   type: string
-                  description: The id of the item in DigiTax
+                  description: >-
+                    The DigiTax ID of the existing item to link to the import
+                    item.
                   example: item_01HC3J1VVVM05YCTS61G7V3KC6
       responses:
         '200':
@@ -526,7 +566,7 @@ paths:
       tags:
         - Purchases
       summary: Get list of purchases pulled from eTIMS.
-      description: Get list of purchases pulled from eTIMS.
+      description: Retrieves a paginated list of purchases pulled from eTIMS.
       security:
         - apiKeyAuth: []
       parameters:
@@ -550,6 +590,7 @@ paths:
                   meta:
                     $ref: '#/components/schemas/FetchMeta'
                   data:
+                    description: The list of purchases retrieved from eTIMS.
                     type: array
                     items:
                       $ref: '#/components/schemas/Purchase'
@@ -564,16 +605,16 @@ paths:
       tags:
         - Purchases
       summary: Get specific purchase
-      description: Get specific purchase
+      description: Retrieves a purchase by its DigiTax ID.
       security:
         - apiKeyAuth: []
       parameters:
         - in: path
           name: purchase_id
           required: true
+          description: The DigiTax ID of the purchase to be retrieved.
           schema:
             type: string
-            description: Purchase ID in DigiTax
             example: purchase_01HC3J1VVVM05YCTS61G7V3KC6
       responses:
         '200':
@@ -592,17 +633,19 @@ paths:
     post:
       tags:
         - Purchases
-      summary: Link purchase item to item
-      description: Link purchase item to item
+      summary: Link purchase items to DigiTax items.
+      description: >-
+        Links purchase items to their corresponding DigiTax items using the
+        supplied purchase item IDs and item IDs.
       security:
         - apiKeyAuth: []
       parameters:
         - in: path
           name: purchase_id
           required: true
+          description: The DigiTax ID of the purchase whose items are being linked.
           schema:
             type: string
-            description: Purchase id
             example: purchase_01HC3J1VVVM05YCTS61G7V3KC6
       requestBody:
         required: true
@@ -613,6 +656,9 @@ paths:
               properties:
                 items:
                   type: array
+                  description: >-
+                    The purchase items to link to their corresponding DigiTax
+                    items.
                   items:
                     type: object
                     required:
@@ -621,9 +667,13 @@ paths:
                     properties:
                       purchase_item_id:
                         type: string
+                        description: The DigiTax ID of the purchase item to link.
                         example: purchaseitem_01HC3J1VVVM05YCTS61G7V3KC6
                       item_id:
                         type: string
+                        description: >-
+                          The DigiTax ID of the item to associate with the
+                          purchase item.
                         example: item_01HC3J1VVVM05YCTS61G7V3KC6
       responses:
         '200':
@@ -642,8 +692,10 @@ paths:
     post:
       tags:
         - Sales
-      summary: Add sale
-      description: Add sale
+      summary: Create a sale.
+      description: >-
+        Creates a sale using the supplied invoice details, customer information,
+        and sale items.
       security:
         - apiKeyAuth: []
       requestBody:
@@ -661,7 +713,9 @@ paths:
               properties:
                 sale_date:
                   type: string
-                  description: The date of sale (YYYY-MM-DD)
+                  description: >-
+                    The date of the sale (YYYY-MM-DD). Dates after the current
+                    UTC date are rejected.
                   example: '2026-07-14'
                 customer_tin:
                   type: string
@@ -671,9 +725,8 @@ paths:
                   type: string
                   example: John Doe
                   description: >-
-                    The customer's name. If only the customer_name is provided
-                    and the customer_tin is omitted, a given sale will not have
-                    any customer details
+                    The customer's name. If customer_name is provided without
+                    customer_tin, the sale will not include customer details.
                 customer_id:
                   type: string
                   example: customer_01HC3HTDAXQ50E07CWR2A2CFBD
@@ -685,17 +738,31 @@ paths:
                   type: string
                   example: '12345678901'
                   description: >-
-                    A unique identifier of the sale. It is recommended that you
-                    pass your unique, in-house invoice reference number in this
-                    field.
+                    The invoice reference from your system. It must be unique
+                    across sales and credit notes in the business. References
+                    from failed transactions can be reused.
                 payment_type_code:
                   type: string
+                  description: The code identifying the payment method used for the sale.
                   example: '07'
                 invoice_status_code:
                   type: string
+                  description: >-
+                    The invoice status code. Refer to the [Invoice Status Codes
+                    table](https://ke.docs.digitax.tech/docs/invoice-attributes#invoice-status-codes)
+                    for the code values.
                   example: '01'
                 callback_url:
                   type: string
+                  description: >-
+                    Optional URL where DigiTax sends an HTTP POST callback with
+                    event `sale.sync` when the sale's eTIMS synchronization
+                    succeeds or fails. See [Callback
+                    URLs](https://ke.docs.digitax.tech/docs/callback-urls) for
+                    the payload. Must use HTTP(S), include a host, and contain
+                    no credentials or fragment. Literal localhost and private IP
+                    addresses are rejected; DNS hostnames are not resolved by
+                    this check.
                   example: https://example.com/callback
                 invoice_details:
                   type: string
@@ -705,14 +772,20 @@ paths:
                     This is not transmitted to KRA.
                 is_tax_exempt:
                   type: boolean
-                  description: Indicates if the sale is tax exempt
+                  description: Indicates whether the sale is tax-exempt.
                   example: false
                 service_charge_rate:
                   type: number
                   format: double
+                  description: >-
+                    The rate used to calculate the service charge applied to the
+                    sale.
                   example: 0.02
                 items:
                   type: array
+                  description: >-
+                    The items included in the sale, with their DigiTax item IDs,
+                    quantities, and amounts.
                   items:
                     type: object
                     required:
@@ -732,7 +805,7 @@ paths:
                       quantity:
                         type: number
                         example: 1
-                        description: The number of items being purchased by a customer
+                        description: The number of items being purchased by a customer.
                       unit_price:
                         type: number
                         example: 3500
@@ -748,6 +821,7 @@ paths:
                           applicable taxes.
                       package_unit_quantity:
                         type: number
+                        description: The quantity of packages for the item.
                         example: 1
                       discount_rate:
                         type: number
@@ -763,6 +837,7 @@ paths:
                           not exceed the total_amount.
                       item_description:
                         type: string
+                        description: A description of the item being sold.
                         example: DigiTax Product 01
       responses:
         '201':
@@ -782,8 +857,10 @@ paths:
         - Sales
       summary: Get sales
       description: >-
-        List sales for a particular business. If an `end_date` is provided
-        without a `start_date`, all sales will be returned.
+        Retrieves a paginated list of sales for the authenticated business. Date
+        filters apply to the record creation date. An end_date can be used
+        without a start_date to set only an upper date limit; results remain
+        paginated.
       security:
         - apiKeyAuth: []
       parameters:
@@ -822,6 +899,7 @@ paths:
                   pagination:
                     $ref: '#/components/schemas/Pagination'
                   data:
+                    description: The list of sales matching the specified filters.
                     type: array
                     items:
                       $ref: '#/components/schemas/Sale'
@@ -836,7 +914,7 @@ paths:
       tags:
         - Sales
       summary: Add sale with item information
-      description: Add sale with item information
+      description: Creates a sale using item details supplied directly in the request.
       security:
         - apiKeyAuth: []
       requestBody:
@@ -854,7 +932,9 @@ paths:
               properties:
                 sale_date:
                   type: string
-                  description: The date of sale (YYYY-MM-DD)
+                  description: >-
+                    The date of the sale (YYYY-MM-DD). Dates after the current
+                    UTC date are rejected.
                   example: '2026-07-14'
                 customer_tin:
                   type: string
@@ -878,9 +958,9 @@ paths:
                   type: string
                   example: '12345678901'
                   description: >-
-                    A unique identifier of the sale. It is recommended that you
-                    pass your unique, in-house invoice reference number in this
-                    field.
+                    The invoice reference from your system. It must be unique
+                    across sales and credit notes in the business. References
+                    from failed transactions can be reused.
                 receipt_type_code:
                   type: string
                   example: S
@@ -891,12 +971,23 @@ paths:
                     invoice type
                 payment_type_code:
                   type: string
+                  description: The code identifying the payment method used for the sale.
                   example: '07'
                 invoice_status_code:
                   type: string
+                  description: >-
+                    The invoice status code. Refer to the [Invoice Status Codes
+                    table](https://ke.docs.digitax.tech/docs/invoice-attributes#invoice-status-codes)
+                    for the code values.
                   example: '01'
                 callback_url:
                   type: string
+                  description: >-
+                    Optional URL where DigiTax sends an HTTP POST callback with
+                    event `sale.sync` when the sale's eTIMS synchronization
+                    succeeds or fails. See [Callback
+                    URLs](https://ke.docs.digitax.tech/docs/callback-urls) for
+                    the payload.
                   example: https://example.com/callback
                 invoice_auth:
                   type: object
@@ -911,9 +1002,13 @@ paths:
                   properties:
                     type:
                       type: string
+                      description: The type of invoice authorization.
                       example: REVERSE
                     issuer:
                       type: string
+                      description: >-
+                        The DigiTax ID of the business issuing the reverse
+                        invoice.
                       example: business_01HC3J1VVVM05YCTS61G7V3KC6
                 invoice_details:
                   type: string
@@ -923,10 +1018,13 @@ paths:
                     This is not transmitted to KRA.
                 is_tax_exempt:
                   type: boolean
-                  description: Indicates if the sale is tax exempt
+                  description: Indicates if the sale is tax-exempt.
                   example: false
                 items:
                   type: array
+                  description: >-
+                    The items included in the sale, with their details supplied
+                    directly in the request.
                   items:
                     type: object
                     required:
@@ -942,7 +1040,7 @@ paths:
                       item_name:
                         type: string
                         example: Item name
-                        description: The name of the item
+                        description: The name of the item.
                       item_class_code:
                         type: string
                         example: '99000000'
@@ -968,7 +1066,7 @@ paths:
                       quantity:
                         type: number
                         example: 1
-                        description: The number of items being purchased by a customer
+                        description: The number of items being purchased by a customer.
                       unit_price:
                         type: number
                         example: 3500
@@ -996,6 +1094,9 @@ paths:
                           (total_amount - discount_amount) - taxable_amount.
                       package_unit_quantity:
                         type: number
+                        description: >-
+                          The package unit quantity for the sale item. Defaults
+                          to the item quantity when set to zero.
                         example: 1
                       discount_rate:
                         type: number
@@ -1011,6 +1112,7 @@ paths:
                           not exceed the total_amount.
                       item_description:
                         type: string
+                        description: A description of the item included in the sale.
                         example: DigiTax Product 01
                       is_stockable:
                         type: boolean
@@ -1058,12 +1160,14 @@ paths:
                   type: string
                   example: '12345678901'
                   description: >-
-                    A unique identifier of the sale. It is recommended that you
-                    pass your unique, in-house invoice reference number in this
-                    field.
+                    The invoice reference from your system. It must be unique
+                    across sales and credit notes in the business. References
+                    from failed transactions can be reused.
                 return_date:
                   type: string
-                  description: The date of the return (YYYY-MM-DD)
+                  description: >-
+                    The date of the return (YYYY-MM-DD). Future dates are
+                    rejected.
                   example: '2026-07-14'
                 sale_id:
                   type: string
@@ -1071,14 +1175,25 @@ paths:
                   description: The DigiTax-generated sale ID of the original sale.
                 callback_url:
                   type: string
+                  description: >-
+                    Optional URL where DigiTax sends an HTTP POST callback with
+                    event `sale.sync` when the credit note's eTIMS
+                    synchronization succeeds or fails. See [Callback
+                    URLs](https://ke.docs.digitax.tech/docs/callback-urls) for
+                    the payload.
                   example: https://example.com/callback
                 invoice_details:
                   type: string
+                  description: Additional details associated with the credit note.
                   example: General Invoice Details
                 credit_note_reason:
                   type: string
                   example: '06'
-                  description: The reason for creditting the original sale.
+                  description: >-
+                    The reason code for crediting the original sale. Valid
+                    values are 01 (Missing Quantity),02 (Missing Data), 03
+                    (Damaged), 04 (Wasted), 05 (Material Shortage), and 06
+                    (Refund).
       responses:
         '201':
           description: Success
@@ -1097,7 +1212,9 @@ paths:
       tags:
         - Sales
       summary: Add credit note with item bar codes
-      description: Add credit note with item bar codes
+      description: >-
+        Creates a credit note for an existing sale using item barcodes to
+        identify the items being credited.
       security:
         - apiKeyAuth: []
       requestBody:
@@ -1116,12 +1233,14 @@ paths:
                   type: string
                   example: '12345678901'
                   description: >-
-                    A unique identifier of the sale. It is recommended that you
-                    pass your unique, in-house invoice reference number in this
-                    field.
+                    The invoice reference from your system. It must be unique
+                    across sales and credit notes in the business. References
+                    from failed transactions can be reused.
                 return_date:
                   type: string
-                  description: The date of the return (YYYY-MM-DD)
+                  description: >-
+                    The date of the return (YYYY-MM-DD). Future dates are
+                    rejected.
                   example: '2026-07-14'
                 sale_id:
                   type: string
@@ -1129,16 +1248,30 @@ paths:
                   description: The DigiTax-generated sale ID of the original sale.
                 callback_url:
                   type: string
+                  description: >-
+                    Optional URL where DigiTax sends an HTTP POST callback with
+                    event `sale.sync` when the credit note's eTIMS
+                    synchronization succeeds or fails. See [Callback
+                    URLs](https://ke.docs.digitax.tech/docs/callback-urls) for
+                    the payload.
                   example: https://example.com/callback
                 invoice_details:
                   type: string
+                  description: Additional details associated with the credit note.
                   example: General Invoice Details
                 credit_note_reason:
                   type: string
                   example: '06'
-                  description: The reason for creditting the original sale.
+                  description: >-
+                    The reason code for crediting the original sale. Valid
+                    values are 01 (Missing Quantity), 02 (Missing Data), 03
+                    (Damaged), 04 (Wasted), 05 (Material Shortage), and 06
+                    (Refund).
                 items:
                   type: array
+                  description: >-
+                    Items being credited, identified by their user-provided item
+                    barcodes (item_bar_code).
                   items:
                     type: object
                     required:
@@ -1183,6 +1316,9 @@ paths:
                           (total_amount - discount_amount) - taxable_amount.
                       package_unit_quantity:
                         type: number
+                        description: >-
+                          The package unit quantity for the credited item.
+                          Defaults to the item quantity when set to zero.
                         example: 1
                       discount_rate:
                         type: number
@@ -1198,6 +1334,7 @@ paths:
                           not exceed the total_amount.
                       item_description:
                         type: string
+                        description: A description of the item being credited.
                         example: DigiTax Product 01
       responses:
         '201':
@@ -1217,7 +1354,9 @@ paths:
       tags:
         - Sales
       summary: Add credit note
-      description: Add credit note
+      description: >-
+        Creates a credit note for an existing sale using DigiTax item IDs and
+        the supplied return and item details.
       security:
         - apiKeyAuth: []
       requestBody:
@@ -1234,7 +1373,9 @@ paths:
               properties:
                 return_date:
                   type: string
-                  description: The date of the return (YYYY-MM-DD)
+                  description: >-
+                    The date of the return (YYYY-MM-DD). Future dates are
+                    rejected.
                   example: '2026-07-14'
                 sale_id:
                   type: string
@@ -1244,21 +1385,38 @@ paths:
                   type: string
                   example: '12345678901'
                   description: >-
-                    A unique identifier of the sale. It is recommended that you
-                    pass your unique, in-house invoice reference number in this
-                    field.
+                    The invoice reference from your system. It must be unique
+                    across sales and credit notes in the business. References
+                    from failed transactions can be reused.
                 callback_url:
                   type: string
+                  description: >-
+                    Optional URL where DigiTax sends an HTTP POST callback with
+                    event `sale.sync` when the credit note's eTIMS
+                    synchronization succeeds or fails. See [Callback
+                    URLs](https://ke.docs.digitax.tech/docs/callback-urls) for
+                    the payload. Must use HTTP(S), include a host, and contain
+                    no credentials or fragment. Literal localhost and private IP
+                    addresses are rejected; DNS hostnames are not resolved by
+                    this check.
                   example: https://example.com/callback
                 invoice_details:
                   type: string
+                  description: Additional details associated with the credit note.
                   example: General Invoice Details
                 credit_note_reason:
                   type: string
                   example: '06'
-                  description: The reason for creditting the original sale.
+                  description: >-
+                    The reason code for crediting the original sale. Valid
+                    values are 01 (Missing Quantity), 02 (Missing Data), 03
+                    (Damaged), 04 (Wasted), 05 (Material Shortage), and 06
+                    (Refund).
                 items:
                   type: array
+                  description: >-
+                    The items included in the credit note, with their return
+                    quantities and amounts.
                   items:
                     type: object
                     required:
@@ -1288,17 +1446,19 @@ paths:
                         type: number
                         example: 3500
                         description: >-
-                          The unit price of each item being purchased inclusive
-                          of applicable taxes.
+                          The amount per item that is being credited, inclusive
+                          of taxes if applicable.
                       total_amount:
                         type: number
                         example: 3500
                         description: >-
-                          The product of the quantity and unit_price i.e.
-                          quantity x unit_price. This is inclusive of any
-                          applicable taxes.
+                          The total amount being credited. <br>This should be
+                          equal to the quantity x unit_price.
                       package_unit_quantity:
                         type: number
+                        description: >-
+                          The package unit quantity for the credited item.
+                          Defaults to the item quantity when set to zero.
                         example: 1
                       discount_rate:
                         type: number
@@ -1314,6 +1474,7 @@ paths:
                           not exceed the total_amount.
                       item_description:
                         type: string
+                        description: A description of the item being credited.
                         example: DigiTax Product 01
       responses:
         '201':
@@ -1332,7 +1493,7 @@ paths:
       tags:
         - Sales
       summary: Get credit notes
-      description: List credit notes
+      description: Retrieves a paginated list of credit notes.
       security:
         - apiKeyAuth: []
       parameters:
@@ -1353,6 +1514,7 @@ paths:
                   pagination:
                     $ref: '#/components/schemas/Pagination'
                   data:
+                    description: The list of credit notes.
                     type: array
                     items:
                       $ref: '#/components/schemas/Sale'
@@ -1367,7 +1529,7 @@ paths:
       tags:
         - Sales
       summary: Get sale (including credit note)
-      description: Get specific sale by ID (including credit note)
+      description: Retrieves a specific sale by its ID, including credit notes.
       security:
         - apiKeyAuth: []
       parameters:
@@ -1376,7 +1538,7 @@ paths:
           required: true
           schema:
             type: string
-            description: Sale ID on DigiTax
+            description: The DigiTax ID of the sale.
             example: sale_01HC3HTDAXQ50E07CWR2A2CFBD
       responses:
         '200':
@@ -1398,22 +1560,25 @@ paths:
       x-visibility: internal
       summary: Offline url for sales
       description: >-
-        This endpoint allows you to generate a URL for offline sales and share
-        with clients to monitor sale status
+        Generates a URL that clients can use to view the status of an offline
+        sale.
       parameters:
         - in: path
           name: business_id
           required: true
           schema:
             type: string
-            description: Business ID on DigiTax
+            description: The DigiTax ID of the business.
             example: business_01HC3HTDAXQ50E07CWR2A2CFBD
         - in: path
           name: trader_invoice_number
           required: true
           schema:
             type: string
-            description: Trader Invoice Number
+            description: >-
+              The invoice reference from your system. It must be unique across
+              sales and credit notes in the business. References from failed
+              transactions can be reused.
             example: 12345678901
       responses:
         '200':
@@ -1432,8 +1597,10 @@ paths:
     post:
       tags:
         - Stock
-      summary: Transfer stock to another businesses
-      description: Transfer stock to another businesses
+      summary: Transfer stock between businesses.
+      description: >-
+        Transfers a specified quantity of stock from an item in the
+        authenticated business to an item in the receiving business.
       security:
         - apiKeyAuth: []
       requestBody:
@@ -1450,15 +1617,23 @@ paths:
               properties:
                 item_id:
                   type: string
+                  description: >-
+                    The DigiTax ID of the item from which stock will be
+                    deducted.
                   example: item_01HC3J1VVVM05YCTS61G7V3KC6
                 business_id:
                   type: string
+                  description: >-
+                    The DigiTax ID of the business receiving the transferred
+                    stock.
                   example: business_01HC3J1VVVM05YCTS61G7V3KC6
                 quantity:
                   type: number
+                  description: The quantity of stock to transfer.
                   example: 1
                 receiving_item_id:
                   type: string
+                  description: The DigiTax ID of the item receiving the transferred stock.
                   example: item_01J8HJFH3NG17EGVF0N5GHMPM9
       responses:
         '200':
@@ -1477,8 +1652,10 @@ paths:
     put:
       tags:
         - Stock
-      summary: Adjust item stock
-      description: Adjust item stock
+      summary: Adjust item stock.
+      description: >-
+        Adjusts an item's stock quantity using the specified quantity,
+        adjustment action, and stock movement type.
       security:
         - apiKeyAuth: []
       requestBody:
@@ -1495,22 +1672,22 @@ paths:
               properties:
                 item_id:
                   type: string
-                  description: Item ID in DigiTax
+                  description: The DigiTax ID of the item whose stock is being adjusted.
                   example: item_01HC3J1VVVM05YCTS61G7V3KC6
                 quantity:
                   type: number
-                  description: Stock quantity
+                  description: The quantity of stock to add or deduct.
                   example: 100
                 action:
                   type: string
                   enum:
                     - ADD
                     - DEDUCT
-                  description: Adjust type
+                  description: The stock adjustment action.
                   example: ADD
                 movement_type:
                   type: string
-                  description: Stock movement type code
+                  description: The code identifying the stock movement type.
                   example: '01'
       responses:
         '200':
@@ -1526,12 +1703,18 @@ paths:
                 properties:
                   id:
                     type: string
+                    description: The DigiTax ID of the item.
                     example: item_01HC3J1VVVM05YCTS61G7V3KC6
                   item_code:
                     type: string
+                    description: >-
+                      The item code generated by DigiTax from the country of
+                      origin, item type, packaging unit, quantity unit, and an
+                      eight-digit sequence number.
                     example: KE1PD-U230411121122
                   stock_quantity:
                     type: integer
+                    description: The item's stock quantity after the adjustment.
                     example: 300
         default:
           description: Error response
@@ -1542,6 +1725,7 @@ paths:
   /notices:
     get:
       summary: Get list of KRA notices for business
+      description: Retrieves the KRA notices available for the authenticated business.
       tags:
         - Notices
       security:
@@ -1560,6 +1744,7 @@ paths:
                   meta:
                     $ref: '#/components/schemas/FetchMeta'
                   data:
+                    description: The list of KRA notices available for the business.
                     type: array
                     items:
                       $ref: '#/components/schemas/Notice'
@@ -1574,7 +1759,9 @@ paths:
       tags:
         - Invoice verification
       summary: Verify an invoice
-      description: Verify an invoice
+      description: >-
+        Submits an invoice for verification against KRA using its invoice
+        number.
       security:
         - apiKeyAuth: []
       requestBody:
@@ -1588,15 +1775,21 @@ paths:
               properties:
                 invoice_number:
                   type: string
+                  description: The invoice number to verify.
                   example: KRACU0300000024/39
                 amount:
                   type: integer
+                  description: The invoice amount to use for verification.
                   example: 2000
                 supplier_pin:
                   type: string
+                  description: The tax identification PIN of the supplier.
                   example: P000614502H
                 reference_number:
                   type: string
+                  description: >-
+                    The reference number associated with the invoice
+                    verification.
                   example: P000614502H
       responses:
         '201':
@@ -1613,7 +1806,7 @@ paths:
                 $ref: '#/components/schemas/Error'
     get:
       summary: Get invoice verifications
-      description: List invoice verifications
+      description: Retrieves a paginated list of invoice verification records.
       tags:
         - Invoice verification
       security:
@@ -1636,6 +1829,7 @@ paths:
                   pagination:
                     $ref: '#/components/schemas/Pagination'
                   data:
+                    description: The list of invoice verification records.
                     type: array
                     items:
                       $ref: '#/components/schemas/InvoiceVerification'
@@ -1650,7 +1844,10 @@ paths:
       tags:
         - Suppliers
       summary: Get a list of business suppliers
-      description: Get a list of business suppliers
+      description: >-
+        Retrieves a paginated list of suppliers for the authenticated business.
+        Includes suppliers you created for reverse invoicing and suppliers
+        DigiTax created from purchases retrieved from KRA.
       security:
         - apiKeyAuth: []
       parameters:
@@ -1672,6 +1869,7 @@ paths:
                     $ref: '#/components/schemas/Pagination'
                   data:
                     type: array
+                    description: The list of suppliers associated with the business.
                     items:
                       $ref: '#/components/schemas/Supplier'
         default:
@@ -1684,7 +1882,7 @@ paths:
       tags:
         - Suppliers
       summary: Save business supplier
-      description: Save business supplier
+      description: Onboards a supplier for reverse invoicing on the authenticated business.
       security:
         - apiKeyAuth: []
       requestBody:
@@ -1699,22 +1897,25 @@ paths:
               properties:
                 supplier_name:
                   type: string
-                  description: Supplier Name
+                  description: Supplier name. Required for reverse invoicing.
                   example: John Doe Inc.
                 supplier_tin:
                   type: string
-                  description: Supplier Tax Identification Number (TIN)
+                  description: >-
+                    Supplier Tax Identification Number (TIN) - an 11-character
+                    KRA PIN consisting of a leading A or P, 9 digits, and a
+                    trailing letter.
                   example: P012345678P
                 email:
                   type: string
-                  description: Supplier Email Address
+                  description: Supplier's email address.
                   example: accounts@johndoeinc.com
                 phone:
                   type: string
                   description: >-
-                    Supplier Phone Number. Required when onboarding a reverse
+                    Supplier's phone number. Required when onboarding a reverse
                     invoicing supplier unless the business has been configured
-                    to allow it to be omitted
+                    to allow it to be omitted.
                   example: '+254712345678'
       responses:
         '201':
@@ -1734,7 +1935,9 @@ paths:
       tags:
         - Suppliers
       summary: Get a business supplier
-      description: Retrieves information about a supplier given their ID on DigiTax
+      description: >-
+        Retrieves a supplier associated with the authenticated business by their
+        DigiTax supplier ID.
       security:
         - apiKeyAuth: []
       parameters:
@@ -1763,7 +1966,13 @@ paths:
       tags:
         - Reverse Invoices
       summary: Add reverse invoice
-      description: Add reverse invoice
+      description: >-
+        Creates an invoice on behalf of the supplier using the supplied invoice
+        details and item references. The buyer creates regular reverse invoices;
+        a third party creates third-party reverse invoices. The type depends on
+        the supplier's reverse invoicing configuration. See [Reverse
+        Invoicing](https://ke.docs.digitax.tech/docs/reverse-invoicing) for the
+        process and supplier consent requirements.
       security:
         - apiKeyAuth: []
       requestBody:
@@ -1780,41 +1989,59 @@ paths:
               properties:
                 supplier_id:
                   type: string
+                  description: The DigiTax ID of the supplier for the reverse invoice.
                   example: supplier_01JS16JDB2B5ESZ8HWJ3CBYP5Y
                 sale_date:
                   type: string
-                  description: The date of sale (YYYY-MM-DD)
+                  description: >-
+                    The date of sale (YYYY-MM-DD). Dates after the current UTC
+                    date are rejected.
                   example: '2026-07-14'
                 customer_tin:
                   type: string
+                  description: The customer's tax identification number.
                   example: P123456789Y
                 customer_name:
                   type: string
+                  description: The name of the customer.
                   example: John Doe
                 customer_phone:
                   type: string
+                  description: The customer's phone number.
                   example: '+254714267891'
                 customer_email:
                   type: string
+                  description: The customer's email address.
                   example: john@doe.com
                 payment_type_code:
                   type: string
+                  description: The code identifying the payment type.
                   example: '07'
                 invoice_details:
                   type: string
+                  description: Additional details associated with the invoice.
                   example: Invoice Details
                 trader_invoice_number:
                   type: string
                   example: '12345678901'
                   description: >-
-                    A unique identifier of the sale. It is recommended that you
-                    pass your unique, in-house invoice reference number in this
-                    field.
+                    The invoice reference from your system. It must be unique
+                    across sales and credit notes in the business. References
+                    from failed transactions can be reused.
                 callback_url:
                   type: string
+                  description: >-
+                    Optional URL where DigiTax sends an HTTP POST callback with
+                    event `sale.sync` when the reverse invoice's eTIMS
+                    synchronization succeeds or fails. See [Callback
+                    URLs](https://ke.docs.digitax.tech/docs/callback-urls) for
+                    the payload. Must use HTTP(S), include a host, and contain
+                    no credentials. Literal localhost and private IP addresses
+                    are rejected.
                   example: https://example.com/callback
                 items:
                   type: array
+                  description: The list of items included in the reverse invoice.
                   items:
                     type: object
                     required:
@@ -1828,27 +2055,43 @@ paths:
                       id:
                         type: string
                         example: item_01HC3J1VVVM05YCTS61G7V3KC6
+                        description: The DigiTax ID of the item being invoiced.
                       quantity:
                         type: number
                         example: 1
+                        description: The quantity of the item being invoiced.
                       unit_price:
                         type: number
                         example: 3500
+                        description: >-
+                          The unit price provided for the item, in KES major
+                          units (not cents).
                       total_amount:
                         type: number
                         example: 3500
+                        description: >-
+                          The line amount before discount, in Kenyan shillings
+                          (KES).
                       package_unit_quantity:
                         type: number
                         example: 1
+                        description: >-
+                          The package quantity for the item. When zero, the
+                          service uses the item quantity.
                       discount_rate:
                         type: number
                         example: 0
+                        description: The discount rate for the item.
                       discount_amount:
                         type: number
                         example: 0
+                        description: The discount amount for the item.
                       item_description:
                         type: string
                         example: DigiTax Product 01
+                        description: >-
+                          A description of the item included in the reverse
+                          invoice.
       responses:
         '201':
           description: Success
@@ -1866,7 +2109,7 @@ paths:
       tags:
         - Reverse Invoices
       summary: Get reverse invoices
-      description: List reverse invoices
+      description: Retrieves a paginated list of reverse invoices.
       security:
         - apiKeyAuth: []
       parameters:
@@ -1887,6 +2130,7 @@ paths:
                   pagination:
                     $ref: '#/components/schemas/Pagination'
                   data:
+                    description: The list of reverse invoices.
                     type: array
                     items:
                       $ref: '#/components/schemas/Sale'
@@ -1901,7 +2145,7 @@ paths:
       tags:
         - Reverse Invoices
       summary: Get reverse invoice
-      description: Get specific reverse invoice by ID
+      description: Retrieves a reverse invoice by its DigiTax sale ID.
       security:
         - apiKeyAuth: []
       parameters:
@@ -1930,7 +2174,13 @@ paths:
       tags:
         - Reverse Invoices
       summary: Add reverse invoice with item information
-      description: Add reverse invoice with item information
+      description: >-
+        Creates an invoice on behalf of the supplier using item details supplied
+        directly in the request. The buyer creates regular reverse invoices; a
+        third party creates third-party reverse invoices. The type depends on
+        the supplier's reverse invoicing configuration. See [Reverse
+        Invoicing](https://ke.docs.digitax.tech/docs/reverse-invoicing) for the
+        process and supplier consent requirements.
       security:
         - apiKeyAuth: []
       requestBody:
@@ -1947,45 +2197,64 @@ paths:
               properties:
                 supplier_id:
                   type: string
+                  description: The DigiTax ID of the supplier for the reverse invoice.
                   example: supplier_01JS16JDB2B5ESZ8HWJ3CBYP5Y
                 sale_date:
                   type: string
-                  description: The date of sale (YYYY-MM-DD)
+                  description: >-
+                    The date of sale (YYYY-MM-DD). Dates after the current UTC
+                    date are rejected.
                   example: '2026-07-14'
                 customer_tin:
                   type: string
+                  description: The tax identification number of the customer.
                   example: P123456789Y
                 customer_name:
                   type: string
+                  description: The customer's name.
                   example: John Doe
                 customer_phone:
                   type: string
+                  description: The customer's phone number.
                   example: '+254714267891'
                 customer_email:
                   type: string
+                  description: The customer's email address.
                   example: john@doe.com
                 payment_type_code:
                   type: string
+                  description: The code identifying the payment type.
                   example: '07'
                 invoice_details:
                   type: string
+                  description: Additional details associated with the invoice.
                   example: Invoice Details
                 trader_invoice_number:
                   type: string
                   example: '12345678901'
                   description: >-
-                    A unique identifier of the sale. It is recommended that you
-                    pass your unique, in-house invoice reference number in this
-                    field.
+                    The invoice reference from your system. It must be unique
+                    across sales and credit notes in the business. References
+                    from failed transactions can be reused.
                 callback_url:
                   type: string
+                  description: >-
+                    Optional URL where DigiTax sends an HTTP POST callback with
+                    event `sale.sync` when the reverse invoice's eTIMS
+                    synchronization succeeds or fails. See [Callback
+                    URLs](https://ke.docs.digitax.tech/docs/callback-urls) for
+                    the payload. Must use HTTP(S), include a host, and contain
+                    no credentials. Literal localhost and private IP addresses
+                    are rejected.
                   example: https://example.com/callback
                 items:
                   type: array
+                  description: >-
+                    Items included in the reverse invoice, with item details
+                    supplied directly in the request.
                   items:
                     type: object
                     required:
-                      - id
                       - quantity
                       - unit_price
                       - discount_rate
@@ -1998,42 +2267,59 @@ paths:
                     properties:
                       item_name:
                         type: string
+                        description: The name of the item.
                         example: Item name
                       item_class_code:
                         type: string
+                        description: The classification code of the item.
                         example: '99000000'
                       item_bar_code:
                         type: string
+                        description: The barcode used to identify the item.
                         example: '99000001'
                       item_tax_type_code:
                         type: string
+                        description: The code identifying the item's tax type.
                         example: D
                       quantity:
                         type: number
+                        description: The quantity of the item being invoiced.
                         example: 1
                       unit_price:
                         type: number
+                        description: The unit price for one item.
                         example: 3500
                       total_amount:
                         type: number
+                        description: The total amount for the item.
                         example: 3500
                       taxable_amount:
                         type: number
+                        description: The amount on which tax is calculated.
                         example: 3500
                       tax_amount:
                         type: number
+                        description: The tax amount for the item.
                         example: 0
                       package_unit_quantity:
                         type: number
+                        description: >-
+                          The package unit quantity for the item. Defaults to
+                          the item quantity when set to zero.
                         example: 1
                       discount_rate:
                         type: number
+                        description: >-
+                          The discount rate, calculated as discount amount
+                          divided by total amount.
                         example: 0
                       discount_amount:
                         type: number
+                        description: The discount amount for the item.
                         example: 0
                       item_description:
                         type: string
+                        description: A description of the item.
                         example: DigiTax Product 01
       responses:
         '201':
@@ -2053,7 +2339,9 @@ paths:
       tags:
         - Reverse Invoices
       summary: Add reverse credit note with item bar codes
-      description: Add reverse credit note with item bar codes
+      description: >-
+        Creates a reverse credit note for an existing reverse invoice using item
+        barcodes to identify the items being credited.
       security:
         - apiKeyAuth: []
       requestBody:
@@ -2070,26 +2358,43 @@ paths:
               properties:
                 return_date:
                   type: string
-                  description: The date of the return (YYYY-MM-DD)
+                  description: >-
+                    The date of the return (YYYY-MM-DD). Future dates are
+                    rejected.
                   example: '2026-07-14'
                 sale_id:
                   type: string
+                  description: The DigiTax ID of the original reverse invoice.
                   example: sale_01HC3J1VVVM05YCTS61G7V3KC6
                 callback_url:
                   type: string
+                  description: >-
+                    Optional URL where DigiTax sends an HTTP POST callback with
+                    event `sale.sync` when the reverse credit note's eTIMS
+                    synchronization succeeds or fails. See [Callback
+                    URLs](https://ke.docs.digitax.tech/docs/callback-urls) for
+                    the payload. Must use HTTP or HTTPS, include a host, and
+                    have no username or password. Localhost and private IP
+                    addresses are not allowed.
                   example: https://example.com/callback
                 invoice_details:
                   type: string
+                  description: >-
+                    Additional details for the invoice associated with the
+                    credit note.
                   example: General Invoice Details
                 trader_invoice_number:
                   type: string
                   example: '12345678901'
                   description: >-
-                    A unique identifier of the sale. It is recommended that you
-                    pass your unique, in-house invoice reference number in this
-                    field.
+                    The invoice reference from your system. It must be unique
+                    across sales and credit notes in the business. References
+                    from failed transactions can be reused.
                 items:
                   type: array
+                  description: >-
+                    The items being credited, identified by their item bar codes
+                    and credit amounts.
                   items:
                     type: object
                     required:
@@ -2100,33 +2405,45 @@ paths:
                     properties:
                       item_bar_code:
                         type: string
+                        description: The barcode used to identify the item being credited.
                         example: HC3J1VVVM05YCTS61G7V3KC6
                       quantity:
                         type: number
+                        description: The quantity of the item being credited.
                         example: 1
                       unit_price:
                         type: number
+                        description: The unit price for one item being credited.
                         example: 3500
                       total_amount:
                         type: number
+                        description: The total amount being credited.
                         example: 3500
                       taxable_amount:
                         type: number
+                        description: The amount on which tax is calculated.
                         example: 3500
                       tax_amount:
                         type: number
+                        description: The tax amount for the item.
                         example: 0
                       package_unit_quantity:
                         type: number
+                        description: The package unit quantity for the credited item.
                         example: 1
                       discount_rate:
                         type: number
+                        description: >-
+                          The discount rate, calculated as discount amount
+                          divided by total amount.
                         example: 0
                       discount_amount:
                         type: number
+                        description: The discount amount for the item.
                         example: 0
                       item_description:
                         type: string
+                        description: A description of the item being credited.
                         example: DigiTax Product 01
       responses:
         '201':
@@ -2146,7 +2463,9 @@ paths:
       tags:
         - Reverse Invoices
       summary: Add reverse credit note
-      description: Add reverse credit note
+      description: >-
+        Creates a reverse credit note for an existing reverse invoice using
+        DigiTax item IDs, the supplied return and item details.
       security:
         - apiKeyAuth: []
       requestBody:
@@ -2163,26 +2482,39 @@ paths:
               properties:
                 return_date:
                   type: string
-                  description: The date of the return (YYYY-MM-DD)
+                  description: >-
+                    The date of the return (YYYY-MM-DD). Future dates are
+                    rejected.
                   example: '2026-07-14'
                 sale_id:
                   type: string
+                  description: The DigiTax ID of the original reverse invoice.
                   example: sale_01HC3J1VVVM05YCTS61G7V3KC6
                 callback_url:
                   type: string
+                  description: >-
+                    Optional URL where DigiTax sends an HTTP POST callback with
+                    event `sale.sync` when the reverse credit note's eTIMS
+                    synchronization succeeds or fails. See [Callback
+                    URLs](https://ke.docs.digitax.tech/docs/callback-urls) for
+                    the payload. Must use HTTP or HTTPS, include a host, and
+                    have no username or password. Localhost and private IP
+                    addresses are not allowed.
                   example: https://example.com/callback
                 invoice_details:
                   type: string
+                  description: Additional details associated with the reverse credit note.
                   example: General Invoice Details
                 trader_invoice_number:
                   type: string
                   example: '12345678901'
                   description: >-
-                    A unique identifier of the sale. It is recommended that you
-                    pass your unique, in-house invoice reference number in this
-                    field.
+                    The invoice reference from your system. It must be unique
+                    across sales and credit notes in the business. References
+                    from failed transactions can be reused.
                 items:
                   type: array
+                  description: Items being credited, identified by their DigiTax item IDs.
                   items:
                     type: object
                     required:
@@ -2193,27 +2525,41 @@ paths:
                     properties:
                       id:
                         type: string
+                        description: The DigiTax ID of the item being credited.
                         example: item_01HC3J1VVVM05YCTS61G7V3KC6
                       quantity:
                         type: number
+                        description: The quantity of the item being credited.
                         example: 1
                       unit_price:
                         type: number
+                        description: >-
+                          The unit price for one item being credited, in Kenyan
+                          shillings (KES).
                         example: 3500
                       total_amount:
                         type: number
+                        description: >-
+                          The total amount being credited, in Kenyan shillings
+                          (KES).
                         example: 3500
                       package_unit_quantity:
                         type: number
+                        description: The package unit quantity for the credited item.
                         example: 1
                       discount_rate:
                         type: number
+                        description: >-
+                          The discount rate, calculated as discount amount
+                          divided by total amount.
                         example: 0
                       discount_amount:
                         type: number
+                        description: The discount amount for the item.
                         example: 0
                       item_description:
                         type: string
+                        description: A description of the item being credited.
                         example: DigiTax Product 01
       responses:
         '201':
@@ -2232,7 +2578,7 @@ paths:
       tags:
         - Reverse Invoices
       summary: Get reverse credit notes
-      description: List reverse credit notes
+      description: Retrieves a paginated list of reverse credit notes.
       security:
         - apiKeyAuth: []
       parameters:
@@ -2254,6 +2600,7 @@ paths:
                     $ref: '#/components/schemas/Pagination'
                   data:
                     type: array
+                    description: The list of reverse credit notes.
                     items:
                       $ref: '#/components/schemas/Sale'
         default:
@@ -2267,13 +2614,14 @@ paths:
       tags:
         - Reports
       summary: Get a summary of sales for a given date range
-      description: Retrieves a summary of sales for a specific date range
+      description: Retrieves a summary of sales for a specific date range.
       security:
         - apiKeyAuth: []
       parameters:
         - in: query
           name: start_date
           required: true
+          description: The start date of the sales summary period.
           schema:
             type: string
             format: date
@@ -2281,6 +2629,7 @@ paths:
         - in: query
           name: end_date
           required: true
+          description: The end date of the sales summary period.
           schema:
             type: string
             format: date
@@ -2307,6 +2656,7 @@ components:
       properties:
         message:
           type: string
+          description: A message confirming that the operation succeeded.
     Error:
       type: object
       required:
@@ -2315,14 +2665,18 @@ components:
       properties:
         message:
           type: string
+          description: A human-readable explanation of the error.
         code:
           type: string
+          description: The error code returned by the API.
         metadata:
           type: object
+          description: Additional structured details about the error, when available.
           additionalProperties:
             type: string
     FetchMeta:
       type: object
+      description: Metadata about when data was last fetched from eTIMS.
       required:
         - last_updated
       properties:
@@ -2344,7 +2698,7 @@ components:
         id:
           type: string
           example: notice_01HC3J1VVVM05YCTS61G7V3KC6
-          description: Notice ID in DigiTax
+          description: The DigiTax ID for the notice.
         notice_number:
           type: string
           example: 01HC3J1VVVM05YCTS61G7V3KC6
@@ -2355,15 +2709,19 @@ components:
           example: '2026-07-14T21:00:00.000Z'
         title:
           type: string
+          description: The title of the KRA notice.
           example: Call to Action
         detail:
           type: string
+          description: The details of the KRA notice.
           example: Call to Action
         by:
           type: string
+          description: The organization issuing the notice.
           example: KENYA REVENUE AUTHORITY
         link:
           type: string
+          description: The URL associated with the notice.
           example: https://etims.kra.go.ke
     Branch:
       type: object
@@ -2383,6 +2741,7 @@ components:
       properties:
         id:
           type: string
+          description: The DigiTax ID of the branch.
           example: branch_01HC3J1VVVM05YCTS61G7V3KC6
         tax_pin:
           type: string
@@ -2434,7 +2793,7 @@ components:
           example: true
         business_id:
           type: string
-          description: Business ID
+          description: The DigiTax ID of the business.
           example: business_01JPAF3FHV3M85T2KVEDQQGFGJ
     Customer:
       type: object
@@ -2446,30 +2805,32 @@ components:
       properties:
         id:
           type: string
-          description: Customer ID
+          description: The DigiTax ID of the customer.
           example: customer_01HC3HTDAXQ50E07CWR2A2CFBD
         customer_name:
           type: string
-          description: Customer Name
+          description: The customer's name.
           example: John Doe
         email:
           type: string
-          description: Customer Email
+          description: The customer's email address.
           example: john@doe.com
         phone:
           type: string
-          description: Customer Phone Number
+          description: The customer's phone number.
           example: 254712345678
         customer_tin:
           type: string
-          description: Customer Tax Identification Number (TIN)
+          description: The customer's Tax Identification Number (TIN).
           example: P012345678P
         taxpayer_type:
           type: string
           enum:
             - INDIVIDUAL
             - BUSINESS
-          description: Taxpayer Type
+          description: >-
+            The taxpayer type, derived from the TIN prefix - P is BUSINESS, all
+            other prefixes are INDIVIDUAL.
           example: INDIVIDUAL
     Insurance:
       type: object
@@ -2481,19 +2842,19 @@ components:
       properties:
         id:
           type: string
-          description: Insurance ID
+          description: The DigiTax ID of the insurance.
           example: insurance_01HC3J1VVVM05YCTS61G7V3KC6
         insurance_name:
           type: string
-          description: Insurance Name
+          description: The insurance name.
           example: Insurance Name
         insurance_code:
           type: string
-          description: Insurance Code
+          description: The insurance code.
           example: 123456
         premium_rate:
           type: number
-          description: Premium Rate
+          description: Premium rate.
           example: 10
     Import:
       type: object
@@ -2526,9 +2887,11 @@ components:
       properties:
         id:
           type: string
+          description: The DigiTax ID of the import.
           example: import_01HC3J1VVVM05YCTS61G7V3KC6
         task_code:
           type: string
+          description: The code identifying the import task.
           example: '202607141365045'
         declaration_date:
           type: string
@@ -2537,69 +2900,91 @@ components:
           format: date-time
         item_sequence:
           type: integer
+          description: The sequence number of the item in the import declaration.
           example: 1
         declaration_number:
           type: string
+          description: The number identifying the import declaration.
           example: 23BUSIM400040606
         hs_code:
           type: string
+          description: The Harmonized System code used to classify the imported item.
           example: '30049000'
         item_name:
           type: string
+          description: The name of the imported item.
           example: MEDICAMENT; NORMAL SALINE 0.9% I.V. [ NS ]; CT; 1450; 500ML;
         origin_nation_code:
           type: string
+          description: The country code identifying the item's country of origin.
           example: UG
         import_item_status_code:
           type: string
+          description: The code identifying the import item's status.
           example: '2'
         export_nation_code:
           type: string
+          description: The country code identifying the exporting country.
           example: UG
         package:
           type: integer
+          description: The number of packages for the imported item.
           example: 17
         package_unit_code:
           type: string
+          description: The code identifying the package unit.
           example: KGM
         quantity:
           type: integer
+          description: The quantity of the imported item.
           example: 23925
         quantity_unit_code:
           type: string
+          description: The code identifying the unit used to measure the quantity.
           example: KGM
         gross_weight:
           type: integer
+          description: The gross weight of the imported item.
           example: 24650
         net_weight:
           type: integer
+          description: The net weight of the imported item.
           example: 23925
         supplier_name:
           type: string
+          description: The name of the supplier of the imported item.
           example: ABACUS PARENTERAL DRUGS LIMITED
         agent_name:
           type: string
+          description: The name of the agent handling the import.
           example: Kandito International Company Kenya Limited
         invoice_foreign_currency_amount:
           type: integer
+          description: The invoice amount in the foreign currency.
           example: 14355
         invoice_foreign_currency_code:
           type: string
+          description: The code identifying the invoice's foreign currency.
           example: USD
         invoice_foreign_currency_rate:
           type: number
+          description: The exchange rate applied to the foreign currency amount.
           example: 124.45
         import_item_status:
           type: string
+          description: The current status of the imported item.
           example: UPDATED
         item_id:
           type: string
+          description: The DigiTax ID of the associated item.
           example: item_01HC3J1VVVM05YCTS61G7V3KC6
         item_class_code:
           type: string
+          description: The classification code of the imported item.
           example: '30103604'
         item_code:
           type: string
+          description: The code identifying the imported item.
           example: KE2CRM0000015
     Item:
       type: object
@@ -2620,7 +3005,7 @@ components:
       properties:
         id:
           type: string
-          description: Item ID in DigiTax
+          description: The DigiTax ID of the item.
           example: item_01HC3J1VVVM05YCTS61G7V3KC6
         item_class_code:
           type: string
@@ -2632,45 +3017,46 @@ components:
           example: 99020000
         item_type_code:
           type: string
-          description: The item type code of the item
+          description: The item type code of the item.
           example: 3
         item_name:
           type: string
-          description: The name of the item
+          description: The name of the item.
           example: DigiTax Product 01
         origin_nation_code:
           type: string
-          description: The country of origin code of the item
+          description: The country of origin code of the item.
           example: KE
         package_unit_code:
           type: string
-          description: The package unit code of the item
+          description: The package unit code of the item.
           example: NT
         quantity_unit_code:
           type: string
-          description: The quantity unit code of the item
+          description: The quantity unit code of the item.
           example: U
         tax_type_code:
           type: string
-          description: The tax type code of the item
+          description: The tax type code of the item.
           example: D
         default_unit_price:
           type: number
-          description: The default price of the item
+          description: The default price of the item.
           example: 1000
         etims_item_code:
           type: string
-          description: The eTIMS item code of the item
+          description: The eTIMS item code of the item.
           example: DT-67717-E7GcGbvYDy
         is_stock_item:
           type: boolean
           description: >-
-            Indicates whether the item is a stock item or not. Can either be
-            "false" or "true"
-          example: 1000
+            Indicates whether the item is stockable, meaning its quantity can be
+            tracked as inventory. Physical goods are stockable; services are
+            not.
+          example: true
         stock_quantity:
           type: number
-          description: The quantity of items in stock
+          description: The quantity of items in stock.
           example: 1000
         active:
           type: boolean
@@ -2690,19 +3076,25 @@ components:
           example: '012345678905'
         levies:
           type: array
+          description: Levy codes applied to the item.
           items:
             type: string
+            description: The code of a levy applied to the item.
     Pagination:
       type: object
+      description: Cursor details for navigating a paginated result set.
       properties:
         next:
           type: string
+          description: The ID pointer used to retrieve the next page of results.
           example: <entity>_01HC3J1VVVM05YCTS61G7V3KC6
         previous:
           type: string
+          description: The ID pointer used to retrieve the previous page of results.
           example: <entity>_01HC3J1VVVM05YCTS61G7V3KC6
         page_size:
           type: integer
+          description: The number of results returned per page.
           example: 20
     Sale:
       type: object
@@ -2726,6 +3118,7 @@ components:
       properties:
         id:
           type: string
+          description: The DigiTax ID of the sale.
           example: sale_01HC3HTDAXQ50E07CWR2A2CFBD
         date:
           type: string
@@ -2733,60 +3126,86 @@ components:
           example: 14/07/2026
         time:
           type: string
+          description: The time shown on the receipt.
           example: 04:16:11 pm
         trader_invoice_number:
           type: string
+          description: >-
+            The invoice reference from your system. It must be unique across
+            sales and credit notes in the business. References from failed
+            transactions can be reused.
           example: '12345678901'
         receipt_type_code:
           type: string
+          description: >-
+            The code identifying the receipt type, such as S for an invoice or R
+            for a credit note.
           example: S
         credit_note_reason:
           type: string
+          description: >-
+            The reason code for the credit note. Values are `01` (Missing
+            Quantity), `02` (Missing Data), `03` (Damaged), `04` (Wasted), `05`
+            (Material Shortage), and `06` (Refund).
           example: '06'
         sale_detail_url:
           type: string
+          description: The URL for accessing the sale details.
           example: https://api.digitax.tech/sales/YKSWCIiuvx
           format: url
         serial_number:
           type: string
+          description: The receipt serial number issued by KRA.
           example: KRACU0400000001
         receipt_number:
           type: integer
+          description: The receipt number associated with the sale.
           example: 38
         invoice_number:
           type: integer
+          description: The invoice number associated with the sale.
           example: 38
         customer_id:
           type: string
+          description: The DigiTax ID of the customer associated with the sale.
           example: customer_01HC3HTDAXQ50E07CWR2A2CFBD
         customer_name:
           type: string
+          description: The name of the customer associated with the sale.
           example: John Doe
         customer_tin:
           type: string
+          description: The tax identification number of the customer.
           example: P123456789P
         customer_phone_number:
           type: string
+          description: The customer's phone number.
           example: '+254112685368'
         customer_email:
           type: string
+          description: The customer's email address.
           example: info@namiri.tech
         internal_data:
           type: string
+          description: The internal data returned for the sale.
           example: PB3ZSZP3RZR3AUPYBYLUTFJDIA
         receipt_signature:
           type: string
+          description: The signature associated with the receipt.
           example: 3JYZVPTPMYBGHG4A
         etims_url:
           type: string
+          description: The URL for viewing the receipt in the eTIMS.
           example: >-
             https://etims.kra.go.ke/common/link/etims/receipt/indexEtimsReceptData?{P053100692D+00+3JYZVPTPMYBGHG4A}
           format: url
         original_sale_id:
           type: string
+          description: The DigiTax ID of the original sale.
           example: sale_01HC3HTDAXQ50E07CWR2A2CFBD
         offline_url:
           type: string
+          description: The URL for accessing the sale receipt offline.
           example: >-
             https://receipt.dg.tax/r/business_01JGXVVP4Z3MWQBQ3XSCJ3S4JF/SAL25-204-145657411-MHARTQ
           format: url
@@ -2800,6 +3219,7 @@ components:
           example: completed
         sales_tax_summary:
           type: object
+          description: Taxable amounts, tax rates, and tax amounts grouped by tax category.
           required:
             - taxable_amount_a
             - taxable_amount_b
@@ -2819,65 +3239,90 @@ components:
           properties:
             taxable_amount_a:
               type: number
+              description: Total taxable amount for exempt items (tax type A).
               example: 0
             taxable_amount_b:
               type: number
+              description: Total taxable amount for items subject to 16% VAT (tax type B).
               example: 517.24
             taxable_amount_c:
               type: number
+              description: Total taxable amount for zero-rated items (tax type C).
               example: 0
             taxable_amount_d:
               type: number
+              description: Total taxable amount for non-VAT items (tax type D).
               example: 0
             taxable_amount_e:
               type: number
+              description: Total taxable amount for items subject to 8% VAT (tax type E).
               example: 0
             tax_rate_a:
               type: integer
+              description: Tax rate percentage for exempt items (tax type A).
               example: 0
             tax_rate_b:
               type: integer
+              description: Tax rate percentage for items subject to 16% VAT (tax type B).
               example: 16
             tax_rate_c:
               type: integer
+              description: Tax rate percentage for zero-rated items (tax type C).
               example: 0
             tax_rate_d:
               type: integer
+              description: Tax rate percentage for non-VAT items (tax type D).
               example: 0
             tax_rate_e:
               type: integer
+              description: Tax rate percentage for items subject to 8% VAT (tax type E).
               example: 8
             catering_levy_rate:
               type: integer
+              description: The catering levy rate applied to the sale.
               example: 2
             service_charge_rate:
               type: integer
+              description: The service charge rate associated with the sale.
               example: 0
             tax_amount_a:
               type: number
+              description: Total tax amount for exempt items (tax type A).
               example: 0
             tax_amount_b:
               type: number
+              description: Total tax amount for items subject to 16% VAT (tax type B).
               example: 82.76
             tax_amount_c:
               type: number
+              description: Total tax amount for zero-rated items (tax type C).
               example: 0
             tax_amount_d:
               type: number
+              description: Total tax amount for non-VAT items (tax type D).
               example: 0
             tax_amount_e:
               type: number
+              description: Total tax amount for items subject to 8% VAT (tax type E).
               example: 0
             catering_levy_amount:
               type: number
+              description: The total catering levy amount for the sale.
               example: 0
             service_charge_amount:
               type: number
+              description: The total service charge amount for the sale.
               example: 0
         item_list:
           type: array
+          description: The list of items included in the sale.
           items:
             $ref: '#/components/schemas/SaleItem'
+        kra_response_message:
+          type: string
+          description: >-
+            The optional KRA-provided error message. This is only provided if a
+            sale has failed.
     SaleItem:
       type: object
       required:
@@ -2897,42 +3342,58 @@ components:
       properties:
         id:
           type: string
+          description: The DigiTax ID of the sale item.
           example: saleitem_01HC3J1VVVM05YCTS61G7V3KC6
         quantity:
           type: number
+          description: The quantity of the item sold.
           example: 1
         unit_price:
           type: number
+          description: The price per unit.
           example: 600
         total_amount:
           type: number
+          description: The total amount for the sale item.
           example: 600
         taxable_amount:
           type: number
+          description: The amount subject to tax.
           example: 517.24
         tax_amount:
           type: number
+          description: The total tax amount for the sale item.
           example: 82.76
         tax_rate:
           type: number
+          description: The tax rate percentage applied to the sale item.
           example: 16
         tax_type_code:
           type: string
+          description: The code identifying the tax category applied to the sale item.
           example: B
         discount_rate:
           type: number
+          description: The discount rate applied to the sale item.
           example: 0
         discount_amount:
           type: number
+          description: The discount amount for the sale item.
           example: 0
         etims_item_code:
           type: string
+          description: The item code used to identify the item in eTIMS.
           example: KE3NTU12345678
         is_stockable:
           type: boolean
+          description: >-
+            Indicates whether the item is stockable, meaning its quantity can be
+            tracked as inventory. Physical goods are stockable; services are
+            not.
           example: false
         item_id:
           type: string
+          description: The DigiTax ID of the item associated with the sale.
           example: item_01HC3J1VVVM05YCTS61G7V3KC6
     Purchase:
       type: object
@@ -2953,24 +3414,31 @@ components:
       properties:
         id:
           type: string
+          description: The DigiTax ID of the purchase.
           example: purchase_01HC3J1VVVM05YCTS61G7V3KC6
         registration_type_code:
           type: string
+          description: The code identifying the registration type.
           example: A
         invoice_number:
           type: integer
+          description: The invoice number associated to the purchase.
           example: 4000
         purchase_type_code:
           type: string
+          description: The code identifying the purchase type.
           example: 'N'
         receipt_type_code:
           type: string
+          description: The code identifying the receipt type.
           example: P
         payment_type_code:
           type: string
+          description: The code identifying the payment method.
           example: '07'
         purchase_status_code:
           type: string
+          description: The current status of the purchase.
           example: '06'
         purchase_date:
           type: string
@@ -2978,18 +3446,23 @@ components:
           example: '20260714'
         trader_invoice_number:
           type: string
+          description: The trader's invoice number associated with the purchase.
           example: '12'
         supplier_branch_id:
           type: string
+          description: The identifier of the supplier's branch.
           example: '00'
         supplier_name:
           type: string
+          description: The name of the supplier.
           example: KENYA REVENUE AUTHORITY
         supplier_invoice_number:
           type: integer
+          description: The invoice number provided by the supplier.
           example: 12
         item_list:
           type: array
+          description: The items associated with the purchase.
           items:
             $ref: '#/components/schemas/PurchaseItem'
     PurchaseItem:
@@ -3005,24 +3478,31 @@ components:
       properties:
         id:
           type: string
+          description: The DigiTax ID of the purchase item.
           example: purchaseitem_01HC3J1VVVM05YCTS61G7V3KC6
         quantity:
           type: integer
+          description: The quantity of the item purchased.
           example: 3000
         price:
           type: integer
+          description: The supply price of one item.
           example: 116
         supply_amount:
           type: integer
+          description: The total supply amount of the purchase item.
           example: 348000
         discount_rate:
           type: integer
+          description: The discount rate applied to the purchase item.
           example: 0
         discount_amount:
           type: integer
+          description: The discount amount for the purchase item.
           example: 0
         item_id:
           type: string
+          description: The DigiTax ID of the associated item.
           example: item_01HC3J1VVVM05YCTS61G7V3KC6
     OfflineUrlSale:
       type: object
@@ -3053,37 +3533,53 @@ components:
           example: '2026-07-14'
         time:
           type: string
-          example: '12:00:00'
+          description: >-
+            The document creation timestamp in RFC 3339 format, including the
+            date and timezone.
+          example: '2026-07-14T12:00:00Z'
         trader_invoice_number:
           type: string
+          description: >-
+            The invoice reference from your system. It must be unique across
+            sales and credit notes in the business. References from failed
+            transactions can be reused.
           example: '12345678901'
         invoice_number:
           type: integer
+          description: The invoice number assigned to the sale.
           example: 38
         original_invoice_number:
           type: integer
+          description: The original invoice number associated with the sale.
           example: 38
         digitax_id:
           type: string
+          description: The DigiTax ID of the sale.
           example: sale_01HC3HTDAXQ50E07CWR2A2CFBD
         serial_number:
           type: string
+          description: The eTIMS serial number of the sale.
           example: KRACU0400000001
         receipt_number:
           type: integer
+          description: The receipt number assigned to the sale.
           example: 38
         internal_data:
           type: string
+          description: The internal data associated with the eTIMS receipt.
           example: PB3ZSZP3RZR3AUPYBYLUTFJDIA
         receipt_signature:
           type: string
+          description: The signature associated with the eTIMS receipt.
           example: 3JYZVPTPMYBGHG4A
         etims_url:
           type: string
+          description: The URL of the eTIMS receipt.
           example: >-
             https://etims.kra.go.ke/common/link/etims/receipt/indexEtimsReceptData?{P053100692D+00+3JYZVPTPMYBGHG4A}
         sales_tax_summary:
           type: object
+          description: Taxable amounts, tax rates, and tax amounts grouped by tax category.
           required:
             - taxable_amount_a
             - taxable_amount_b
@@ -3102,69 +3598,89 @@ components:
             - tax_amount_e
           properties:
             taxable_amount_a:
+              description: The taxable amount for tax category A (exempt).
               type: number
               example: 0
             taxable_amount_b:
               type: number
+              description: The taxable amount for tax category B (16% VAT).
               example: 517.24
             taxable_amount_c:
               type: number
+              description: The taxable amount for tax category C (zero-rated).
               example: 0
             taxable_amount_d:
               type: number
+              description: The taxable amount for tax category D (non-VAT).
               example: 0
             taxable_amount_e:
               type: number
+              description: The taxable amount for tax category E (8% VAT).
               example: 0
             tax_rate_a:
               type: integer
+              description: The tax rate percentage for tax category A (exempt).
               example: 0
             tax_rate_b:
               type: integer
+              description: The tax rate percentage for tax category B (16% VAT).
               example: 16
             tax_rate_c:
               type: integer
+              description: The tax rate percentage for tax category C (zero-rated).
               example: 0
             tax_rate_d:
               type: integer
+              description: The tax rate percentage for tax category D (non-VAT).
               example: 0
             tax_rate_e:
               type: integer
+              description: The tax rate percentage for tax category E (8% VAT).
               example: 8
             catering_levy_rate:
               type: integer
+              description: The catering levy rate percentage.
               example: 2
             tax_amount_a:
               type: number
+              description: The tax amount for tax category A (exempt).
               example: 0
             tax_amount_b:
               type: number
+              description: The tax amount for tax category B (16% VAT).
               example: 82.76
             tax_amount_c:
               type: number
+              description: The tax amount for tax category C (zero-rated).
               example: 0
             tax_amount_d:
               type: number
+              description: The tax amount for tax category D (non-VAT).
               example: 0
             tax_amount_e:
               type: number
+              description: The tax amount for tax category E (8% VAT).
               example: 0
             catering_levy_amount:
               type: number
+              description: The total catering levy amount.
               example: 0
         status:
           type: string
-          description: status against KRA
+          description: The status of the sale with KRA.
           example: completed
         kra_receipt_url:
           type: string
+          description: The URL of the KRA eTIMS receipt.
           example: >-
             https://etims.kra.go.ke/common/link/etims/receipt/indexEtimsReceptData?{P053100692D+00+3JYZVPTPMYBGHG4A}
         total:
           type: number
+          description: The total amount of the sale.
           example: 600
         business_details:
           type: object
+          description: Business information displayed on the receipt.
           required:
             - name
             - pin
@@ -3174,21 +3690,27 @@ components:
           properties:
             name:
               type: string
+              description: The name of the business.
               example: Business Name
             pin:
               type: string
+              description: The KRA PIN of the business.
               example: P012345678P
             email:
               type: string
+              description: The business's email address.
               example: support@digitax.tech
             phone:
               type: string
+              description: The business's phone number.
               example: 254712345678
             location:
               type: string
+              description: The business's location.
               example: Nairobi
         customer_details:
           type: object
+          description: Customer information displayed on the receipt.
           required:
             - name
             - pin
@@ -3197,18 +3719,23 @@ components:
           properties:
             name:
               type: string
+              description: The name of the customer.
               example: John Doe
             pin:
               type: string
+              description: The KRA PIN of the customer.
               example: P012345678P
             email:
               type: string
+              description: The customer's email address.
               example: support@namiri.tech
             phone:
               type: string
+              description: The customer's phone number.
               example: 254712345678
         items:
           type: array
+          description: The list of items included in the sale.
           items:
             type: object
             required:
@@ -3220,21 +3747,27 @@ components:
             properties:
               id:
                 type: string
-                example: item_01HC3J1VVVM05YCTS61G7V3KC6
+                description: The DigiTax ID of the sale line, not the catalogue item ID.
+                example: saleitem_01HC3J1VVVM05YCTS61G7V3KC6
               name:
                 type: string
+                description: The name of the item.
                 example: DigiTax Product 01
               price:
                 type: integer
+                description: The price of the item.
                 example: 600
               currency:
                 type: string
+                description: The currency used for the item price.
                 example: KES
               quantity:
                 type: integer
+                description: The quantity of the item sold.
                 example: 1
         logo_url:
           type: string
+          description: The URL of the business logo.
     InvoiceVerification:
       type: object
       required:
@@ -3244,7 +3777,7 @@ components:
       properties:
         status:
           type: string
-          description: Verification status
+          description: The status of the invoice verification.
           example: success
         created_at:
           type: string
@@ -3252,7 +3785,7 @@ components:
           example: '2026-07-14T15:09:02.036Z'
         data:
           type: object
-          description: Invoice verification data
+          description: The details returned for the invoice verification.
           $ref: '#/components/schemas/VerificationDetail'
         source:
           type: string
@@ -3281,11 +3814,11 @@ components:
           example: '2026-07-14T10:23:06Z'
         number_of_items:
           type: integer
-          description: Number of items in the invoice
+          description: The number of items in the invoice.
           example: 2
         invoice_number:
           type: string
-          description: Invoice number
+          description: The invoice number being verified.
           example: KRACU0300000024/39
         verification_date:
           type: string
@@ -3303,33 +3836,36 @@ components:
       properties:
         id:
           type: string
-          description: Supplier ID
+          description: The DigiTax ID of the supplier.
           example: supplier_01JS16JDB2B5ESZ8HWJ3CBYP5Y
         supplier_name:
           type: string
-          description: Supplier Name
+          description: The name of the supplier.
           example: John Doe Inc
         email:
           type: string
-          description: Supplier Email
+          description: The supplier's email address.
           example: accounts@johndoeinc.com
         phone:
           type: string
-          description: Supplier Phone Number
+          description: The supplier's phone number.
           example: '+254712345678'
         supplier_tin:
           type: string
-          description: Supplier Tax Identification Number (TIN)
+          description: The supplier's Tax Identification Number (TIN).
           example: P012345678P
         taxpayer_type:
           type: string
           enum:
             - INDIVIDUAL
             - BUSINESS
-          description: Taxpayer Type
+          description: >-
+            The type of taxpayer, derived from the TIN prefix - P is BUSINESS,
+            all other prefixes are INDIVIDUAL.
           example: INDIVIDUAL
         invoicing:
           type: object
+          description: Reverse-invoicing settings associated with the supplier.
           required:
             - reverse_invoice_type
             - reverse_invoice_authorisation
@@ -3339,14 +3875,21 @@ components:
               enum:
                 - REGULAR
                 - THIRD_PARTY
-              description: Reverse invoice type
+              description: >-
+                Identifies the customer on the reverse invoice issued on behalf
+                of the supplier. REGULAR uses the authenticated business as the
+                customer; THIRD_PARTY uses the supplied customer details.
               example: REGULAR
             reverse_invoice_authorisation:
               type: string
               enum:
                 - IMPLICIT
                 - EXPLICIT
-              description: Reverse invoice authorisation
+              description: >-
+                Whether the supplier is deemed to have authorised the reverse
+                invoice automatically (IMPLICIT) or must explicitly approve it
+                (EXPLICIT). Determined by the business's reverse invoicing
+                configuration with KRA.
               example: IMPLICIT
         status:
           type: string
@@ -3354,7 +3897,9 @@ components:
             - PENDING
             - FAILED
             - COMPLETED
-          description: status against KRA
+          description: >-
+            Whether the supplier has been synced with KRA's eTIMS - PENDING
+            until synced, then COMPLETED or FAILED.
     Summary:
       type: object
       required:
@@ -3363,9 +3908,11 @@ components:
       properties:
         total_sales_count:
           type: integer
+          description: The total number of sales.
           example: 22
         total_sales_amount:
           type: number
+          description: The total amount of sales.
           format: float
           example: 456701.95
     SalesSummary:
@@ -3375,6 +3922,10 @@ components:
       properties:
         summary:
           type: object
+          description: >-
+            Sales summaries for the requested date range, keyed by
+            synchronization status (PENDING, DRAFT, FAILED, COMPLETED, or
+            SUBMITTED).
           additionalProperties:
             $ref: '#/components/schemas/Summary'
   parameters:
@@ -3386,7 +3937,7 @@ components:
         type: string
         description: >-
           When paginating results, a pointer to an ID after which we want
-          results
+          results.
         example: <entity>_01HC3J1VVVM05YCTS61G7V3KC6
     Before:
       in: query
@@ -3396,7 +3947,7 @@ components:
         type: string
         description: >-
           When paginating results, a pointer to an ID before which we want
-          results
+          results.
         example: <entity>_01HC3J1VVVM05YCTS61G7V3KC6
     PageSize:
       in: query
@@ -3406,7 +3957,7 @@ components:
         type: integer
         maximum: 20
         minimum: 1
-        description: The maximum number of items to return per page, defaults to 20
+        description: The maximum number of items to return per page, defaults to 20.
         example: 20
   securitySchemes:
     apiKeyAuth:
