@@ -10,7 +10,7 @@ The suite of digital solutions or products under DigiTax, through which one can 
 * **DigiTax App** (Compatible with Android and Android POS devices),
 * **DigiTax Dashboard** (Responsive, Web-Browser based, Desktop application)
 * **DigiTax API** (for system-to-system integration without the issue of platform hopping), and
-* **DigiTax Plugins** like DigiTax WooCommerce, DigiTax Odoo, DigiTax Quickbooks, DigiTax Sage Online, among others.
+* **DigiTax Plugins** like DigiTax WooCommerce, DigiTax Odoo, DigiTax QuickBooks, DigiTax Sage Online, among others.
 
 ## eTIMS invoice details
 

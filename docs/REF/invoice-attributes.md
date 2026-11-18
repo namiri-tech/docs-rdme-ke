@@ -23,7 +23,7 @@ The attributes for sales and credit notes are mostly the same. Notice that the [
 | receipt\_type\_code       | Yes                                     | string           | Represents the Receipt Type Code. See [Receipt Type Codes table](#receipt-type-codes) for context - `"S"`          |
 | payment\_type\_code       | No                                      | string           | Represents the Payment Type Code. See [Payment Type Codes table](#payment-type-codes) - `"01"`                     |
 | invoice\_status\_code     | Yes                                     | string           | Represents the Invoice Status Code. See [Invoice Status Codes table](#invoice-status-codes) - `"01"`               |
-| items                     | Yes                                     | array of objects | Represents an *Array of[Item](doc:items-attributes) Objects*                                                       |
+| items                     | Yes                                     | array of objects | Represents an *Array of[Item](doc:item-attributes-items) Objects*                                                       |
 
 ## Receipt Type Codes
 
