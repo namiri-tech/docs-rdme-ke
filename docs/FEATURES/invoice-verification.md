@@ -32,7 +32,7 @@ Invoice verification seeks to streamline verification of invoices across invoice
 
 * **claims** due to insured 
 * **commission** due to insurance agents
-* **laboureres** in construction or manufacturing
+* **labourers** in construction or manufacturing
 
 It empowers your business to have ABSOLUTE CERTAINTY on the AUTHENTICITY of expenses you incur throughout your entire operation at any given point in time.
 

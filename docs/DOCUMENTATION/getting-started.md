@@ -25,14 +25,17 @@ icon: 📖
   </Card>
 </Cards>
 
-<Accordion title="DigiTax is Pan-African. Explore other countries here ..." icon="fa-globe">
+<Accordion title="DigiTax is Global. Explore other supported countries below ..." icon="fa-globe">
   You are currently reading a guide in the DigiTax Kenya API Hub.
 
   If you're looking for another country or the general homepage for DigiTax API, navigate to the [DigiTax API homepage](https://docs.digitax.tech), or country-specific API hub pages (ordered alphabetically):
 
-  * <i class="icon-guides"></i> **DigiTax Kenya API Hub (You are here 🎉)**
-  * <i class="icon-guides"></i> [DigiTax Nigeria API Hub](https://ng.docs.digitax.tech)
-  * <i class="icon-guides"></i> [DigiTax Zambia API Hub](https://zm.docs.digitax.tech)
+  * <i class="icon-guides" /> **DigiTax Kenya API Hub (You are here 🎉)**
+  * <i class="icon-guides" /> [DigiTax Nigeria API Hub](https://ng.docs.digitax.tech)
+  * <i class="icon-guides" /> [DigiTax Tanzania API Hub](https://tz.docs.digitax.tech)
+  * <i class="icon-guides" /> [DigiTax UAE API Hub](https://ae.docs.digitax.tech)
+  * <i class="icon-guides" /> [DigiTax Zambia API Hub](https://zm.docs.digitax.tech)
+  * <i class="icon-guides" /> [DigiTax Zimbabwe API Hub](https://zw.docs.digitax.tech)
 </Accordion>
 
 ## Electronic Tax Invoicing in Kenya
@@ -58,13 +61,16 @@ The suite of digital solutions or products under DigiTax, through which one can 
 - **DigiTax App** (Compatible with Android and Android POS devices),
 - **DigiTax Dashboard** (Responsive, Web-Browser based, Desktop application)
 - **DigiTax API** (for system-to-system integration without the issue of platform hopping), and
-- **DigiTax Plugins** like DigiTax WooCommerce, DigiTax Odoo, DigiTax Quickbooks, DigiTax Sage Online, among others.
+- **DigiTax Plugins** like DigiTax WooCommerce, DigiTax Odoo, DigiTax QuickBooks, DigiTax Sage Online, among others.
 
 DigiTax connects with regional tax authorities/ regulators so far:
 
-- **_DigiTax Nigeria_** integrates you with <Glossary>FIRS</Glossary> e-Invoicing System
-- **_DigiTax Kenya_** integrates you with <Glossary>KRA</Glossary> eTIMS (electronic Tax Information Management System)
-- **_DigiTax Zambia_** integrates you with <Glossary>ZRA</Glossary> Smart Invoice System
+- _**DigiTax Kenya**_ integrates you with <Glossary>KRA</Glossary> eTIMS (Kenya Revenue Authority)
+- _**DigiTax Nigeria**_ integrates you with NRS (Nigeria Revenue Service)
+- _**DigiTax Tanzania**_ integrates you with TRA VFD (Tanzania Revenue Authority)
+- _**DigiTax UAE**_ integrates you with FTA (Federal Tax Authority)
+- _**DigiTax Zambia**_ integrates you with <Glossary>ZRA</Glossary> Smart Invoice (Zambia Revenue Authority)
+- _**DigiTax Zimbabwe**_ integrates you with ZIMRA FDMS (Zimbabwe Revenue Authority)
 
 to offer you a streamlined invoicing system that ensures compliance and supports the growth of your business.
 
@@ -74,7 +80,7 @@ to offer you a streamlined invoicing system that ensures compliance and supports
 
 ### DigiTax API Features
 
-The DigiTax API is built with various industry standards for API platforms in mind. Read more on this [here](https://ke.docs.digitax.tech/v1.0/reference/using-the-digitax-kenya-api#digitax-api).
+The DigiTax API is built with various industry standards for API platforms in mind. Read more on this [here](doc:digitax-api-details).
 
 > We invite you to use **DigiTax Kenya API** to integrate your system with eTIMS for automation and to reduce platform-hopping
 
@@ -88,7 +94,7 @@ These include:
 
 To use this API, you'll need access to DigiTax Dashboard environment to get an X-API-Key. Get in touch with [our team](mailto:support@namiri.tech).
 
-These are the steps required to get up and running - [Prerequisites of using the DigiTax API](https://ke.docs.digitax.tech/docs/start-using-the-api#/prerequisites)
+These are the steps required to get up and running - [Prerequisites of using the DigiTax API](doc:start-using-the-api#prerequisites)
 
 ***
 
@@ -145,7 +151,7 @@ We invite you to use the **DigiTax Kenya API** to integrate your system with eTI
 To recap:
 
 - Explore our detailed guides to gain an understanding of DigiTax Kenya integration. Learn how to navigate them [here](doc:how-to-use-this-site)
-- Get the [Prerequisites for using DigiTax Kenya API](https://ke.docs.digitax.tech/docs/start-using-the-api#/prerequisites)
+- Get the [Prerequisites for using DigiTax Kenya API](doc:start-using-the-api#prerequisites)
 - For support, [email us](mailto:support@namiri.tech) OR talk to us via the **DigiTax chat** on the bottom-right of any page
 
 Welcome to the Less Taxing solution - DigiTax.

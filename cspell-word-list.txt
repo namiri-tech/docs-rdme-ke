@@ -15,3 +15,17 @@ TIMS
 VVVM
 Westlands
 YCTS
+Namiri
+Fintech
+Odoo
+OSCU
+VSCU
+ODPC
+TPIN
+UNSPSC
+UNGM
+QuickBooks
+Tanzania
+Zimbabwe
+ZIMRA
+FDMS

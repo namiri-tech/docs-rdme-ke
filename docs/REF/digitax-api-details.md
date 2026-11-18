@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-In every API endpoint, body parameters (also called query parameters) and/or path parameters are passed along with the GET, POST, PUT and DELETE requests.
+In every API endpoint, path, query and/or body parameters are passed along with the GET, POST, PUT and DELETE requests.
 
 > Examples:\
 > **body parameters** for [**Create item**](ref:post_items),
@@ -19,7 +19,7 @@ The responses contain attributes related to the passed-in body parameters and/or
 We break down the attributes consistent with each broad categorization of the API endpoints in:
 
 1. Related to Items
-   * [Items: General Data Attributes](doc:items-attributes)
-   * [Items classification](doc:items-classification)
+   * [Items: General Data Attributes](doc:item-attributes-items)
+   * [Items classification](doc:items-item-classification-table)
 2. Related to Sales
-   * [Sales attributes](doc:sales-attributes)
+   * [Sales attributes](doc:invoice-attributes)

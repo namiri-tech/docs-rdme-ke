@@ -12,7 +12,7 @@ Namiri Technologies, through our DigiTax Platform, have developed a suite of s
 
 * **DigiTax App** (Compatible with Android and Android POS devices),
 * **DigiTax Dashboard** (Responsive, Web-Browser based, Desktop application)
-* **DigiTax Plugins** like DigiTax WooCommerce, DigiTax Odoo, DigiTax Quickbooks, DigiTax Sage Online, among others.
+* **DigiTax Plugins** like DigiTax WooCommerce, DigiTax Odoo, DigiTax QuickBooks, DigiTax Sage Online, among others.
 * **DigiTax API** (for system-to-system integration without the issue of platform hopping), and
 
 > The first three are powered by the DigiTax API :tada:

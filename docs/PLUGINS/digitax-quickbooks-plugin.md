@@ -1,8 +1,8 @@
 ---
-title: DigiTax Quickbooks plugin
+title: DigiTax QuickBooks plugin
 excerpt: >-
   Streamlining Tax Compliance with electronic invoicing powered by DigiTax |
-  Quickbooks Online
+  QuickBooks Online
 deprecated: false
 hidden: false
 metadata:
@@ -10,7 +10,7 @@ metadata:
 ---
 ## Overview
 
-**DigiTax | Quickbooks integration** brings together the power of automated tax management with the convenience and flexibility of online accounting, offering businesses a comprehensive solution to their financial needs and tax compliance.
+**DigiTax | QuickBooks integration** brings together the power of automated tax management with the convenience and flexibility of online accounting, offering businesses a comprehensive solution to their financial needs and tax compliance.
 
 **Simplifying compliance**
 
@@ -20,7 +20,7 @@ For businesses operating in regions where eTIMS is mandatory, compliance with ta
 
 The integration between DigiTax and QuickBooks Online ensures a seamless workflow for businesses. Users can continue to use QuickBooks Online as their primary accounting software, with the added benefit of automated tax management through DigiTax. This eliminates the need for manual data entry and reduces the risk of errors, creating a more efficient and reliable process for managing taxes.
 
-To create a connection between DigiTax and Quickbooks Online,  you need to install and configure the T.I.M.S app on your windows laptop
+To create a connection between DigiTax and QuickBooks Online,  you need to install and configure the T.I.M.S app on your windows laptop
 
 ## T.I.M.S App installation and Set-up
 
@@ -52,7 +52,7 @@ To create a connection between DigiTax and Quickbooks Online,  you need to insta
 
 1. Navigate to Documents Processing on the T.I.M.S app
 2. Select Invoice
-3. Paste the invoice number generated from your Quickbooks online
+3. Paste the invoice number generated from your QuickBooks online
 4. Click validate to generate an ETR invoice
 
 <Image align="center" src="https://files.readme.io/144efed6765da3a867a84bc82de6eee90d434c62734b9dcdbb68ef36193215c3-11111.png" />
@@ -61,10 +61,10 @@ To create a connection between DigiTax and Quickbooks Online,  you need to insta
 
 1. Navigate to Documents Processing on the T.I.M.S app
 2. Select credit note
-3. Paste the invoice number generated from your Quickbooks online
+3. Paste the invoice number generated from your QuickBooks online
 4. Paste the original invoice
 5. Click validate to generate an ETR invoice
 
 <Image align="center" src="https://files.readme.io/e2bed2ca1397b66e69cf81763ab49849e0820b3d34305cb12aff7ee9c99ecb35-111111.png" />
 
-The transaction will be visible on both your Quickbooks online system and DigiTax dashboard.
+The transaction will be visible on both your QuickBooks online system and DigiTax dashboard.
